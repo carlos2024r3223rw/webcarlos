@@ -31,7 +31,7 @@
 			line-height: 1.6;
 		}
 		.container {
-			max-width: 900px;
+			max-width: 1000px;
 			margin: 0 auto;
 			padding: 0 2rem;
 		}
@@ -63,14 +63,18 @@
 		}
 		h2 {
 			font-size: 2rem;
-			margin-bottom: 1.5rem;
+			margin-bottom: 2rem;
 			color: var(--text-main);
+			text-align: center;
 		}
 
 		/* Hero */
 		.hero {
-			padding: 6rem 0 4rem 0;
-			text-align: left;
+			padding: 5rem 0 3rem 0;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 		}
 		.hero h1 {
 			font-size: 4rem;
@@ -88,12 +92,13 @@
 		}
 		.hero p {
 			font-size: 1.1rem;
-			max-width: 600px;
+			max-width: 700px;
 			color: var(--text-muted);
 			margin-bottom: 2.5rem;
 		}
 		.hero-buttons {
 			display: flex;
+			justify-content: center;
 			gap: 1rem;
 		}
 		.btn {
@@ -158,99 +163,226 @@
 			margin-left: 0.5rem;
 		}
 
+		/* Stats Bar */
+		.stats-bar {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 2rem;
+			padding: 2rem 0;
+			margin-bottom: 2rem;
+			border-top: 1px solid var(--border-color);
+			border-bottom: 1px solid var(--border-color);
+		}
+		.stat-item {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			color: var(--text-main);
+			font-weight: 600;
+			font-size: 0.95rem;
+		}
+		.stat-icon {
+			color: var(--accent-primary);
+			font-size: 1.2rem;
+		}
+
 		/* Sobre Mí */
+		.about {
+			text-align: center;
+			max-width: 800px;
+			margin: 0 auto;
+		}
 		.about p {
 			font-size: 1.1rem;
 			color: var(--text-muted);
 		}
 
-		/* Stack */
-		.stack-grid {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 1rem;
+		/* Servicios */
+		.services-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 2rem;
 		}
-		.badge {
+		.service-card {
 			background: var(--bg-card);
 			border: 1px solid var(--border-color);
-			padding: 0.6rem 1.2rem;
-			border-radius: 9999px;
-			font-size: 0.95rem;
-			font-weight: 600;
-			color: var(--accent-primary);
-			transition: all 0.3s ease;
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
-			cursor: default;
+			border-radius: 12px;
+			padding: 2rem;
+			box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+			transition: transform 0.3s ease;
 		}
-		.badge:hover {
-			border-color: var(--accent-secondary);
+		.service-card:hover {
 			transform: translateY(-3px);
-			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+			box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+		}
+		.service-icon {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+		}
+		.service-card h3 {
+			margin-top: 0;
+			color: var(--text-main);
+			font-size: 1.2rem;
+			margin-bottom: 0.5rem;
+		}
+		.service-card p {
+			color: var(--text-muted);
+			font-size: 0.95rem;
+			margin-bottom: 0;
 		}
 
 		/* Stack Categories */
-		.stack-category {
-			margin-bottom: 2rem;
+		.stack-section {
+			text-align: left;
 		}
-		.stack-category:last-child {
-			margin-bottom: 0;
+		.stack-container {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 2rem;
+		}
+		.stack-category {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			padding: 1.5rem;
+			border-radius: 12px;
+			box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 		}
 		.stack-category h3 {
 			font-size: 1.1rem;
-			color: var(--text-muted);
+			color: var(--text-main);
 			margin-top: 0;
 			margin-bottom: 1rem;
 			font-weight: 600;
+			border-bottom: 1px solid var(--border-color);
+			padding-bottom: 0.5rem;
+		}
+		.stack-grid {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+		.badge {
+			background: var(--bg-color);
+			border: 1px solid var(--border-color);
+			padding: 0.4rem 0.8rem;
+			border-radius: 6px;
+			font-size: 0.85rem;
+			font-weight: 600;
+			color: var(--text-muted);
+			transition: all 0.3s ease;
+			display: flex;
+			align-items: center;
+			gap: 0.4rem;
+			cursor: default;
+		}
+		.badge:hover {
+			border-color: var(--accent-primary);
+			color: var(--accent-primary);
+			background: var(--bg-card);
+			transform: translateY(-2px);
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 		}
 
 		/* Proyectos */
 		.projects-grid {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 			gap: 2rem;
 		}
 		.project-card {
 			background: var(--bg-card);
 			border: 1px solid var(--border-color);
 			border-radius: 12px;
-			padding: 2rem;
 			transition: all 0.3s ease;
-			text-decoration: none;
-			color: inherit;
-			display: block;
+			display: flex;
+			flex-direction: column;
 			position: relative;
 			overflow: hidden;
-		}
-		.project-card::before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 4px;
-			background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
-			transform: scaleX(0);
-			transform-origin: left;
-			transition: transform 0.3s ease;
-		}
-		.project-card:hover::before {
-			transform: scaleX(1);
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
 		}
 		.project-card:hover {
 			transform: translateY(-5px);
 			border-color: var(--accent-primary);
-			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+			box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
 		}
-		.project-card h3 {
+		.browser-header {
+			background: #f1f5f9;
+			padding: 0.75rem 1rem;
+			display: flex;
+			gap: 0.4rem;
+			border-bottom: 1px solid var(--border-color);
+		}
+		.dot {
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+		}
+		.dot-red { background: #ef4444; }
+		.dot-yellow { background: #f59e0b; }
+		.dot-green { background: #10b981; }
+		
+		.project-content {
+			padding: 1.5rem;
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+		}
+		.project-content h3 {
 			margin-top: 0;
 			color: var(--text-main);
-			font-size: 1.5rem;
+			font-size: 1.3rem;
+			margin-bottom: 0.5rem;
 		}
-		.project-card p {
+		.project-content p {
 			color: var(--text-muted);
-			margin-bottom: 0;
+			font-size: 0.95rem;
+			margin-bottom: 1.5rem;
+			flex-grow: 1;
+		}
+		.project-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.4rem;
+			margin-bottom: 1.5rem;
+		}
+		.tag {
+			font-size: 0.75rem;
+			padding: 0.2rem 0.6rem;
+			background: var(--bg-color);
+			color: var(--text-muted);
+			border-radius: 4px;
+			border: 1px solid var(--border-color);
+			font-weight: 600;
+		}
+		.project-links {
+			display: flex;
+			gap: 0.8rem;
+		}
+		.btn-small {
+			padding: 0.5rem 1rem;
+			font-size: 0.85rem;
+			border-radius: 6px;
+			text-decoration: none;
+			font-weight: 600;
+			transition: all 0.2s;
+			text-align: center;
+			flex: 1;
+		}
+		.btn-demo {
+			background: var(--text-main);
+			color: #ffffff;
+		}
+		.btn-demo:hover {
+			background: var(--accent-primary);
+		}
+		.btn-repo {
+			background: transparent;
+			color: var(--text-main);
+			border: 1px solid var(--border-color);
+		}
+		.btn-repo:hover {
+			border-color: var(--text-main);
 		}
 
 		/* Footer */
@@ -258,7 +390,7 @@
 			padding: 3rem 0;
 			text-align: center;
 			border-top: 1px solid var(--border-color);
-			margin-top: 2rem;
+			margin-top: 4rem;
 		}
 		.social-links {
 			display: flex;
@@ -304,42 +436,72 @@
 			</div>
 		</section>
 
+		<!-- Stats Bar -->
+		<div class="stats-bar">
+			<div class="stat-item"><span class="stat-icon">⚡</span> 100% Rendimiento & SEO (Lighthouse)</div>
+			<div class="stat-item"><span class="stat-icon">💻</span> Full Stack Web & Mobile engineering</div>
+			<div class="stat-item"><span class="stat-icon">🔄</span> CI/CD Despliegues automatizados</div>
+		</div>
+
+		<!-- Servicios / Qué resuelvo -->
+		<section class="services" id="servicios">
+			<h2>Qué resuelvo</h2>
+			<div class="services-grid">
+				<div class="service-card">
+					<div class="service-icon">🚀</div>
+					<h3>Desarrollo Web de Alto Rendimiento</h3>
+					<p>Sitios ultrarrápidos, optimizados para SEO y 100% accesibles, garantizando la mejor experiencia de usuario.</p>
+				</div>
+				<div class="service-card">
+					<div class="service-icon">⚙️</div>
+					<h3>Integración de APIs & Backend</h3>
+					<p>Arquitectura de bases de datos seguras, escalables y flujos de trabajo automatizados para tu lógica de negocio.</p>
+				</div>
+				<div class="service-card">
+					<div class="service-icon">🛡️</div>
+					<h3>Mantenimiento & Despliegue</h3>
+					<p>Configuración de dominios, certificados SSL y pipelines de entrega continua (CI/CD) sin fricciones.</p>
+				</div>
+			</div>
+		</section>
+
 		<!-- Sobre Mí -->
 		<section class="about" id="sobre-mi">
 			<h2>Sobre mí</h2>
-			<p>Soy un apasionado de la tecnología con experiencia en el desarrollo de aplicaciones web de extremo a extremo. Mi enfoque técnico se basa en utilizar las mejores herramientas para cada problema, escribiendo código limpio, escalable y mantenible. Disfruto trabajando en equipo y siempre estoy buscando aprender nuevas tecnologías para mejorar la calidad de mis proyectos.</p>
+			<p>Soy un apasionado de la tecnología con experiencia en el desarrollo de aplicaciones web de extremo a extremo. Mi enfoque técnico se basa en utilizar las mejores herramientas para cada problema, escribiendo código limpio, escalable y mantenible. Disfruto trabajando en equipo y siempre busco superar los estándares de calidad.</p>
 		</section>
 
 		<!-- Stack / Habilidades -->
-		<section class="stack" id="stack">
+		<section class="stack-section" id="stack">
 			<h2>Stack & Habilidades</h2>
-			
-			<div class="stack-category">
-				<h3>Frontend</h3>
-				<div class="stack-grid">
-					<div class="badge">🚀 Astro</div>
-					<div class="badge">⚛️ React</div>
-					<div class="badge">🎨 Tailwind CSS</div>
-					<div class="badge">🟦 TypeScript</div>
+			<div class="stack-container">
+				<div class="stack-category">
+					<h3>Frontend</h3>
+					<div class="stack-grid">
+						<div class="badge">🚀 Astro</div>
+						<div class="badge">⚛️ React</div>
+						<div class="badge">🎨 Tailwind CSS</div>
+						<div class="badge">🟦 TypeScript</div>
+					</div>
 				</div>
-			</div>
 
-			<div class="stack-category">
-				<h3>Backend & APIs</h3>
-				<div class="stack-grid">
-					<div class="badge">🟩 Node.js</div>
-					<div class="badge">🔌 REST APIs</div>
-					<div class="badge">🐘 PHP</div>
+				<div class="stack-category">
+					<h3>Backend & APIs</h3>
+					<div class="stack-grid">
+						<div class="badge">🟩 Node.js</div>
+						<div class="badge">🔌 REST APIs</div>
+						<div class="badge">🐘 PHP</div>
+					</div>
 				</div>
-			</div>
 
-			<div class="stack-category">
-				<h3>Bases de Datos & Cloud</h3>
-				<div class="stack-grid">
-					<div class="badge">🐘 PostgreSQL</div>
-					<div class="badge">🐬 MySQL</div>
-					<div class="badge">⚡ Supabase</div>
-					<div class="badge">▲ Vercel</div>
+				<div class="stack-category">
+					<h3>Bases de Datos & Cloud</h3>
+					<div class="stack-grid">
+						<div class="badge">🐘 PostgreSQL</div>
+						<div class="badge">🐬 MySQL</div>
+						<div class="badge">⚡ Supabase</div>
+						<div class="badge">▲ Vercel</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -348,14 +510,46 @@
 		<section class="projects" id="proyectos">
 			<h2>Proyectos Destacados</h2>
 			<div class="projects-grid">
-				<a href="/proyectos/calculadora" class="project-card">
-					<h3>Calculadora Web</h3>
-					<p>Una calculadora interactiva y funcional construida nativamente como un componente de Astro con JavaScript puro.</p>
-				</a>
-				<a href="/blog" class="project-card">
-					<h3>Blog Personal</h3>
-					<p>Sistema de blog súper rápido impulsado por Astro y Markdown, con diseño adaptativo y modo oscuro.</p>
-				</a>
+				<div class="project-card">
+					<div class="browser-header">
+						<div class="dot dot-red"></div>
+						<div class="dot dot-yellow"></div>
+						<div class="dot dot-green"></div>
+					</div>
+					<div class="project-content">
+						<h3>Calculadora Web</h3>
+						<div class="project-tags">
+							<span class="tag">Astro</span>
+							<span class="tag">JavaScript</span>
+							<span class="tag">CSS</span>
+						</div>
+						<p>Una calculadora interactiva y funcional construida nativamente como un componente de Astro.</p>
+						<div class="project-links">
+							<a href="/proyectos/calculadora" class="btn-small btn-demo">Demo en vivo</a>
+							<a href="https://github.com/carlos2024r3223rw/webcarlos" target="_blank" class="btn-small btn-repo">Repositorio</a>
+						</div>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="browser-header">
+						<div class="dot dot-red"></div>
+						<div class="dot dot-yellow"></div>
+						<div class="dot dot-green"></div>
+					</div>
+					<div class="project-content">
+						<h3>Blog Personal</h3>
+						<div class="project-tags">
+							<span class="tag">Astro</span>
+							<span class="tag">Markdown</span>
+							<span class="tag">Tailwind CSS</span>
+						</div>
+						<p>Sistema de blog súper rápido impulsado por colecciones de contenido estático y diseño responsivo.</p>
+						<div class="project-links">
+							<a href="/blog" class="btn-small btn-demo">Demo en vivo</a>
+							<a href="https://github.com/carlos2024r3223rw/webcarlos" target="_blank" class="btn-small btn-repo">Repositorio</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 
