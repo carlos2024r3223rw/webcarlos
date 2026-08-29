@@ -35,6 +35,30 @@
 			margin: 0 auto;
 			padding: 0 2rem;
 		}
+
+		/* Animaciones Globales */
+		@keyframes slideUpFade {
+			from { opacity: 0; transform: translateY(20px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+		.hero-anim {
+			opacity: 0;
+			animation: slideUpFade 0.8s ease-out forwards;
+		}
+		.delay-1 { animation-delay: 0.1s; }
+		.delay-2 { animation-delay: 0.2s; }
+		.delay-3 { animation-delay: 0.3s; }
+		.delay-4 { animation-delay: 0.4s; }
+
+		.animate-on-scroll {
+			opacity: 0;
+			transform: translateY(30px);
+			transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+		}
+		.animate-on-scroll.show {
+			opacity: 1;
+			transform: translateY(0);
+		}
 		
 		/* Navbar */
 		nav {
@@ -576,28 +600,28 @@
 
 		<!-- Hero Section -->
 		<section class="hero">
-			<div class="status-badge">
+			<div class="status-badge hero-anim delay-1">
 				<span class="status-dot"></span>
 				Disponible para proyectos freelance
 			</div>
-			<h1>Carlos</h1>
-			<h3>Desarrollador Web Full Stack <span class="location">| 🌎 GMT-6</span></h3>
-			<p>Construyo experiencias digitales rápidas, accesibles y con diseños modernos. Me especializo en convertir ideas complejas en interfaces simples y elegantes.</p>
-			<div class="hero-buttons">
+			<h1 class="hero-anim delay-2">Carlos</h1>
+			<h3 class="hero-anim delay-2">Desarrollador Web Full Stack <span class="location">| 🌎 GMT-6</span></h3>
+			<p class="hero-anim delay-3">Construyo experiencias digitales rápidas, accesibles y con diseños modernos. Me especializo en convertir ideas complejas en interfaces simples y elegantes.</p>
+			<div class="hero-buttons hero-anim delay-4">
 				<a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
 				<a href="mailto:cm7887575@gmail.com" class="btn btn-secondary">Contáctame</a>
 			</div>
 		</section>
 
 		<!-- Stats Bar -->
-		<div class="stats-bar">
+		<div class="stats-bar animate-on-scroll">
 			<div class="stat-item"><span class="stat-icon">⚡</span> 100% Rendimiento & SEO (Lighthouse)</div>
 			<div class="stat-item"><span class="stat-icon">💻</span> Full Stack Web & Mobile engineering</div>
 			<div class="stat-item"><span class="stat-icon">🔄</span> CI/CD Despliegues automatizados</div>
 		</div>
 
 		<!-- Servicios / Qué resuelvo -->
-		<section class="services" id="servicios">
+		<section class="services animate-on-scroll" id="servicios">
 			<h2>Qué resuelvo</h2>
 			<div class="services-grid">
 				<div class="service-card">
@@ -619,7 +643,7 @@
 		</section>
 
 		<!-- Sobre Mí -->
-		<section class="about" id="sobre-mi">
+		<section class="about animate-on-scroll" id="sobre-mi">
 			<h2>Sobre mí</h2>
 			
 			<p class="about-intro">Soy desarrollador de software enfocado en construir aplicaciones web y móviles escalables, rápidas y orientadas a resultados. Mi trabajo abarca desde el diseño de interfaces modernas y optimizadas hasta la arquitectura de bases de datos, integración de APIs REST y servicios en la nube con Supabase.</p>
@@ -647,7 +671,7 @@
 		</section>
 
 		<!-- Stack / Habilidades -->
-		<section class="stack-section" id="stack">
+		<section class="stack-section animate-on-scroll" id="stack">
 			<h2>Stack & Habilidades</h2>
 			<div class="stack-container">
 				<div class="stack-category">
@@ -682,7 +706,7 @@
 		</section>
 
 		<!-- Proyectos Destacados -->
-		<section class="projects" id="proyectos">
+		<section class="projects animate-on-scroll" id="proyectos">
 			<h2>Proyectos Destacados</h2>
 			<div class="projects-grid">
 				<div class="project-card">
@@ -749,7 +773,7 @@
 		</section>
 
 		<!-- Contacto -->
-		<section class="contact" id="contacto">
+		<section class="contact animate-on-scroll" id="contacto">
 			<h2>Trabajemos Juntos</h2>
 			<div class="contact-container">
 				<div class="contact-form">
@@ -796,5 +820,19 @@
 			<p>&copy; {new Date().getFullYear()} Carlos. Todos los derechos reservados.</p>
 		</footer>
 	</div>
+
+	<script>
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('show');
+				}
+			});
+		}, { threshold: 0.1 });
+
+		document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+			observer.observe(el);
+		});
+	</script>
 </body>
 </html>
