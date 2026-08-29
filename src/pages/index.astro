@@ -189,13 +189,61 @@
 
 		/* Sobre Mí */
 		.about {
-			text-align: center;
-			max-width: 800px;
+			max-width: 1000px;
 			margin: 0 auto;
 		}
-		.about p {
-			font-size: 1.1rem;
+		.about-intro {
+			font-size: 1.15rem;
 			color: var(--text-muted);
+			max-width: 800px;
+			margin: 0 auto 3rem auto;
+			text-align: center;
+			line-height: 1.8;
+		}
+		.about-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 2rem;
+			margin-bottom: 3rem;
+		}
+		.about-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 12px;
+			padding: 2rem;
+			box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+		}
+		.about-card h3 {
+			margin-top: 0;
+			color: var(--text-main);
+			font-size: 1.15rem;
+			margin-bottom: 1rem;
+		}
+		.about-card p {
+			color: var(--text-muted);
+			font-size: 0.95rem;
+			margin-bottom: 0;
+		}
+		.about-highlights {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 2rem;
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			padding: 2rem;
+			border-radius: 12px;
+		}
+		.highlight-item {
+			display: flex;
+			align-items: center;
+			gap: 0.6rem;
+			color: var(--text-muted);
+			font-size: 0.95rem;
+			font-weight: 500;
+		}
+		.highlight-icon {
+			font-size: 1.2rem;
 		}
 
 		/* Servicios */
@@ -468,7 +516,29 @@
 		<!-- Sobre Mí -->
 		<section class="about" id="sobre-mi">
 			<h2>Sobre mí</h2>
-			<p>Soy un apasionado de la tecnología con experiencia en el desarrollo de aplicaciones web de extremo a extremo. Mi enfoque técnico se basa en utilizar las mejores herramientas para cada problema, escribiendo código limpio, escalable y mantenible. Disfruto trabajando en equipo y siempre busco superar los estándares de calidad.</p>
+			
+			<p class="about-intro">Soy desarrollador de software enfocado en construir aplicaciones web y móviles escalables, rápidas y orientadas a resultados. Mi trabajo abarca desde el diseño de interfaces modernas y optimizadas hasta la arquitectura de bases de datos, integración de APIs REST y servicios en la nube con Supabase.</p>
+			
+			<div class="about-grid">
+				<div class="about-card">
+					<h3>💻 Desarrollo Web & Rendimiento</h3>
+					<p>Creación de aplicaciones web con arquitecturas modernas (Astro, React, TypeScript), priorizando velocidad de carga, SEO técnico y código limpio.</p>
+				</div>
+				<div class="about-card">
+					<h3>⚙️ Backend, APIs & Cloud</h3>
+					<p>Diseño de bases de datos relacionales (PostgreSQL, MySQL), endpoints REST seguros y sincronización de datos en tiempo real.</p>
+				</div>
+				<div class="about-card">
+					<h3>📱 Apps Móviles & Automatización</h3>
+					<p>Desarrollo de aplicaciones funcionales con autenticación segura e integración de modelos de IA (APIs de procesamiento) para resolver casos prácticos.</p>
+				</div>
+			</div>
+
+			<div class="about-highlights">
+				<div class="highlight-item"><span class="highlight-icon">📍</span> Ubicación / Modalidad: Remoto (GMT-6)</div>
+				<div class="highlight-item"><span class="highlight-icon">💼</span> Disponibilidad: Proyectos freelance y desarrollo a medida</div>
+				<div class="highlight-item"><span class="highlight-icon">⚡</span> Filosofía: Rendimiento, accesibilidad y despliegues automatizados (CI/CD)</div>
+			</div>
 		</section>
 
 		<!-- Stack / Habilidades -->
