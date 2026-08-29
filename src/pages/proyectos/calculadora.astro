@@ -1,0 +1,135 @@
+---
+---
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora | Carlos</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .calculator {
+      background: #1e293b;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      border: 1px solid #334155;
+      width: 280px;
+    }
+    h2 {
+      margin: 0 0 1rem 0;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #38bdf8;
+    }
+    .display {
+      background: #0f172a;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 2rem;
+      text-align: right;
+      margin-bottom: 1rem;
+      border: 1px solid #334155;
+      overflow-x: auto;
+      min-height: 40px;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+    }
+    button {
+      background: #334155;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #475569;
+    }
+    .wide {
+      grid-column: span 2;
+    }
+    .tall {
+      grid-row: span 2;
+      background: #3b82f6;
+    }
+    .tall:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <a href="/proyectos" style="position: absolute; top: 1rem; left: 1rem; color: #818cf8; text-decoration: none; font-family: sans-serif;">← Volver a Proyectos</a>
+  
+  <div class="calculator">
+    <h2>Calculadora</h2>
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="calc-btn" data-action="clear">C</button>
+      <button class="calc-btn" data-val="/">/</button>
+      <button class="calc-btn" data-val="*">*</button>
+      <button class="calc-btn" data-val="-">-</button>
+      
+      <button class="calc-btn" data-val="7">7</button>
+      <button class="calc-btn" data-val="8">8</button>
+      <button class="calc-btn" data-val="9">9</button>
+      <button class="calc-btn tall" data-val="+">+</button>
+      
+      <button class="calc-btn" data-val="4">4</button>
+      <button class="calc-btn" data-val="5">5</button>
+      <button class="calc-btn" data-val="6">6</button>
+      
+      <button class="calc-btn" data-val="1">1</button>
+      <button class="calc-btn" data-val="2">2</button>
+      <button class="calc-btn" data-val="3">3</button>
+      <button class="calc-btn tall" data-action="calc">=</button>
+      
+      <button class="calc-btn wide" data-val="0">0</button>
+      <button class="calc-btn" data-val=".">.</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('.calc-btn');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const val = button.getAttribute('data-val');
+        const action = button.getAttribute('data-action');
+
+        if (action === 'clear') {
+          display.innerText = '0';
+        } else if (action === 'calc') {
+          try {
+            // Evaluando el string con precaución, ideal en este sandbox simple.
+            display.innerText = eval(display.innerText);
+          } catch (e) {
+            display.innerText = 'Error';
+            setTimeout(() => display.innerText = '0', 1500);
+          }
+        } else if (val) {
+          if (display.innerText === '0' && val !== '.') {
+            display.innerText = val;
+          } else {
+            display.innerText += val;
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
