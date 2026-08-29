@@ -433,6 +433,110 @@
 			border-color: var(--text-main);
 		}
 
+		/* Contacto */
+		.contact-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 4rem;
+			max-width: 900px;
+			margin: 0 auto;
+		}
+		@media (max-width: 768px) {
+			.contact-container {
+				grid-template-columns: 1fr;
+			}
+		}
+		.contact-form {
+			background: var(--bg-card);
+			padding: 2.5rem;
+			border-radius: 12px;
+			border: 1px solid var(--border-color);
+			box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+		}
+		.form-group {
+			margin-bottom: 1.5rem;
+		}
+		.form-group label {
+			display: block;
+			margin-bottom: 0.5rem;
+			color: var(--text-main);
+			font-weight: 600;
+			font-size: 0.9rem;
+		}
+		.form-control {
+			width: 100%;
+			padding: 0.75rem 1rem;
+			border: 1px solid var(--border-color);
+			border-radius: 8px;
+			background: var(--bg-color);
+			color: var(--text-main);
+			font-family: inherit;
+			font-size: 1rem;
+			transition: border-color 0.3s;
+		}
+		.form-control:focus {
+			outline: none;
+			border-color: var(--accent-primary);
+		}
+		textarea.form-control {
+			resize: vertical;
+			min-height: 120px;
+		}
+		.btn-submit {
+			width: 100%;
+			border: none;
+			cursor: pointer;
+			text-align: center;
+		}
+		.contact-info {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		.contact-info h3 {
+			margin-top: 0;
+			color: var(--text-main);
+			font-size: 1.8rem;
+			margin-bottom: 1rem;
+		}
+		.contact-info p {
+			color: var(--text-muted);
+			font-size: 1.1rem;
+			margin-bottom: 2rem;
+		}
+		.direct-email {
+			font-size: 1.5rem;
+			font-weight: 800;
+			color: var(--accent-primary);
+			text-decoration: none;
+			margin-bottom: 2rem;
+			display: inline-block;
+			transition: color 0.3s;
+		}
+		.direct-email:hover {
+			color: var(--accent-secondary);
+		}
+		.prof-links {
+			display: flex;
+			gap: 1rem;
+		}
+		.prof-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			color: var(--text-main);
+			text-decoration: none;
+			font-weight: 600;
+			padding: 0.5rem 1rem;
+			border: 1px solid var(--border-color);
+			border-radius: 8px;
+			transition: all 0.3s;
+		}
+		.prof-link:hover {
+			border-color: var(--text-main);
+			background: var(--bg-card);
+		}
+
 		/* Footer */
 		footer {
 			padding: 3rem 0;
@@ -464,10 +568,6 @@
 </head>
 <body>
 	<div class="container">
-		<nav>
-			<a href="/blog">Blog</a>
-			<a href="/proyectos">Proyectos</a>
-		</nav>
 
 		<!-- Hero Section -->
 		<section class="hero">
@@ -638,6 +738,44 @@
 							<a href="https://carlos2024r3223rw.github.io/weathersphere-dashboard/" target="_blank" class="btn-small btn-demo">Demo en vivo</a>
 							<a href="https://github.com/carlos2024r3223rw/weathersphere-dashboard" target="_blank" class="btn-small btn-repo">Repositorio</a>
 						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contacto -->
+		<section class="contact" id="contacto">
+			<h2>Trabajemos Juntos</h2>
+			<div class="contact-container">
+				<div class="contact-form">
+					<form action="#" method="POST" onsubmit="event.preventDefault(); alert('Para propósitos de demostración. Por favor usa el enlace de correo directo para contactarme.');">
+						<div class="form-group">
+							<label for="name">Nombre</label>
+							<input type="text" id="name" class="form-control" placeholder="Tu nombre" required>
+						</div>
+						<div class="form-group">
+							<label for="email">Correo electrónico</label>
+							<input type="email" id="email" class="form-control" placeholder="tu@correo.com" required>
+						</div>
+						<div class="form-group">
+							<label for="message">Mensaje</label>
+							<textarea id="message" class="form-control" placeholder="Cuéntame de tu proyecto..." required></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary btn-submit">Enviar mensaje</button>
+					</form>
+				</div>
+				<div class="contact-info">
+					<h3>¿Prefieres escribir directo?</h3>
+					<p>Siéntete libre de mandarme un correo directamente a mi bandeja de entrada.</p>
+					<a href="mailto:cm7887575@gmail.com" class="direct-email">cm7887575@gmail.com</a>
+					
+					<div class="prof-links">
+						<a href="https://github.com/carlos2024r3223rw" target="_blank" rel="noopener noreferrer" class="prof-link">
+							GitHub
+						</a>
+						<a href="https://www.linkedin.com/in/carlos-manuel-martinez-lima-ba238a1a9/" target="_blank" rel="noopener noreferrer" class="prof-link">
+							LinkedIn
+						</a>
 					</div>
 				</div>
 			</div>
