@@ -1,0 +1,51 @@
+---
+const { pathname } = Astro.url;
+
+let otherLangPath = '/';
+let label = 'EN';
+let isEn = pathname.startsWith('/en');
+
+if (isEn) {
+  // If we are in /en, the other language is es (remove /en from start)
+  let rest = pathname.replace(/^\/en/, '');
+  otherLangPath = rest || '/';
+  label = 'ES';
+} else {
+  // If we are in es, the other language is en
+  // Ensure we don't have double slashes like /en//
+  let path = pathname === '/' ? '' : pathname;
+  otherLangPath = `/en${path}`;
+  label = 'EN';
+}
+---
+
+<a href={otherLangPath} class="language-picker" aria-label="Cambiar idioma / Change language">
+  {label}
+</a>
+
+<style>
+  .language-picker {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--accent-primary, #2563eb);
+    color: white;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .language-picker:hover {
+    transform: translateY(-5px) scale(1.05);
+    background-color: var(--accent-secondary, #1d4ed8);
+  }
+</style>

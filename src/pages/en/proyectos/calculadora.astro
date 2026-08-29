@@ -1,11 +1,11 @@
 ---
 import LanguagePicker from '../../components/LanguagePicker.astro';
 ---
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculadora | Carlos</title>
+  <title>Calculator | Carlos</title>
   <style>
     body {
       margin: 0;
@@ -74,10 +74,10 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 </head>
 <body>
   <LanguagePicker />
-  <a href="/proyectos" style="position: absolute; top: 1rem; left: 1rem; color: #818cf8; text-decoration: none; font-family: sans-serif;">← Volver a Proyectos</a>
+  <a href="/en/proyectos" style="position: absolute; top: 1rem; left: 1rem; color: #818cf8; text-decoration: none; font-family: sans-serif;">← Back to Projects</a>
   
   <div class="calculator">
-    <h2>Calculadora</h2>
+    <h2>Calculator</h2>
     <div class="display" id="display">0</div>
     <div class="buttons">
       <button class="calc-btn" data-action="clear">C</button>
@@ -117,7 +117,7 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
           display.innerText = '0';
         } else if (action === 'calc') {
           try {
-            // Evaluando el string con precaución, ideal en este sandbox simple.
+            // Evaluating string with caution, ideal for simple sandbox
             display.innerText = eval(display.innerText);
           } catch (e) {
             display.innerText = 'Error';
