@@ -432,6 +432,26 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 			display: flex;
 			gap: 0.8rem;
 		}
+		.demo-credentials {
+			margin-top: 1rem;
+			padding: 0.75rem;
+			border-radius: 0.5rem;
+			background-color: #f8fafc;
+			border: 1px solid #e2e8f0;
+			font-size: 0.75rem;
+			color: #475569;
+			font-family: monospace;
+		}
+		.demo-credentials p {
+			margin: 0;
+			line-height: 1.5;
+		}
+		.demo-credentials-title {
+			font-weight: 600;
+			color: #1e293b;
+			font-family: sans-serif;
+			margin-bottom: 0.25rem !important;
+		}
 		.btn-small {
 			padding: 0.5rem 1rem;
 			font-size: 0.85rem;
@@ -789,6 +809,11 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 						<div class="project-links">
 							<a href="https://gestion-documental-dms-production.up.railway.app/dashboard" target="_blank" class="btn-small btn-demo">Live Demo</a>
 							<a href="https://github.com/carlos2024r3223rw/gestion-documental-dms" target="_blank" class="btn-small btn-repo">GitHub Repository</a>
+						</div>
+						<div class="demo-credentials">
+							<p class="demo-credentials-title">Demo Access:</p>
+							<p> <b>Admin:</b> admin@empresa.com | <code>password</code></p>
+							<p> <b>Staff:</b> empleado@empresa.com | <code>password</code></p>
 						</div>
 					</div>
 				</div>
