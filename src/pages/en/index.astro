@@ -1,12 +1,13 @@
 ---
 import LanguagePicker from '../../components/LanguagePicker.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
 ---
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<meta name="viewport" content="width=device-width" />
-	<title>Carlos | Full Stack Web Developer</title>|<title>Carlos | Full Stack Web Developer</title>
+	<title>Carlos | Full Stack Web Developer</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -19,6 +20,25 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 			--accent-primary: #2563eb;
 			--accent-secondary: #1d4ed8;
 			--border-color: #e2e8f0;
+			--browser-header-bg: #f1f5f9;
+			--credentials-bg: #f8fafc;
+			--credentials-border: #e2e8f0;
+			--credentials-text: #475569;
+			--credentials-title: #1e293b;
+		}
+		[data-theme="dark"] {
+			--bg-color: #0f172a;
+			--bg-card: #1e293b;
+			--text-main: #f1f5f9;
+			--text-muted: #94a3b8;
+			--accent-primary: #3b82f6;
+			--accent-secondary: #2563eb;
+			--border-color: #334155;
+			--browser-header-bg: #1e293b;
+			--credentials-bg: #0f172a;
+			--credentials-border: #334155;
+			--credentials-text: #94a3b8;
+			--credentials-title: #f1f5f9;
 		}
 		* {
 			box-sizing: border-box;
@@ -30,6 +50,7 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 			margin: 0;
 			padding: 0;
 			line-height: 1.6;
+			transition: background-color 0.3s ease, color 0.3s ease;
 		}
 		.container {
 			max-width: 1000px;
@@ -380,11 +401,12 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 			box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
 		}
 		.browser-header {
-			background: #f1f5f9;
+			background: var(--browser-header-bg);
 			padding: 0.75rem 1rem;
 			display: flex;
 			gap: 0.4rem;
 			border-bottom: 1px solid var(--border-color);
+			transition: background-color 0.3s ease;
 		}
 		.dot {
 			width: 10px;
@@ -436,11 +458,12 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 			margin-top: 1rem;
 			padding: 0.75rem;
 			border-radius: 0.5rem;
-			background-color: #f8fafc;
-			border: 1px solid #e2e8f0;
+			background-color: var(--credentials-bg);
+			border: 1px solid var(--credentials-border);
 			font-size: 0.75rem;
-			color: #475569;
+			color: var(--credentials-text);
 			font-family: monospace;
+			transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 		}
 		.demo-credentials p {
 			margin: 0;
@@ -448,7 +471,7 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 		}
 		.demo-credentials-title {
 			font-weight: 600;
-			color: #1e293b;
+			color: var(--credentials-title);
 			font-family: sans-serif;
 			margin-bottom: 0.25rem !important;
 		}
@@ -612,6 +635,7 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 	</style>
 </head>
 <body>
+	<ThemeToggle />
 	<LanguagePicker />
 	<div class="container">
 		<nav>
@@ -630,7 +654,7 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 			<h3 class="hero-anim delay-2">Full Stack Web Developer <span class="location">| 🌎 GMT-6</span></h3>
 			<p class="hero-anim delay-3">I build fast, accessible digital experiences with modern designs. I specialize in turning complex ideas into simple and elegant interfaces.</p>
 			<div class="hero-buttons hero-anim delay-4">
-				<a href="#projects" class="btn btn-primary">Ver Projects</a>
+				<a href="#projects" class="btn btn-primary">View Projects</a>
 				<a href="mailto:cm7887575@gmail.com" class="btn btn-secondary">Contact Me</a>
 			</div>
 		</section>
@@ -642,7 +666,7 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 			<div class="stat-item"><span class="stat-icon">🔄</span> CI/CD Automated deployments</div>
 		</div>
 
-		<!-- Servicios / What I Solve -->
+		<!-- What I Solve -->
 		<section class="services animate-on-scroll" id="services">
 			<h2>What I Solve</h2>
 			<div class="services-grid">
@@ -664,7 +688,7 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 			</div>
 		</section>
 
-		<!-- Sobre Mí -->
+		<!-- About Me -->
 		<section class="about animate-on-scroll" id="about">
 			<h2>About me</h2>
 			
@@ -692,7 +716,7 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 			</div>
 		</section>
 
-		<!-- Stack / Habilidades -->
+		<!-- Stack / Skills -->
 		<section class="stack-section animate-on-scroll" id="stack">
 			<h2>Stack & Skills</h2>
 			<div class="stack-container">
@@ -820,7 +844,7 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
 			</div>
 		</section>
 
-		<!-- Contacto -->
+		<!-- Contact -->
 		<section class="contact animate-on-scroll" id="contact">
 			<h2>Let's Work Together</h2>
 			<div class="contact-container">

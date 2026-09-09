@@ -1,5 +1,6 @@
 ---
 import LanguagePicker from '../../components/LanguagePicker.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
 ---
 <html lang="es">
 <head>
@@ -7,40 +8,76 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora | Carlos</title>
   <style>
+    :root {
+      --calc-body-bg: #f8fafc;
+      --calc-bg: #ffffff;
+      --calc-border: #e2e8f0;
+      --calc-shadow: rgba(0,0,0,0.15);
+      --calc-heading: #2563eb;
+      --calc-display-bg: #f1f5f9;
+      --calc-display-border: #e2e8f0;
+      --calc-display-text: #0f172a;
+      --calc-btn-bg: #e2e8f0;
+      --calc-btn-hover: #cbd5e1;
+      --calc-btn-text: #0f172a;
+      --calc-btn-accent: #3b82f6;
+      --calc-btn-accent-hover: #2563eb;
+      --calc-link: #3b82f6;
+    }
+    [data-theme="dark"] {
+      --calc-body-bg: #0f172a;
+      --calc-bg: #1e293b;
+      --calc-border: #334155;
+      --calc-shadow: rgba(0,0,0,0.5);
+      --calc-heading: #38bdf8;
+      --calc-display-bg: #0f172a;
+      --calc-display-border: #334155;
+      --calc-display-text: #f8fafc;
+      --calc-btn-bg: #334155;
+      --calc-btn-hover: #475569;
+      --calc-btn-text: #ffffff;
+      --calc-btn-accent: #3b82f6;
+      --calc-btn-accent-hover: #2563eb;
+      --calc-link: #818cf8;
+    }
     body {
       margin: 0;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #0f172a;
-      color: #f8fafc;
+      background: var(--calc-body-bg);
+      color: var(--calc-display-text);
       font-family: system-ui, -apple-system, sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     .calculator {
-      background: #1e293b;
+      background: var(--calc-bg);
       padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      border: 1px solid #334155;
+      box-shadow: 0 10px 25px var(--calc-shadow);
+      border: 1px solid var(--calc-border);
       width: 280px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
     h2 {
       margin: 0 0 1rem 0;
       font-size: 1.2rem;
       text-align: center;
-      color: #38bdf8;
+      color: var(--calc-heading);
     }
     .display {
-      background: #0f172a;
+      background: var(--calc-display-bg);
       padding: 1rem;
       border-radius: 8px;
       font-size: 2rem;
       text-align: right;
       margin-bottom: 1rem;
-      border: 1px solid #334155;
+      border: 1px solid var(--calc-display-border);
       overflow-x: auto;
       min-height: 40px;
+      color: var(--calc-display-text);
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     }
     .buttons {
       display: grid;
@@ -48,8 +85,8 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
       gap: 0.5rem;
     }
     button {
-      background: #334155;
-      color: white;
+      background: var(--calc-btn-bg);
+      color: var(--calc-btn-text);
       border: none;
       padding: 1rem;
       font-size: 1.2rem;
@@ -58,23 +95,33 @@ import LanguagePicker from '../../components/LanguagePicker.astro';
       transition: background 0.2s;
     }
     button:hover {
-      background: #475569;
+      background: var(--calc-btn-hover);
     }
     .wide {
       grid-column: span 2;
     }
     .tall {
       grid-row: span 2;
-      background: #3b82f6;
+      background: var(--calc-btn-accent);
+      color: #ffffff;
     }
     .tall:hover {
-      background: #2563eb;
+      background: var(--calc-btn-accent-hover);
+    }
+    .back-link {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      color: var(--calc-link);
+      text-decoration: none;
+      font-family: sans-serif;
     }
   </style>
 </head>
 <body>
+  <ThemeToggle />
   <LanguagePicker />
-  <a href="/proyectos" style="position: absolute; top: 1rem; left: 1rem; color: #818cf8; text-decoration: none; font-family: sans-serif;">← Volver a Proyectos</a>
+  <a href="/proyectos" class="back-link">← Volver a Proyectos</a>
   
   <div class="calculator">
     <h2>Calculadora</h2>

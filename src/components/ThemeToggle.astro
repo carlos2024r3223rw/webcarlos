@@ -1,0 +1,94 @@
+---
+---
+
+<button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" type="button">
+  <span class="theme-icon theme-icon--sun">☀️</span>
+  <span class="theme-icon theme-icon--moon">🌙</span>
+</button>
+
+<style>
+  .theme-toggle {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--border-color, #e2e8f0);
+    background: var(--bg-card, #ffffff);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+    font-size: 1.3rem;
+    padding: 0;
+    overflow: hidden;
+  }
+  .theme-toggle:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.25);
+  }
+  .theme-icon {
+    position: absolute;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .theme-icon--sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+  }
+  .theme-icon--moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  /* When dark mode is active, show sun icon */
+  :global([data-theme="dark"]) .theme-icon--sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+  :global([data-theme="dark"]) .theme-icon--moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    const STORAGE_KEY = 'theme-preference';
+
+    function getThemePreference() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) return stored;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem(STORAGE_KEY, theme);
+    }
+
+    // Apply theme immediately to prevent flash
+    setTheme(getThemePreference());
+
+    // Setup toggle button after DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const current = document.documentElement.getAttribute('data-theme');
+          setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+      }
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem(STORAGE_KEY)) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  })();
+</script>

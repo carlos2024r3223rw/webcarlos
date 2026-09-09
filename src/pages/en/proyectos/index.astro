@@ -1,5 +1,6 @@
 ---
 import LanguagePicker from '../../../components/LanguagePicker.astro';
+import ThemeToggle from '../../../components/ThemeToggle.astro';
 ---
 <html lang="en">
 <head>
@@ -7,19 +8,38 @@ import LanguagePicker from '../../../components/LanguagePicker.astro';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Carlos</title>
   <style>
+    :root {
+      --page-bg: #f8fafc;
+      --page-text: #0f172a;
+      --page-heading: #2563eb;
+      --page-link: #3b82f6;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --card-hover-border: #2563eb;
+    }
+    [data-theme="dark"] {
+      --page-bg: #0f172a;
+      --page-text: #f8fafc;
+      --page-heading: #38bdf8;
+      --page-link: #818cf8;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --card-hover-border: #38bdf8;
+    }
     body {
       margin: 0;
       min-height: 100vh;
-      background: #0f172a;
-      color: #f8fafc;
+      background: var(--page-bg);
+      color: var(--page-text);
       font-family: system-ui, -apple-system, sans-serif;
       padding: 2rem;
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-    h1 { color: #38bdf8; }
-    a { color: #818cf8; text-decoration: none; }
+    h1 { color: var(--page-heading); }
+    a { color: var(--page-link); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .projects-grid { 
         display: grid; 
@@ -28,20 +48,21 @@ import LanguagePicker from '../../../components/LanguagePicker.astro';
         margin-top: 2rem;
     }
     .project-card {
-        background: #1e293b;
+        background: var(--card-bg);
         padding: 1.5rem;
         border-radius: 8px;
-        border: 1px solid #334155;
+        border: 1px solid var(--card-border);
         text-align: center;
-        transition: transform 0.2s;
+        transition: transform 0.2s, background-color 0.3s ease, border-color 0.3s ease;
     }
     .project-card:hover {
         transform: translateY(-5px);
-        border-color: #38bdf8;
+        border-color: var(--card-hover-border);
     }
   </style>
 </head>
 <body>
+  <ThemeToggle />
   <LanguagePicker />
   <a href="/en/">← Back to Home</a>
   <h1>My Projects</h1>
