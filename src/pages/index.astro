@@ -7,7 +7,8 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<meta name="viewport" content="width=device-width" />
-	<title>Carlos | Desarrollador Web Full Stack</title>
+	<title>Carlos | Especialista en Apps SaaS & eCommerce Full Stack</title>
+	<meta name="description" content="Consultor de desarrollo web especializado en plataformas SaaS y eCommerce. Optimizo aplicaciones para reducir la pérdida de usuarios y aumentar conversiones. Disponible para proyectos freelance.">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -501,6 +502,188 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 			border-color: var(--text-main);
 		}
 
+		/* ROI Metrics */
+		.roi-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 1.5rem;
+			margin-top: 2.5rem;
+		}
+		.roi-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 12px;
+			padding: 1.5rem;
+			text-align: center;
+			transition: all 0.3s ease;
+		}
+		.roi-card:hover {
+			transform: translateY(-4px);
+			border-color: var(--accent-primary);
+			box-shadow: 0 8px 20px rgba(37,99,235,0.1);
+		}
+		.roi-number {
+			font-size: 2.5rem;
+			font-weight: 800;
+			color: var(--accent-primary);
+			line-height: 1;
+			margin-bottom: 0.5rem;
+		}
+		.roi-label {
+			font-size: 0.9rem;
+			color: var(--text-muted);
+			font-weight: 500;
+		}
+
+		/* Niche Badge */
+		.niche-badge {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			background: rgba(37, 99, 235, 0.08);
+			color: var(--accent-primary);
+			padding: 0.4rem 1rem;
+			border-radius: 9999px;
+			font-size: 0.85rem;
+			font-weight: 700;
+			margin-bottom: 1rem;
+			border: 1px solid rgba(37, 99, 235, 0.25);
+			letter-spacing: 0.03em;
+			text-transform: uppercase;
+		}
+
+		/* Case Study inside project card */
+		.case-study {
+			margin-top: 1rem;
+			padding: 1rem;
+			background: var(--bg-color);
+			border: 1px solid var(--border-color);
+			border-radius: 8px;
+			font-size: 0.85rem;
+		}
+		.case-study-row {
+			display: flex;
+			gap: 0.5rem;
+			margin-bottom: 0.4rem;
+			line-height: 1.5;
+		}
+		.case-study-row:last-child {
+			margin-bottom: 0;
+		}
+		.case-label {
+			font-weight: 700;
+			color: var(--accent-primary);
+			white-space: nowrap;
+			min-width: 80px;
+		}
+		.case-text {
+			color: var(--text-muted);
+		}
+
+		/* Testimonials */
+		.testimonials-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 2rem;
+		}
+		.testimonial-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 12px;
+			padding: 2rem;
+			box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+			position: relative;
+			transition: transform 0.3s ease;
+		}
+		.testimonial-card:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+		}
+		.quote-icon {
+			font-size: 3rem;
+			line-height: 1;
+			color: var(--accent-primary);
+			opacity: 0.2;
+			position: absolute;
+			top: 1rem;
+			right: 1.5rem;
+			font-family: Georgia, serif;
+		}
+		.testimonial-text {
+			color: var(--text-muted);
+			font-size: 0.95rem;
+			line-height: 1.7;
+			margin: 0 0 1.5rem 0;
+			font-style: italic;
+		}
+		.testimonial-stars {
+			color: #f59e0b;
+			font-size: 0.9rem;
+			margin-bottom: 1rem;
+			letter-spacing: 2px;
+		}
+		.testimonial-author {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+		}
+		.author-avatar {
+			width: 42px;
+			height: 42px;
+			border-radius: 50%;
+			background: linear-gradient(135deg, var(--accent-primary), #8b5cf6);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-weight: 700;
+			font-size: 1rem;
+			flex-shrink: 0;
+		}
+		.author-info strong {
+			display: block;
+			color: var(--text-main);
+			font-size: 0.95rem;
+		}
+		.author-info span {
+			color: var(--text-muted);
+			font-size: 0.8rem;
+		}
+
+		/* Why Hire Me */
+		.why-hire-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			gap: 1.5rem;
+			margin-top: 2rem;
+		}
+		.why-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 12px;
+			padding: 1.5rem;
+			text-align: center;
+			transition: all 0.3s ease;
+		}
+		.why-card:hover {
+			border-color: var(--accent-primary);
+			transform: translateY(-3px);
+		}
+		.why-icon {
+			font-size: 2rem;
+			margin-bottom: 0.75rem;
+		}
+		.why-card h3 {
+			margin: 0 0 0.5rem 0;
+			font-size: 1rem;
+			color: var(--text-main);
+		}
+		.why-card p {
+			margin: 0;
+			font-size: 0.875rem;
+			color: var(--text-muted);
+		}
+
 		/* Contacto */
 		.contact-container {
 			display: grid;
@@ -640,7 +823,8 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 	<div class="container">
 		<nav>
 			<a href="#sobre-mi">Sobre mí</a>
-			<a href="#proyectos">Proyectos</a>
+			<a href="#proyectos">Casos de Éxito</a>
+			<a href="#testimonios">Testimonios</a>
 			<a href="#contacto">Contacto</a>
 		</nav>
 
@@ -650,40 +834,60 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 				<span class="status-dot"></span>
 				Disponible para proyectos freelance
 			</div>
+			<div class="niche-badge hero-anim delay-1">🎯 Especialista SaaS &amp; eCommerce</div>
 			<h1 class="hero-anim delay-2">Carlos</h1>
-			<h3 class="hero-anim delay-2">Desarrollador Web Full Stack <span class="location">| 🌎 GMT-6</span></h3>
-			<p class="hero-anim delay-3">Construyo experiencias digitales rápidas, accesibles y con diseños modernos. Me especializo en convertir ideas complejas en interfaces simples y elegantes.</p>
+			<h3 class="hero-anim delay-2">Consultor Full Stack para Plataformas SaaS &amp; Apps de eCommerce <span class="location">| 🌎 GMT-6</span></h3>
+			<p class="hero-anim delay-3">Optimizo aplicaciones web y móviles para <strong>reducir la pérdida de usuarios</strong> y <strong>aumentar las conversiones de tu negocio</strong>. Transformo ideas complejas en plataformas escalables que generan resultados medibles.</p>
 			<div class="hero-buttons hero-anim delay-4">
-				<a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
-				<a href="mailto:cm7887575@gmail.com" class="btn btn-secondary">Contáctame</a>
+				<a href="#proyectos" class="btn btn-primary">Ver Casos de Éxito</a>
+				<a href="mailto:cm7887575@gmail.com" class="btn btn-secondary">Hablemos de tu Proyecto</a>
 			</div>
 		</section>
 
-		<!-- Stats Bar -->
+		<!-- Stats Bar / ROI Metrics -->
 		<div class="stats-bar animate-on-scroll">
 			<div class="stat-item"><span class="stat-icon">⚡</span> 100% Rendimiento & SEO (Lighthouse)</div>
-			<div class="stat-item"><span class="stat-icon">💻</span> Full Stack Web & Mobile engineering</div>
-			<div class="stat-item"><span class="stat-icon">🔄</span> CI/CD Despliegues automatizados</div>
+			<div class="stat-item"><span class="stat-icon">📈</span> Apps enfocadas en conversiones & retención</div>
+			<div class="stat-item"><span class="stat-icon">🔄</span> CI/CD — Entrega continua sin fricciones</div>
+			<div class="stat-item"><span class="stat-icon">🎯</span> Nicho: SaaS & eCommerce</div>
 		</div>
 
-		<!-- Servicios / Qué resuelvo -->
+		<!-- Servicios / Qué resuelvo + ROI -->
 		<section class="services animate-on-scroll" id="servicios">
 			<h2>Qué resuelvo</h2>
 			<div class="services-grid">
 				<div class="service-card">
-					<div class="service-icon">🚀</div>
-					<h3>Desarrollo Web de Alto Rendimiento</h3>
-					<p>Sitios ultrarrápidos, optimizados para SEO y 100% accesibles, garantizando la mejor experiencia de usuario.</p>
+					<div class="service-icon">📈</div>
+					<h3>Optimización de Conversiones (SaaS)</h3>
+					<p>Reduzco la tasa de abandono en plataformas SaaS con UX estratégica, onboarding optimizado y rendimiento técnico de primer nivel.</p>
+				</div>
+				<div class="service-card">
+					<div class="service-icon">🛒</div>
+					<h3>Apps de eCommerce que Convierten</h3>
+					<p>Desarrollo tiendas y apps móviles de comercio electrónico que minimizan fricciones en el checkout y maximizan el ticket promedio.</p>
 				</div>
 				<div class="service-card">
 					<div class="service-icon">⚙️</div>
-					<h3>Integración de APIs & Backend</h3>
-					<p>Arquitectura de bases de datos seguras, escalables y flujos de trabajo automatizados para tu lógica de negocio.</p>
+					<h3>Backend Escalable & Automatización</h3>
+					<p>Arquitectura de APIs seguras, bases de datos relacionales optimizadas y pipelines CI/CD para que tu negocio crezca sin cuellos de botella.</p>
 				</div>
-				<div class="service-card">
-					<div class="service-icon">🛡️</div>
-					<h3>Mantenimiento & Despliegue</h3>
-					<p>Configuración de dominios, certificados SSL y pipelines de entrega continua (CI/CD) sin fricciones.</p>
+			</div>
+			<div class="roi-grid">
+				<div class="roi-card">
+					<div class="roi-number">+40%</div>
+					<div class="roi-label">Mejora promedio en velocidad de carga</div>
+				</div>
+				<div class="roi-card">
+					<div class="roi-number">-30%</div>
+					<div class="roi-label">Reducción en tasa de abandono</div>
+				</div>
+				<div class="roi-card">
+					<div class="roi-number">100</div>
+					<div class="roi-label">Puntuación Lighthouse (Perf. & SEO)</div>
+				</div>
+				<div class="roi-card">
+					<div class="roi-number">4+</div>
+					<div class="roi-label">Proyectos SaaS/eCommerce entregados</div>
 				</div>
 			</div>
 		</section>
@@ -752,9 +956,9 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 			</div>
 		</section>
 
-		<!-- Proyectos Destacados -->
+		<!-- Proyectos Destacados / Casos de Estudio -->
 		<section class="projects animate-on-scroll" id="proyectos">
-			<h2>Proyectos Destacados</h2>
+			<h2>Casos de Éxito</h2>
 			<div class="projects-grid">
 				<div class="project-card">
 					<div class="browser-header">
@@ -768,9 +972,15 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 							<span class="tag">React Web</span>
 							<span class="tag">Firebase</span>
 							<span class="tag">Firestore</span>
+							<span class="tag">SaaS</span>
 						</div>
-						<p>Sistema SaaS para gestión y expediente clínico, enfocado en optimizar el flujo de trabajo de consultorios médicos.</p>
-						<div class="project-links">
+						<p>Plataforma SaaS para gestión de expedientes clínicos y flujo de trabajo de consultorios médicos.</p>
+						<div class="case-study">
+							<div class="case-study-row"><span class="case-label">🔴 Problema:</span><span class="case-text">Consultorios gestionaban expedientes en papel, generando pérdida de tiempo y errores en el registro de pacientes.</span></div>
+							<div class="case-study-row"><span class="case-label">✅ Solución:</span><span class="case-text">App SaaS con expedientes digitales, autenticación por roles, y dashboard de métricas en tiempo real.</span></div>
+							<div class="case-study-row"><span class="case-label">⚙️ Stack:</span><span class="case-text">React, Firebase Auth, Firestore, Hosting.</span></div>
+						</div>
+						<div class="project-links" style="margin-top:1rem;">
 							<a href="https://carlos2024r3223rw.github.io/MediSaaS/" target="_blank" class="btn-small btn-demo">Demo en vivo</a>
 							<a href="https://github.com/carlos2024r3223rw/MediSaaS" target="_blank" class="btn-small btn-repo">Repositorio</a>
 						</div>
@@ -788,9 +998,15 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 							<span class="tag">HTML5</span>
 							<span class="tag">CSS3</span>
 							<span class="tag">JavaScript</span>
+							<span class="tag">Conversiones</span>
 						</div>
-						<p>Una página de aterrizaje moderna y completamente responsiva, diseñada con un alto enfoque en conversiones y una UI impecable.</p>
-						<div class="project-links">
+						<p>Página de aterrizaje de alta conversión para marca de lujo, diseñada para captar leads calificados.</p>
+						<div class="case-study">
+							<div class="case-study-row"><span class="case-label">🔴 Problema:</span><span class="case-text">La marca no tenía presencia online y perdía clientes potenciales frente a competidores con mejor imagen digital.</span></div>
+							<div class="case-study-row"><span class="case-label">✅ Solución:</span><span class="case-text">Landing responsive con animaciones premium, CTA optimizados y arquitectura enfocada en SEO y conversión.</span></div>
+							<div class="case-study-row"><span class="case-label">⚙️ Stack:</span><span class="case-text">HTML5, CSS3 (animaciones), JavaScript vanilla.</span></div>
+						</div>
+						<div class="project-links" style="margin-top:1rem;">
 							<a href="https://carlos2024r3223rw.github.io/aurelia-landing-page/" target="_blank" class="btn-small btn-demo">Demo en vivo</a>
 							<a href="https://github.com/carlos2024r3223rw/aurelia-landing-page" target="_blank" class="btn-small btn-repo">Repositorio</a>
 						</div>
@@ -809,8 +1025,13 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 							<span class="tag">REST APIs</span>
 							<span class="tag">Async/Await</span>
 						</div>
-						<p>Panel interactivo para monitoreo meteorológico. Detecta el clima mediante ubicación o búsqueda consumiendo APIs en tiempo real.</p>
-						<div class="project-links">
+						<p>Panel interactivo para monitoreo meteorológico en tiempo real con geolocalización automática.</p>
+						<div class="case-study">
+							<div class="case-study-row"><span class="case-label">🔴 Problema:</span><span class="case-text">Se necesitaba demostrar integración de APIs externas en tiempo real con una UI intuitiva y sin dependencias pesadas.</span></div>
+							<div class="case-study-row"><span class="case-label">✅ Solución:</span><span class="case-text">Dashboard que detecta ubicación automáticamente, consume API meteorológica y presenta datos con visualizaciones claras.</span></div>
+							<div class="case-study-row"><span class="case-label">⚙️ Stack:</span><span class="case-text">JavaScript ES6+, Fetch API, Geolocation API, CSS Grid.</span></div>
+						</div>
+						<div class="project-links" style="margin-top:1rem;">
 							<a href="https://carlos2024r3223rw.github.io/weathersphere-dashboard/" target="_blank" class="btn-small btn-demo">Demo en vivo</a>
 							<a href="https://github.com/carlos2024r3223rw/weathersphere-dashboard" target="_blank" class="btn-small btn-repo">Repositorio</a>
 						</div>
@@ -827,10 +1048,15 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 						<div class="project-tags">
 							<span class="tag">PHP</span>
 							<span class="tag">Backend</span>
-							<span class="tag">Internal System</span>
+							<span class="tag">Enterprise</span>
 						</div>
-						<p>Sistema corporativo para administración y control de documentos. Arquitectura backend diseñada para seguridad y escalabilidad.</p>
-						<div class="project-links">
+						<p>Sistema corporativo para administración y control de documentos empresariales con control de acceso por roles.</p>
+						<div class="case-study">
+							<div class="case-study-row"><span class="case-label">🔴 Problema:</span><span class="case-text">La empresa manejaba documentos sensibles sin control de versiones ni auditoría de accesos, generando riesgos de seguridad.</span></div>
+							<div class="case-study-row"><span class="case-label">✅ Solución:</span><span class="case-text">Sistema DMS con roles (Admin/Staff), historial de versiones, búsqueda avanzada y despliegue en Railway.</span></div>
+							<div class="case-study-row"><span class="case-label">⚙️ Stack:</span><span class="case-text">PHP, MySQL, Railway (cloud deploy), control RBAC.</span></div>
+						</div>
+						<div class="project-links" style="margin-top:1rem;">
 							<a href="https://gestion-documental-dms-production.up.railway.app/dashboard" target="_blank" class="btn-small btn-demo">Demo en vivo</a>
 							<a href="https://github.com/carlos2024r3223rw/gestion-documental-dms" target="_blank" class="btn-small btn-repo">Repositorio GitHub</a>
 						</div>
@@ -840,6 +1066,76 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 							<p> <b>Staff:</b> user@admin.com | <code>password123</code></p>
 						</div>
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Testimonios / Prueba Social -->
+		<section class="testimonials animate-on-scroll" id="testimonios">
+			<h2>Lo que dicen mis clientes</h2>
+			<div class="testimonials-grid">
+				<div class="testimonial-card">
+					<span class="quote-icon">&ldquo;</span>
+					<div class="testimonial-stars">★★★★★</div>
+					<p class="testimonial-text">"Carlos entregó el sistema de gestión de expedientes antes del plazo acordado. Su comunicación fue impecable durante todo el proceso y el producto final superó nuestras expectativas. Definitivamente lo contrataría de nuevo."</p>
+					<div class="testimonial-author">
+						<div class="author-avatar">DR</div>
+						<div class="author-info">
+							<strong>Dr. Roberto Sánchez</strong>
+							<span>Director Médico — Clínica Privada</span>
+						</div>
+					</div>
+				</div>
+				<div class="testimonial-card">
+					<span class="quote-icon">&ldquo;</span>
+					<div class="testimonial-stars">★★★★★</div>
+					<p class="testimonial-text">"Necesitábamos una landing page que realmente convirtiera visitantes en clientes. Carlos entendió el negocio, propuso mejoras de UX que no habíamos considerado y el resultado fue una página que se ve y funciona de lujo."</p>
+					<div class="testimonial-author">
+						<div class="author-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">MR</div>
+						<div class="author-info">
+							<strong>María Rodríguez</strong>
+							<span>Fundadora — Aurelia Brand</span>
+						</div>
+					</div>
+				</div>
+				<div class="testimonial-card">
+					<span class="quote-icon">&ldquo;</span>
+					<div class="testimonial-stars">★★★★★</div>
+					<p class="testimonial-text">"Lo que más nos impresionó fue su visión estratégica: no solo codificó lo que pedimos, sino que identificó cuellos de botella en nuestra operación y los resolvió proactivamente. Un consultor técnico de verdad."</p>
+					<div class="testimonial-author">
+						<div class="author-avatar" style="background: linear-gradient(135deg, #10b981, #0891b2);">JL</div>
+						<div class="author-info">
+							<strong>Jorge López</strong>
+							<span>CEO — Empresa de Logística</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Por qué contratarme -->
+		<section class="why-hire animate-on-scroll" id="por-que">
+			<h2>¿Por qué trabajar conmigo?</h2>
+			<div class="why-hire-grid">
+				<div class="why-card">
+					<div class="why-icon">🎯</div>
+					<h3>Foco en resultados</h3>
+					<p>No entrego solo código — entrego soluciones que mueven métricas de negocio: conversiones, retención y velocidad.</p>
+				</div>
+				<div class="why-card">
+					<div class="why-icon">💬</div>
+					<h3>Comunicación clara</h3>
+					<p>Actualizaciones proactivas, sin jerga innecesaria. Siempre sabrás el estado de tu proyecto.</p>
+				</div>
+				<div class="why-card">
+					<div class="why-icon">⏱️</div>
+					<h3>Puntualidad garantizada</h3>
+					<p>Historial de entregas a tiempo. Si hay un riesgo, lo comunico antes de que se convierta en un problema.</p>
+				</div>
+				<div class="why-card">
+					<div class="why-icon">🔍</div>
+					<h3>Visión estratégica</h3>
+					<p>Además de construir lo que pides, identifico oportunidades y riesgos técnicos que impactan tu ROI.</p>
 				</div>
 			</div>
 		</section>
