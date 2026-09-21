@@ -14,22 +14,23 @@
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
-    border: 1px solid var(--border-color, #e2e8f0);
+    border: 2px solid var(--accent-primary, #2563eb);
     background: var(--bg-card, #ffffff);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     z-index: 1000;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     padding: 0;
     overflow: hidden;
   }
   .theme-toggle:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    border-color: var(--text-main);
   }
   .theme-icon {
     position: absolute;
