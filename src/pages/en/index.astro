@@ -229,10 +229,6 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			font-weight: 600;
 			font-size: 0.95rem;
 		}
-		.stat-icon {
-			color: var(--accent-primary);
-			font-size: 1.2rem;
-		}
 
 		/* Sobre Mí */
 		.about {
@@ -289,9 +285,6 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			font-size: 0.95rem;
 			font-weight: 500;
 		}
-		.highlight-icon {
-			font-size: 1.2rem;
-		}
 
 		/* Servicios */
 		.services-grid {
@@ -310,10 +303,6 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 		.service-card:hover {
 			transform: translateY(-3px);
 			box-shadow: 0 8px 15px rgba(0,0,0,0.05);
-		}
-		.service-icon {
-			font-size: 2rem;
-			margin-bottom: 1rem;
 		}
 		.service-card h3 {
 			margin-top: 0;
@@ -677,10 +666,6 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			border-color: var(--accent-primary);
 			transform: translateY(-3px);
 		}
-		.why-icon {
-			font-size: 2rem;
-			margin-bottom: 0.75rem;
-		}
 		.why-card h3 {
 			margin: 0 0 0.5rem 0;
 			font-size: 1rem;
@@ -842,7 +827,7 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 				<span class="status-dot"></span>
 				Available for freelance projects
 			</div>
-			<div class="niche-badge hero-anim delay-1">🎯 SaaS & eCommerce Specialist</div>
+			<div class="niche-badge hero-anim delay-1">SaaS & eCommerce Specialist</div>
 			<h1 class="hero-anim delay-2">Carlos</h1>
 			<h3 class="hero-anim delay-2">Full Stack Consultant for SaaS Platforms &amp; eCommerce Apps <span class="location">| 🌎 GMT-6</span></h3>
 			<p class="hero-anim delay-3">I optimize web and mobile applications to <strong>reduce user drop-off</strong> and <strong>increase your business conversions</strong>. I turn complex ideas into scalable platforms that deliver measurable results.</p>
@@ -854,10 +839,10 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 
 		<!-- Stats Bar / ROI Metrics -->
 		<div class="stats-bar animate-on-scroll">
-			<div class="stat-item"><span class="stat-icon">⚡</span> 100% Performance & SEO (Lighthouse)</div>
-			<div class="stat-item"><span class="stat-icon">📈</span> Apps focused on conversions & retention</div>
-			<div class="stat-item"><span class="stat-icon">🔄</span> CI/CD — Frictionless continuous delivery</div>
-			<div class="stat-item"><span class="stat-icon">🎯</span> Niche: SaaS & eCommerce</div>
+			<div class="stat-item">100% Performance & SEO (Lighthouse)</div>
+			<div class="stat-item">Apps focused on conversions & retention</div>
+			<div class="stat-item">CI/CD — Frictionless continuous delivery</div>
+			<div class="stat-item">Niche: SaaS & eCommerce</div>
 		</div>
 
 		<!-- What I Solve + ROI -->
@@ -865,17 +850,14 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			<h2>What I Solve</h2>
 			<div class="services-grid">
 				<div class="service-card">
-					<div class="service-icon">📈</div>
 					<h3>SaaS Conversion Optimization</h3>
 					<p>I reduce churn on SaaS platforms with strategic UX, optimized onboarding, and top-tier technical performance.</p>
 				</div>
 				<div class="service-card">
-					<div class="service-icon">🛒</div>
 					<h3>eCommerce Apps That Convert</h3>
 					<p>I build online stores and mobile commerce apps that minimize checkout friction and maximize average order value.</p>
 				</div>
 				<div class="service-card">
-					<div class="service-icon">⚙️</div>
 					<h3>Scalable Backend & Automation</h3>
 					<p>Secure API architecture, optimized relational databases and CI/CD pipelines so your business scales without bottlenecks.</p>
 				</div>
@@ -908,23 +890,23 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			
 			<div class="about-grid">
 				<div class="about-card">
-					<h3>💻 Web Development & Performance</h3>
+					<h3>Web Development & Performance</h3>
 					<p>Creation of web applications with modern architectures (Astro, React, TypeScript), prioritizing loading speed, technical SEO, and clean code.</p>
 				</div>
 				<div class="about-card">
-					<h3>⚙️ Backend, APIs & Cloud</h3>
+					<h3>Backend, APIs & Cloud</h3>
 					<p>Design of relational databases (PostgreSQL, MySQL), secure REST endpoints, and real-time data synchronization.</p>
 				</div>
 				<div class="about-card">
-					<h3>📱 Mobile Apps & Automation</h3>
+					<h3>Mobile Apps & Automation</h3>
 					<p>Development of functional applications with secure authentication and integration of AI models (processing APIs) to solve practical cases.</p>
 				</div>
 			</div>
 
 			<div class="about-highlights">
-				<div class="highlight-item"><span class="highlight-icon">📍</span> Location / Modality: Remote (GMT-6)</div>
-				<div class="highlight-item"><span class="highlight-icon">💼</span> Availability: Freelance projects and custom development</div>
-				<div class="highlight-item"><span class="highlight-icon">⚡</span> Philosophy: Performance, accessibility, and automated deployments (CI/CD)</div>
+				<div class="highlight-item">Location / Modality: Remote (GMT-6)</div>
+				<div class="highlight-item">Availability: Freelance projects and custom development</div>
+				<div class="highlight-item">Philosophy: Performance, accessibility, and automated deployments (CI/CD)</div>
 			</div>
 		</section>
 
@@ -984,9 +966,9 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 						</div>
 						<p>SaaS platform for managing clinical records and workflow for independent medical practices.</p>
 						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">🔴 Problem:</span><span class="case-text">Medical offices managed patient records on paper, causing time loss and registration errors.</span></div>
-							<div class="case-study-row"><span class="case-label">✅ Solution:</span><span class="case-text">SaaS app with digital records, role-based authentication, and real-time metrics dashboard.</span></div>
-							<div class="case-study-row"><span class="case-label">⚙️ Stack:</span><span class="case-text">React, Firebase Auth, Firestore, Hosting.</span></div>
+							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Medical offices managed patient records on paper, causing time loss and registration errors.</span></div>
+							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">SaaS app with digital records, role-based authentication, and real-time metrics dashboard.</span></div>
+							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">React, Firebase Auth, Firestore, Hosting.</span></div>
 						</div>
 						<div class="project-links" style="margin-top:1rem;">
 							<a href="https://carlos2024r3223rw.github.io/MediSaaS/" target="_blank" class="btn-small btn-demo">Live Demo</a>
@@ -1010,9 +992,9 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 						</div>
 						<p>High-conversion landing page for a luxury brand, designed to capture qualified leads.</p>
 						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">🔴 Problem:</span><span class="case-text">The brand had no online presence and was losing potential clients to competitors with stronger digital identities.</span></div>
-							<div class="case-study-row"><span class="case-label">✅ Solution:</span><span class="case-text">Responsive landing with premium animations, optimized CTAs, and an architecture focused on SEO and conversion.</span></div>
-							<div class="case-study-row"><span class="case-label">⚙️ Stack:</span><span class="case-text">HTML5, CSS3 (animations), vanilla JavaScript.</span></div>
+							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">The brand had no online presence and was losing potential clients to competitors with stronger digital identities.</span></div>
+							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Responsive landing with premium animations, optimized CTAs, and an architecture focused on SEO and conversion.</span></div>
+							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">HTML5, CSS3 (animations), vanilla JavaScript.</span></div>
 						</div>
 						<div class="project-links" style="margin-top:1rem;">
 							<a href="https://carlos2024r3223rw.github.io/aurelia-landing-page/" target="_blank" class="btn-small btn-demo">Live Demo</a>
@@ -1035,9 +1017,9 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 						</div>
 						<p>Real-time weather monitoring dashboard with automatic geolocation and zero dependencies.</p>
 						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">🔴 Problem:</span><span class="case-text">Needed to demonstrate real-time external API integration with an intuitive UI and no heavy dependencies.</span></div>
-							<div class="case-study-row"><span class="case-label">✅ Solution:</span><span class="case-text">Dashboard that auto-detects location, consumes a weather API, and presents data with clear visualizations.</span></div>
-							<div class="case-study-row"><span class="case-label">⚙️ Stack:</span><span class="case-text">JavaScript ES6+, Fetch API, Geolocation API, CSS Grid.</span></div>
+							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Needed to demonstrate real-time external API integration with an intuitive UI and no heavy dependencies.</span></div>
+							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Dashboard that auto-detects location, consumes a weather API, and presents data with clear visualizations.</span></div>
+							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">JavaScript ES6+, Fetch API, Geolocation API, CSS Grid.</span></div>
 						</div>
 						<div class="project-links" style="margin-top:1rem;">
 							<a href="https://carlos2024r3223rw.github.io/weathersphere-dashboard/" target="_blank" class="btn-small btn-demo">Live Demo</a>
@@ -1060,9 +1042,9 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 						</div>
 						<p>Corporate system for managing sensitive business documents with role-based access control.</p>
 						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">🔴 Problem:</span><span class="case-text">The company handled sensitive documents with no version control or access auditing, creating security risks.</span></div>
-							<div class="case-study-row"><span class="case-label">✅ Solution:</span><span class="case-text">DMS with Admin/Staff roles, version history, advanced search, and Railway cloud deployment.</span></div>
-							<div class="case-study-row"><span class="case-label">⚙️ Stack:</span><span class="case-text">PHP, MySQL, Railway (cloud deploy), RBAC control.</span></div>
+							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">The company handled sensitive documents with no version control or access auditing, creating security risks.</span></div>
+							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">DMS with Admin/Staff roles, version history, advanced search, and Railway cloud deployment.</span></div>
+							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">PHP, MySQL, Railway (cloud deploy), RBAC control.</span></div>
 						</div>
 						<div class="project-links" style="margin-top:1rem;">
 							<a href="https://gestion-documental-dms-production.up.railway.app/dashboard" target="_blank" class="btn-small btn-demo">Live Demo</a>
@@ -1126,22 +1108,18 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			<h2>Why Work With Me?</h2>
 			<div class="why-hire-grid">
 				<div class="why-card">
-					<div class="why-icon">🎯</div>
 					<h3>Results-focused</h3>
 					<p>I don't just deliver code — I deliver solutions that move business metrics: conversions, retention, and speed.</p>
 				</div>
 				<div class="why-card">
-					<div class="why-icon">💬</div>
 					<h3>Clear communication</h3>
 					<p>Proactive updates, no unnecessary jargon. You'll always know the status of your project.</p>
 				</div>
 				<div class="why-card">
-					<div class="why-icon">⏱️</div>
 					<h3>Punctuality guaranteed</h3>
 					<p>Track record of on-time delivery. If there's a risk, I communicate it before it becomes a problem.</p>
 				</div>
 				<div class="why-card">
-					<div class="why-icon">🔍</div>
 					<h3>Strategic vision</h3>
 					<p>Beyond building what you ask for, I identify technical opportunities and risks that impact your ROI.</p>
 				</div>
