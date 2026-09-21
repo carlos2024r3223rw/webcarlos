@@ -382,8 +382,13 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 		/* Proyectos */
 		.projects-grid {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-			gap: 2rem;
+			grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+			gap: 2.5rem;
+		}
+		@media (max-width: 800px) {
+			.projects-grid {
+				grid-template-columns: 1fr;
+			}
 		}
 		.project-card {
 			background: var(--bg-card);
@@ -554,30 +559,32 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 
 		/* Case Study inside project card */
 		.case-study {
-			margin-top: 1rem;
-			padding: 1rem;
+			margin-top: 1.25rem;
+			padding: 1.1rem 1.25rem;
 			background: var(--bg-color);
 			border: 1px solid var(--border-color);
-			border-radius: 8px;
-			font-size: 0.85rem;
+			border-radius: 10px;
+			font-size: 0.875rem;
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
 		}
 		.case-study-row {
 			display: flex;
-			gap: 0.5rem;
-			margin-bottom: 0.4rem;
-			line-height: 1.5;
-		}
-		.case-study-row:last-child {
-			margin-bottom: 0;
+			flex-direction: column;
+			gap: 0.2rem;
+			line-height: 1.6;
 		}
 		.case-label {
 			font-weight: 700;
 			color: var(--accent-primary);
-			white-space: nowrap;
-			min-width: 80px;
+			font-size: 0.78rem;
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
 		}
 		.case-text {
 			color: var(--text-muted);
+			line-height: 1.55;
 		}
 
 		/* Testimonials */
