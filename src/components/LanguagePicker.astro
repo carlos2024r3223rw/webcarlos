@@ -23,16 +23,22 @@ if (isEn) {
   {label}
 </a>
 
-<script>
+<script is:inline>
   const btn = document.getElementById('lang-picker-btn');
   if (btn) {
-    btn.addEventListener('click', (e) => {
-      const hash = window.location.hash;
-      if (hash) {
-        e.preventDefault();
-        window.location.href = btn.getAttribute('href') + hash;
-      }
+    btn.addEventListener('click', () => {
+      sessionStorage.setItem('langScroll', window.scrollY.toString());
     });
+  }
+
+  // Restore scroll position if we just switched language
+  const savedScroll = sessionStorage.getItem('langScroll');
+  if (savedScroll !== null) {
+    // We use a tiny timeout to ensure the DOM is ready to scroll
+    setTimeout(() => {
+      window.scrollTo({ top: parseInt(savedScroll, 10), behavior: 'instant' });
+      sessionStorage.removeItem('langScroll');
+    }, 10);
   }
 </script>
 
