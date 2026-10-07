@@ -19,9 +19,22 @@ if (isEn) {
 }
 ---
 
-<a href={otherLangPath} class="language-picker" aria-label="Cambiar idioma / Change language">
+<a href={otherLangPath} id="lang-picker-btn" class="language-picker" aria-label="Cambiar idioma / Change language">
   {label}
 </a>
+
+<script>
+  const btn = document.getElementById('lang-picker-btn');
+  if (btn) {
+    btn.addEventListener('click', (e) => {
+      const hash = window.location.hash;
+      if (hash) {
+        e.preventDefault();
+        window.location.href = btn.getAttribute('href') + hash;
+      }
+    });
+  }
+</script>
 
 <style>
   .language-picker {
