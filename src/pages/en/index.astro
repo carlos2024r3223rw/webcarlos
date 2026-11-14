@@ -418,6 +418,20 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			display: flex;
 			flex-direction: column;
 		}
+		.project-category {
+			display: inline-block;
+			font-size: 0.72rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			color: var(--accent-primary);
+			background: rgba(37, 99, 235, 0.08);
+			border: 1px solid rgba(37, 99, 235, 0.2);
+			padding: 0.2rem 0.6rem;
+			border-radius: 9999px;
+			margin-bottom: 0.6rem;
+			width: fit-content;
+		}
 		.project-content h3 {
 			margin-top: 0;
 			color: var(--text-main);
@@ -950,6 +964,35 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 		<section class="projects animate-on-scroll" id="projects">
 			<h2>Case Studies</h2>
 			<div class="projects-grid">
+				<div class="project-card">
+					<div class="browser-header">
+						<div class="dot dot-red"></div>
+						<div class="dot dot-yellow"></div>
+						<div class="dot dot-green"></div>
+					</div>
+					<div class="project-content">
+						<span class="project-category">Full-Stack SaaS & Security QA</span>
+						<h3>PharmaPro — Enterprise Pharmacy POS & Inventory System (PWA)</h3>
+						<div class="project-tags">
+							<span class="tag">React</span>
+							<span class="tag">TypeScript</span>
+							<span class="tag">Node.js</span>
+							<span class="tag">Express</span>
+							<span class="tag">MySQL</span>
+							<span class="tag">Tailwind CSS</span>
+							<span class="tag">PWA</span>
+						</div>
+						<p>Progressive Web App (PWA) for multi-branch pharmacy operations featuring a fast barcode-ready Point of Sale, thermal receipt generation, automated 90-day expiration alerts, and strict Role-Based Access Control (RBAC) with immutable audit trails.</p>
+						<div class="project-links" style="margin-top:auto; padding-top:1.25rem;">
+							<a href="https://github.com/carlos2024r3223rw/Aplicacion-Web-Farmacia#screenshots" target="_blank" class="btn-small btn-demo">View Screenshots →</a>
+							<a href="https://github.com/carlos2024r3223rw/Aplicacion-Web-Farmacia" target="_blank" class="btn-small btn-repo">Repository →</a>
+						</div>
+						<div class="demo-credentials">
+							<p class="demo-credentials-title">Architecture & Security:</p>
+							<p>Transactional REST API • Role-Based Access Control (RBAC) • Immutable Audit Trail</p>
+						</div>
+					</div>
+				</div>
 				<div class="project-card">
 					<div class="browser-header">
 						<div class="dot dot-red"></div>

@@ -418,6 +418,20 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 			display: flex;
 			flex-direction: column;
 		}
+		.project-category {
+			display: inline-block;
+			font-size: 0.72rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			color: var(--accent-primary);
+			background: rgba(37, 99, 235, 0.08);
+			border: 1px solid rgba(37, 99, 235, 0.2);
+			padding: 0.2rem 0.6rem;
+			border-radius: 9999px;
+			margin-bottom: 0.6rem;
+			width: fit-content;
+		}
 		.project-content h3 {
 			margin-top: 0;
 			color: var(--text-main);
@@ -950,6 +964,35 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 		<section class="projects animate-on-scroll" id="proyectos">
 			<h2>Casos de Éxito</h2>
 			<div class="projects-grid">
+				<div class="project-card">
+					<div class="browser-header">
+						<div class="dot dot-red"></div>
+						<div class="dot dot-yellow"></div>
+						<div class="dot dot-green"></div>
+					</div>
+					<div class="project-content">
+						<span class="project-category">Full-Stack SaaS & QA de Seguridad</span>
+						<h3>PharmaPro — Sistema POS e Inventario Farmacéutico (PWA)</h3>
+						<div class="project-tags">
+							<span class="tag">React</span>
+							<span class="tag">TypeScript</span>
+							<span class="tag">Node.js</span>
+							<span class="tag">Express</span>
+							<span class="tag">MySQL</span>
+							<span class="tag">Tailwind CSS</span>
+							<span class="tag">PWA</span>
+						</div>
+						<p>Aplicación Web Progresiva (PWA) para gestión integral de farmacias con Punto de Venta rápido, tickets térmicos, semáforo automático de vencimientos (90 días), control de acceso por roles (RBAC) e historial inmutable de auditoría.</p>
+						<div class="project-links" style="margin-top:auto; padding-top:1.25rem;">
+							<a href="https://github.com/carlos2024r3223rw/Aplicacion-Web-Farmacia#screenshots" target="_blank" class="btn-small btn-demo">Ver Capturas →</a>
+							<a href="https://github.com/carlos2024r3223rw/Aplicacion-Web-Farmacia" target="_blank" class="btn-small btn-repo">Repositorio →</a>
+						</div>
+						<div class="demo-credentials">
+							<p class="demo-credentials-title">Arquitectura & Seguridad:</p>
+							<p>API REST transaccional • Control de roles (RBAC) • Audit Trail inmutable</p>
+						</div>
+					</div>
+				</div>
 				<div class="project-card">
 					<div class="browser-header">
 						<div class="dot dot-red"></div>
