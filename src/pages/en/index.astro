@@ -1015,10 +1015,10 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 							<span class="tag">Docker</span>
 							<span class="tag">Resend API</span>
 						</div>
-						<p>High-concurrency, zero-dependency Node.js microservice for eCommerce restock alerts featuring idempotent webhook ingestion, live inventory verification, and atomic notification claiming.</p>
+						<p>Reliability-focused, zero-dependency Node.js microservice for eCommerce restock alerts that handles webhook retries and duplicate events with idempotency, pre-notification stock verification, and atomic state transitions.</p>
 						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Lost sales from out-of-stock items, duplicate notification blasts from webhook delivery retries, and race conditions during simultaneous restock events.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Production-grade architecture with partial unique indexes, atomic state claiming (open → processing → notified), pre-flight stock verification against external inventory APIs, and deterministic Resend idempotency keys.</span></div>
+							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Lost sales from out-of-stock items, duplicate notification blasts from webhook delivery retries, and unverified inventory claims.</span></div>
+							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Reliability-focused architecture with idempotent webhook handling, partial unique indexes, atomic state claiming (open → processing → notified), pre-notification stock API verification, and deterministic Resend idempotency keys.</span></div>
 							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">Node.js 22 (node:http, node:sqlite, node:crypto), SQLite WAL, Docker, Resend API.</span></div>
 						</div>
 						<div class="project-links" style="margin-top:auto; padding-top:1.25rem;">
