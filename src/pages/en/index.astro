@@ -1005,6 +1005,38 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 						<div class="dot dot-green"></div>
 					</div>
 					<div class="project-content">
+						<span class="project-category">Backend Microservice & Idempotency</span>
+						<h3>Back-in-Stock Alerts — Resilient Restock Notification Service</h3>
+						<div class="project-tags">
+							<span class="tag">Node.js 22</span>
+							<span class="tag">SQLite (WAL)</span>
+							<span class="tag">Webhooks</span>
+							<span class="tag">Idempotency</span>
+							<span class="tag">Docker</span>
+							<span class="tag">Resend API</span>
+						</div>
+						<p>High-concurrency, zero-dependency Node.js microservice for eCommerce restock alerts featuring idempotent webhook ingestion, live inventory verification, and atomic notification claiming.</p>
+						<div class="case-study">
+							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Lost sales from out-of-stock items, duplicate notification blasts from webhook delivery retries, and race conditions during simultaneous restock events.</span></div>
+							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Production-grade architecture with partial unique indexes, atomic state claiming (open → processing → notified), pre-flight stock verification against external inventory APIs, and deterministic Resend idempotency keys.</span></div>
+							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">Node.js 22 (node:http, node:sqlite, node:crypto), SQLite WAL, Docker, Resend API.</span></div>
+						</div>
+						<div class="project-links" style="margin-top:auto; padding-top:1.25rem;">
+							<a href="https://github.com/carlos2024r3223rw/back-in-stock-alerts" target="_blank" class="btn-small btn-repo">GitHub Repository →</a>
+						</div>
+						<div class="demo-credentials">
+							<p class="demo-credentials-title">Architecture & Resilience:</p>
+							<p>Zero external runtime dependencies • Strict webhook idempotency • Atomic state transitions</p>
+						</div>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="browser-header">
+						<div class="dot dot-red"></div>
+						<div class="dot dot-yellow"></div>
+						<div class="dot dot-green"></div>
+					</div>
+					<div class="project-content">
 						<h3>MediSaaS</h3>
 						<div class="project-tags">
 							<span class="tag">React Web</span>
