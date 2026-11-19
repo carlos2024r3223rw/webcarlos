@@ -1,79 +1,559 @@
 ---
 import LanguagePicker from '../../../components/LanguagePicker.astro';
 import ThemeToggle from '../../../components/ThemeToggle.astro';
+import { moreProjectsEN, featuredProjectsEN } from '../../../data/projects';
 ---
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | Carlos</title>
+  <title>More Projects | Carlos — Portfolio</title>
+  <meta name="description" content="Additional software projects and technical solutions built by Carlos: backend microservices, custom Shopify & WooCommerce stores, test suites, and dashboards." />
+
+  <!-- Canonical & Alternates -->
+  <link rel="canonical" href="https://webcarlos.dev/en/proyectos/" />
+  <link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/" />
+  <link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/" />
+  <link rel="alternate" hreflang="x-default" href="https://webcarlos.dev/proyectos/" />
+
+  <!-- Open Graph & Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webcarlos.dev/en/proyectos/" />
+  <meta property="og:title" content="More Projects | Carlos — Portfolio" />
+  <meta property="og:description" content="Additional software projects and technical solutions built by Carlos: backend microservices, custom Shopify & WooCommerce stores, test suites, and dashboards." />
+  <meta property="og:image" content="https://webcarlos.dev/images/og-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="More Projects | Carlos — Portfolio" />
+  <meta name="twitter:description" content="Additional software projects and technical solutions built by Carlos: backend microservices, custom Shopify & WooCommerce stores, test suites, and dashboards." />
+  <meta name="twitter:image" content="https://webcarlos.dev/images/og-preview.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --page-bg: #f8fafc;
-      --page-text: #0f172a;
-      --page-heading: #2563eb;
-      --page-link: #3b82f6;
-      --card-bg: #ffffff;
-      --card-border: #e2e8f0;
-      --card-hover-border: #2563eb;
+      --bg-color: #FAFAFA;
+      --bg-card: #FFFFFF;
+      --text-main: #111111;
+      --text-muted: #666666;
+      --accent-primary: #3B82F6;
+      --accent-hover: #2563EB;
+      --border-color: #E5E5E5;
+      --card-hover-border: #D4D4D4;
     }
     [data-theme="dark"] {
-      --page-bg: #0f172a;
-      --page-text: #f8fafc;
-      --page-heading: #38bdf8;
-      --page-link: #818cf8;
-      --card-bg: #1e293b;
-      --card-border: #334155;
-      --card-hover-border: #38bdf8;
+      --bg-color: #0A0A0A;
+      --bg-card: #141414;
+      --text-main: #EDEDED;
+      --text-muted: #888888;
+      --accent-primary: #3B82F6;
+      --accent-hover: #60A5FA;
+      --border-color: #222222;
+      --card-hover-border: #333333;
+    }
+    * {
+      box-sizing: border-box;
     }
     body {
       margin: 0;
+      padding: 0;
       min-height: 100vh;
-      background: var(--page-bg);
-      color: var(--page-text);
-      font-family: system-ui, -apple-system, sans-serif;
-      padding: 2rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
       transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
     }
-    h1 { color: var(--page-heading); }
-    a { color: var(--page-link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .projects-grid { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 5rem 1.5rem;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      letter-spacing: -0.02em;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--accent-primary);
+      transform: translateX(-3px);
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .page-hero {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .page-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0 0 0.75rem 0;
+      line-height: 1.2;
+    }
+    .page-hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Projects Grid & Cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
         gap: 1.5rem;
-        margin-top: 2rem;
+      }
     }
     .project-card {
-        background: var(--card-bg);
-        padding: 1.5rem;
-        border-radius: 8px;
-        border: 1px solid var(--card-border);
-        text-align: center;
-        transition: transform 0.2s, background-color 0.3s ease, border-color 0.3s ease;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      position: relative;
     }
     .project-card:hover {
-        transform: translateY(-5px);
-        border-color: var(--card-hover-border);
+      transform: translateY(-4px);
+      border-color: var(--accent-primary);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+    }
+    [data-theme="dark"] .project-card:hover {
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    }
+    .project-image-link {
+      text-decoration: none;
+      display: block;
+    }
+    .project-image-box {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      position: relative;
+    }
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .project-card:hover .project-image {
+      transform: scale(1.04);
+    }
+    .project-info {
+      padding: 1.2rem 0.25rem 0.25rem 0.25rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .project-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.65rem;
+    }
+    .badge-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .badge-personal {
+      background: rgba(168, 85, 247, 0.1);
+      color: #C084FC;
+      border: 1px solid rgba(168, 85, 247, 0.25);
+    }
+    [data-theme="light"] .badge-personal {
+      color: #7E22CE;
+      background: rgba(126, 34, 206, 0.08);
+      border-color: rgba(126, 34, 206, 0.2);
+    }
+    .badge-cat {
+      background: var(--bg-color);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+    .project-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.45rem;
+    }
+    .project-title {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0;
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+    }
+    .project-title-link {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .project-title-link:hover {
+      color: var(--accent-primary);
+    }
+    .project-arrow-link {
+      text-decoration: none;
+      color: inherit;
+    }
+    .project-arrow {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      line-height: 1;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+      display: inline-block;
+    }
+    .project-card:hover .project-arrow {
+      transform: translateX(4px);
+      color: var(--accent-primary);
+    }
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0 0 0.5rem 0;
+      line-height: 1.5;
+    }
+    .project-stack {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      opacity: 0.85;
+      margin: 0.2rem 0 1rem 0;
+      line-height: 1.45;
+      font-weight: 400;
+      word-break: normal;
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    @media (max-width: 640px) {
+      .project-stack {
+        -webkit-line-clamp: 3;
+      }
+    }
+
+    /* Accordion View case */
+    .project-case-accordion {
+      margin: 0.25rem 0 1.25rem 0;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      background: var(--bg-color);
+      transition: border-color 0.2s ease;
+      overflow: hidden;
+    }
+    .project-case-accordion[open] {
+      border-color: var(--card-hover-border, #333333);
+    }
+    .accordion-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0.9rem;
+      cursor: pointer;
+      list-style: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      user-select: none;
+      transition: color 0.2s ease;
+    }
+    .accordion-summary::-webkit-details-marker {
+      display: none;
+    }
+    .accordion-summary:hover {
+      color: var(--accent-primary);
+    }
+    .accordion-summary-icon {
+      font-size: 0.9rem;
+      transition: transform 0.25s ease;
+      color: var(--text-muted);
+    }
+    .project-case-accordion[open] .accordion-summary-icon {
+      transform: rotate(180deg);
+      color: var(--accent-primary);
+    }
+    .accordion-body {
+      padding: 0.75rem 0.9rem 1rem 0.9rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+    .case-heading {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-primary);
+      margin: 0 0 0.25rem 0;
+    }
+    .case-text {
+      margin: 0;
+      color: var(--text-muted);
+    }
+    .case-stack-text {
+      font-size: 0.82rem;
+    }
+    .case-sandbox {
+      margin-top: 0.25rem;
+      padding: 0.65rem 0.75rem;
+      border-radius: 8px;
+      background: rgba(59, 130, 246, 0.06);
+      border: 1px solid rgba(59, 130, 246, 0.15);
+    }
+    .case-sandbox-title {
+      margin: 0 0 0.2rem 0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-main);
+    }
+    .case-sandbox-text {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Action Buttons */
+    .project-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+    .btn-action {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .btn-demo {
+      background: var(--accent-primary);
+      color: #FFFFFF;
+      border: 1px solid var(--accent-primary);
+    }
+    .btn-demo:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+    .btn-repo {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+    .btn-repo:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      transform: translateY(-1px);
+    }
+
+    /* Featured quick link box */
+    .featured-ref-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .featured-ref-box h2 {
+      font-size: 1.5rem;
+      margin: 0 0 0.75rem 0;
+    }
+    .featured-ref-box p {
+      color: var(--text-muted);
+      margin: 0 0 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .featured-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+    }
+    .featured-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .featured-pill:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      transform: translateY(-1px);
     }
   </style>
 </head>
 <body>
-  <ThemeToggle />
-  <LanguagePicker />
-  <a href="/en/">← Back to Home</a>
-  <h1>My Projects</h1>
-  
-  <div class="projects-grid">
-      <a href="/en/proyectos/calculadora" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-              <h3>Calculator</h3>
-              <p>A functional web calculator built as an Astro component.</p>
-          </div>
+  <div class="container">
+    <header>
+      <a href="/en/#projects" class="back-link">
+        <span>←</span> Back to home
       </a>
+      <div class="header-actions">
+        <ThemeToggle />
+        <LanguagePicker />
+      </div>
+    </header>
+
+    <div class="page-hero">
+      <h1>More Projects</h1>
+      <p>Explore additional software developments: backend microservices, custom Shopify and WooCommerce stores, automated testing suites, and web applications.</p>
+    </div>
+
+    <div class="projects-grid">
+      {moreProjectsEN.map((project) => (
+        <article class="project-card">
+          <a href={`/en/proyectos/${project.slug}`} class="project-image-link" aria-label={`View details for ${project.title}`}>
+            <div class="project-image-box">
+              <img src={project.image} alt={project.title} class="project-image" loading="lazy" />
+            </div>
+          </a>
+
+          <div class="project-info">
+            <div class="project-badges">
+              {project.isPersonal && (
+                <span class="badge-tag badge-personal">Personal project</span>
+              )}
+              <span class="badge-tag badge-cat">{project.category}</span>
+            </div>
+
+            <div class="project-title-row">
+              <h3 class="project-title">
+                <a href={`/en/proyectos/${project.slug}`} class="project-title-link">
+                  {project.title}
+                </a>
+              </h3>
+              <a href={`/en/proyectos/${project.slug}`} class="project-arrow-link" aria-label={`Go to details for ${project.title}`}>
+                <span class="project-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <p class="project-desc">{project.shortDesc}</p>
+
+            <p class="project-stack">{project.stackText}</p>
+
+            <details class="project-case-accordion">
+              <summary class="accordion-summary">
+                <span class="accordion-summary-text">View case</span>
+                <span class="accordion-summary-icon">▾</span>
+              </summary>
+              <div class="accordion-body">
+                <div class="case-section">
+                  <h4 class="case-heading">Problem addressed</h4>
+                  <p class="case-text">{project.problem}</p>
+                </div>
+                <div class="case-section">
+                  <h4 class="case-heading">Solution</h4>
+                  <p class="case-text">{project.solution}</p>
+                </div>
+                <div class="case-section">
+                  <h4 class="case-heading">Tech Stack</h4>
+                  <p class="case-text case-stack-text">{project.stackDetail || project.stackText}</p>
+                </div>
+                {project.sandboxInfo && (
+                  <div class="case-sandbox">
+                    <p class="case-sandbox-title">{project.sandboxInfo.title}</p>
+                    <p class="case-sandbox-text">{project.sandboxInfo.content}</p>
+                  </div>
+                )}
+              </div>
+            </details>
+
+            {(project.demoUrl || project.repoUrl) && (
+              <div class="project-actions">
+                {project.demoUrl && (
+                  <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" class="btn-action btn-demo">
+                    Demo
+                  </a>
+                )}
+                {project.repoUrl && (
+                  <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" class="btn-action btn-repo">
+                    Repository
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Reference to the 6 featured projects -->
+    <div class="featured-ref-box">
+      <h2>Featured Projects on Homepage</h2>
+      <p>You can also check out the flagship projects showcased on the main page:</p>
+      <div class="featured-pill-row">
+        {featuredProjectsEN.map((f) => (
+          <a href={`/en/proyectos/${f.slug}`} class="featured-pill">
+            <span>{f.title}</span>
+            <span>→</span>
+          </a>
+        ))}
+      </div>
+    </div>
   </div>
 </body>
 </html>

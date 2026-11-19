@@ -1,45 +1,59 @@
 ---
 import LanguagePicker from '../../components/LanguagePicker.astro';
 import ThemeToggle from '../../components/ThemeToggle.astro';
+import { featuredProjectsEN } from '../../data/projects';
 ---
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<meta name="viewport" content="width=device-width" />
-	<title>Carlos | SaaS & eCommerce Full Stack Specialist</title>
-	<meta name="description" content="Full Stack development consultant specialized in SaaS platforms and eCommerce. I optimize web applications to reduce user drop-off and increase business conversions. Available for freelance projects.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Carlos | Web & Mobile Developer — SaaS, E-Commerce & Backend</title>
+	<meta name="description" content="Carlos's portfolio: web and mobile application development, SaaS platforms, e-commerce storefronts, and backend systems built with modern architectures.">
+
+	<!-- Canonical & Alternates -->
+	<link rel="canonical" href="https://webcarlos.dev/en/" />
+	<link rel="alternate" hreflang="es" href="https://webcarlos.dev/" />
+	<link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/" />
+	<link rel="alternate" hreflang="x-default" href="https://webcarlos.dev/" />
+
+	<!-- Open Graph & Twitter -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://webcarlos.dev/en/" />
+	<meta property="og:title" content="Carlos | Web & Mobile Developer — SaaS, E-Commerce & Backend" />
+	<meta property="og:description" content="Carlos's portfolio: web and mobile application development, SaaS platforms, e-commerce storefronts, and backend systems built with modern architectures." />
+	<meta property="og:image" content="https://webcarlos.dev/images/og-preview.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Carlos | Web & Mobile Developer — SaaS, E-Commerce & Backend" />
+	<meta name="twitter:description" content="Carlos's portfolio: web and mobile application development, SaaS platforms, e-commerce storefronts, and backend systems built with modern architectures." />
+	<meta name="twitter:image" content="https://webcarlos.dev/images/og-preview.png" />
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 	<style>
 		:root {
-			--bg-color: #f8fafc;
-			--bg-card: #ffffff;
-			--text-main: #0f172a;
-			--text-muted: #475569;
-			--accent-primary: #2563eb;
-			--accent-secondary: #1d4ed8;
-			--border-color: #e2e8f0;
-			--browser-header-bg: #f1f5f9;
-			--credentials-bg: #f8fafc;
-			--credentials-border: #e2e8f0;
-			--credentials-text: #475569;
-			--credentials-title: #1e293b;
+			--bg-color: #FAFAFA;
+			--bg-card: #FFFFFF;
+			--text-main: #111111;
+			--text-muted: #666666;
+			--accent-primary: #3B82F6;
+			--accent-hover: #2563EB;
+			--border-color: #E5E5E5;
+			--card-hover-border: #D4D4D4;
 		}
 		[data-theme="dark"] {
-			--bg-color: #0f172a;
-			--bg-card: #1e293b;
-			--text-main: #f1f5f9;
-			--text-muted: #94a3b8;
-			--accent-primary: #3b82f6;
-			--accent-secondary: #2563eb;
-			--border-color: #334155;
-			--browser-header-bg: #1e293b;
-			--credentials-bg: #0f172a;
-			--credentials-border: #334155;
-			--credentials-text: #94a3b8;
-			--credentials-title: #f1f5f9;
+			--bg-color: #0A0A0A;
+			--bg-card: #141414;
+			--text-main: #EDEDED;
+			--text-muted: #888888;
+			--accent-primary: #3B82F6;
+			--accent-hover: #60A5FA;
+			--border-color: #222222;
+			--card-hover-border: #333333;
 		}
 		* {
 			box-sizing: border-box;
@@ -52,14 +66,20 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			padding: 0;
 			line-height: 1.6;
 			transition: background-color 0.3s ease, color 0.3s ease;
+			overflow-x: hidden;
 		}
 		.container {
-			max-width: 1000px;
+			max-width: 1060px;
 			margin: 0 auto;
-			padding: 0 2rem;
+			padding: 0 1.5rem;
 		}
 
-		/* Animaciones Globales */
+		h1, h2, h3, h4 {
+			font-family: 'Space Grotesk', system-ui, sans-serif;
+			letter-spacing: -0.02em;
+		}
+
+		/* Global Animations */
 		@keyframes slideUpFade {
 			from { opacity: 0; transform: translateY(20px); }
 			to { opacity: 1; transform: translateY(0); }
@@ -75,8 +95,8 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 
 		.animate-on-scroll {
 			opacity: 0;
-			transform: translateY(30px);
-			transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+			transform: translateY(24px);
+			transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 		}
 		.animate-on-scroll.show {
 			opacity: 1;
@@ -94,79 +114,126 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			color: var(--text-muted);
 			text-decoration: none;
 			font-weight: 600;
-			transition: color 0.3s;
+			font-size: 0.95rem;
+			transition: color 0.2s ease;
 		}
 		nav a:hover {
 			color: var(--accent-primary);
 		}
 
-		/* Secciones genéricas */
+		/* Sections */
 		section {
-			padding: 4rem 0;
+			padding: 4.5rem 0;
 			border-bottom: 1px solid var(--border-color);
 		}
 		section:last-of-type {
 			border-bottom: none;
 		}
 		h2 {
-			font-size: 2rem;
-			margin-bottom: 2rem;
+			font-size: 2.2rem;
+			margin-bottom: 2.2rem;
 			color: var(--text-main);
 			text-align: center;
 		}
 
 		/* Hero */
 		.hero {
-			padding: 5rem 0 3rem 0;
+			padding: 5rem 0 3.5rem 0;
 			text-align: center;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 		}
 		.hero h1 {
-			font-size: 4rem;
-			font-weight: 800;
+			font-size: 3.8rem;
+			font-weight: 700;
 			margin: 0 0 0.5rem 0;
 			color: var(--text-main);
-			line-height: 1.2;
+			line-height: 1.15;
 		}
 		.hero h3 {
-			font-size: 1.5rem;
-			font-weight: 400;
+			font-size: 1.4rem;
+			font-weight: 500;
 			color: var(--text-muted);
 			margin-top: 0;
 			margin-bottom: 1.5rem;
 		}
 		.hero p {
-			font-size: 1.1rem;
-			max-width: 700px;
+			font-size: 1.2rem;
+			max-width: 760px;
+			margin-bottom: 2rem;
 			color: var(--text-muted);
-			margin-bottom: 2.5rem;
+			line-height: 1.6;
+		}
+		.location {
+			font-size: 1rem;
+			color: var(--accent-primary);
+			font-weight: 600;
+		}
+		.status-badge {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			padding: 0.35rem 0.9rem;
+			border-radius: 9999px;
+			font-size: 0.85rem;
+			font-weight: 600;
+			color: var(--text-main);
+			margin-bottom: 1rem;
+		}
+		.status-dot {
+			width: 8px;
+			height: 8px;
+			background-color: #22c55e;
+			border-radius: 50%;
+			box-shadow: 0 0 8px #22c55e;
+		}
+		.niche-badge {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			background: rgba(59, 130, 246, 0.08);
+			color: var(--accent-primary);
+			padding: 0.35rem 0.9rem;
+			border-radius: 9999px;
+			font-size: 0.8rem;
+			font-weight: 700;
+			margin-bottom: 1.25rem;
+			border: 1px solid rgba(59, 130, 246, 0.25);
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
 		}
 		.hero-buttons {
 			display: flex;
-			justify-content: center;
 			gap: 1rem;
+			flex-wrap: wrap;
+			justify-content: center;
 		}
 		.btn {
-			display: inline-block;
-			padding: 0.75rem 1.5rem;
-			border-radius: 8px;
+			padding: 0.8rem 1.6rem;
+			border-radius: 10px;
 			text-decoration: none;
 			font-weight: 600;
-			transition: all 0.3s ease;
+			font-size: 0.95rem;
+			transition: all 0.2s ease;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
 		}
 		.btn-primary {
 			background: var(--accent-primary);
 			color: #ffffff;
+			border: 1px solid var(--accent-primary);
 		}
 		.btn-primary:hover {
-			background: var(--accent-secondary);
+			background: var(--accent-hover);
+			border-color: var(--accent-hover);
 			transform: translateY(-2px);
-			box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
 		}
 		.btn-secondary {
-			background: transparent;
+			background: var(--bg-card);
 			color: var(--text-main);
 			border: 1px solid var(--border-color);
 		}
@@ -176,117 +243,26 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			transform: translateY(-2px);
 		}
 
-		/* Hero Extras */
-		.status-badge {
-			display: inline-flex;
-			align-items: center;
-			gap: 0.5rem;
-			background: rgba(16, 185, 129, 0.1);
-			color: #10b981;
-			padding: 0.4rem 0.8rem;
-			border-radius: 9999px;
-			font-size: 0.85rem;
-			font-weight: 600;
-			margin-bottom: 1.5rem;
-			border: 1px solid rgba(16, 185, 129, 0.2);
-		}
-		.status-dot {
-			width: 8px;
-			height: 8px;
-			background-color: #10b981;
-			border-radius: 50%;
-			box-shadow: 0 0 8px #10b981;
-			animation: pulse 2s infinite;
-		}
-		@keyframes pulse {
-			0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-			70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-			100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-		}
-		.location {
-			font-size: 1.1rem;
-			color: var(--text-muted);
-			font-weight: 400;
-			margin-left: 0.5rem;
-		}
-
 		/* Stats Bar */
 		.stats-bar {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			gap: 2rem;
-			padding: 2rem 0;
-			margin-bottom: 2rem;
-			border-top: 1px solid var(--border-color);
-			border-bottom: 1px solid var(--border-color);
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			gap: 1rem;
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 14px;
+			padding: 1.25rem 1.5rem;
+			margin: 1.5rem 0 3rem 0;
+			text-align: center;
 		}
 		.stat-item {
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
-			color: var(--text-main);
+			font-size: 0.88rem;
 			font-weight: 600;
-			font-size: 0.95rem;
+			color: var(--text-muted);
+			padding: 0.4rem;
 		}
 
-		/* Sobre Mí */
-		.about {
-			max-width: 1000px;
-			margin: 0 auto;
-		}
-		.about-intro {
-			font-size: 1.15rem;
-			color: var(--text-muted);
-			max-width: 800px;
-			margin: 0 auto 3rem auto;
-			text-align: center;
-			line-height: 1.8;
-		}
-		.about-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-			gap: 2rem;
-			margin-bottom: 3rem;
-		}
-		.about-card {
-			background: var(--bg-card);
-			border: 1px solid var(--border-color);
-			border-radius: 12px;
-			padding: 2rem;
-			box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-		}
-		.about-card h3 {
-			margin-top: 0;
-			color: var(--text-main);
-			font-size: 1.15rem;
-			margin-bottom: 1rem;
-		}
-		.about-card p {
-			color: var(--text-muted);
-			font-size: 0.95rem;
-			margin-bottom: 0;
-		}
-		.about-highlights {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			gap: 2rem;
-			background: var(--bg-card);
-			border: 1px solid var(--border-color);
-			padding: 2rem;
-			border-radius: 12px;
-		}
-		.highlight-item {
-			display: flex;
-			align-items: center;
-			gap: 0.6rem;
-			color: var(--text-muted);
-			font-size: 0.95rem;
-			font-weight: 500;
-		}
-
-		/* Servicios */
+		/* What I Solve */
 		.services-grid {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -295,51 +271,93 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 		.service-card {
 			background: var(--bg-card);
 			border: 1px solid var(--border-color);
-			border-radius: 12px;
+			border-radius: 16px;
 			padding: 2rem;
-			box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-			transition: transform 0.3s ease;
+			transition: transform 0.3s ease, border-color 0.3s ease;
 		}
 		.service-card:hover {
 			transform: translateY(-3px);
-			box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+			border-color: var(--card-hover-border);
 		}
 		.service-card h3 {
+			font-size: 1.25rem;
 			margin-top: 0;
+			margin-bottom: 0.75rem;
 			color: var(--text-main);
-			font-size: 1.2rem;
-			margin-bottom: 0.5rem;
 		}
 		.service-card p {
 			color: var(--text-muted);
 			font-size: 0.95rem;
-			margin-bottom: 0;
+			line-height: 1.6;
+			margin: 0;
 		}
 
-		/* Stack Categories */
-		.stack-section {
-			text-align: left;
+		/* About Me */
+		.about-intro {
+			max-width: 800px;
+			margin: 0 auto 2.5rem auto;
+			text-align: center;
+			font-size: 1.1rem;
+			color: var(--text-muted);
+			line-height: 1.7;
 		}
+		.about-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 1.5rem;
+			margin-bottom: 2rem;
+		}
+		.about-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 14px;
+			padding: 1.75rem;
+		}
+		.about-card h3 {
+			margin-top: 0;
+			margin-bottom: 0.5rem;
+			font-size: 1.15rem;
+			color: var(--text-main);
+		}
+		.about-card p {
+			margin: 0;
+			color: var(--text-muted);
+			font-size: 0.92rem;
+			line-height: 1.6;
+		}
+		.about-highlights {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+			justify-content: center;
+		}
+		.highlight-item {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			padding: 0.5rem 1rem;
+			border-radius: 8px;
+			font-size: 0.85rem;
+			color: var(--text-muted);
+			font-weight: 500;
+		}
+
+		/* Stack */
 		.stack-container {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 			gap: 2rem;
 		}
 		.stack-category {
 			background: var(--bg-card);
 			border: 1px solid var(--border-color);
-			padding: 1.5rem;
-			border-radius: 12px;
-			box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+			border-radius: 16px;
+			padding: 1.75rem;
 		}
 		.stack-category h3 {
-			font-size: 1.1rem;
-			color: var(--text-main);
 			margin-top: 0;
-			margin-bottom: 1rem;
-			font-weight: 600;
-			border-bottom: 1px solid var(--border-color);
-			padding-bottom: 0.5rem;
+			margin-bottom: 1.25rem;
+			font-size: 1.15rem;
+			color: var(--text-main);
 		}
 		.stack-grid {
 			display: flex;
@@ -350,218 +368,294 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			background: var(--bg-color);
 			border: 1px solid var(--border-color);
 			padding: 0.4rem 0.8rem;
-			border-radius: 6px;
+			border-radius: 8px;
 			font-size: 0.85rem;
 			font-weight: 600;
 			color: var(--text-muted);
-			transition: all 0.3s ease;
-			display: flex;
-			align-items: center;
-			gap: 0.4rem;
-			cursor: default;
+			transition: all 0.2s ease;
 		}
 		.badge:hover {
 			border-color: var(--accent-primary);
 			color: var(--accent-primary);
-			background: var(--bg-card);
-			transform: translateY(-2px);
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+			transform: translateY(-1px);
 		}
 
-		/* Projects / Card UI Redesign */
+		/* Projects Grid & Cards */
 		.projects-grid {
 			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-			gap: 2.5rem;
+			grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+			gap: 2rem;
 		}
-		@media (max-width: 800px) {
+		@media (max-width: 768px) {
 			.projects-grid {
 				grid-template-columns: 1fr;
+				gap: 1.5rem;
 			}
 		}
 		.project-card {
 			background: var(--bg-card);
 			border: 1px solid var(--border-color);
-			border-radius: 16px;
-			transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+			border-radius: 20px;
+			padding: 1.25rem;
 			display: flex;
 			flex-direction: column;
+			transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 			position: relative;
-			overflow: hidden;
-			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 		}
-		.project-card::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 2px;
-			background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
-			opacity: 0;
-			transition: opacity 0.3s ease;
-			z-index: 2;
+		.project-card.is-featured {
+			border-color: rgba(59, 130, 246, 0.35);
+			box-shadow: 0 4px 20px rgba(59, 130, 246, 0.04);
 		}
 		.project-card:hover {
-			transform: translateY(-5px);
+			transform: translateY(-4px);
 			border-color: var(--accent-primary);
-			box-shadow: 0 16px 32px -8px rgba(37, 99, 235, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+			box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
 		}
-		.project-card:hover::before {
-			opacity: 1;
+		[data-theme="dark"] .project-card:hover {
+			box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
 		}
-		.browser-header {
-			background: var(--browser-header-bg);
-			padding: 0.8rem 1.1rem;
-			display: flex;
-			align-items: center;
-			gap: 0.45rem;
-			border-bottom: 1px solid var(--border-color);
-			transition: background-color 0.3s ease;
+		.project-image-link {
+			text-decoration: none;
+			display: block;
 		}
-		.dot {
-			width: 10px;
-			height: 10px;
-			border-radius: 50%;
-			transition: transform 0.2s ease;
+		.project-image-box {
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			border-radius: 16px;
+			overflow: hidden;
+			background: var(--bg-color);
+			border: 1px solid var(--border-color);
+			position: relative;
 		}
-		.project-card:hover .dot {
-			transform: scale(1.08);
+		.project-image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+			transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 		}
-		.dot-red { background: #ff5f56; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04); }
-		.dot-yellow { background: #ffbd2e; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04); }
-		.dot-green { background: #27c93f; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04); }
-		
-		.project-content {
-			padding: 1.6rem;
-			flex-grow: 1;
+		.project-card:hover .project-image {
+			transform: scale(1.04);
+		}
+		.project-info {
+			padding: 1.2rem 0.25rem 0.25rem 0.25rem;
 			display: flex;
 			flex-direction: column;
+			flex-grow: 1;
 		}
-		.project-category {
-			display: inline-flex;
-			align-items: center;
+		.project-badges {
+			display: flex;
+			flex-wrap: wrap;
 			gap: 0.4rem;
+			margin-bottom: 0.65rem;
+		}
+		.badge-tag {
+			font-size: 0.7rem;
+			font-weight: 700;
+			padding: 0.2rem 0.55rem;
+			border-radius: 6px;
+			letter-spacing: 0.03em;
+			text-transform: uppercase;
+		}
+		.badge-featured {
+			background: rgba(59, 130, 246, 0.12);
+			color: var(--accent-primary);
+			border: 1px solid rgba(59, 130, 246, 0.3);
+		}
+		.badge-personal {
+			background: rgba(168, 85, 247, 0.1);
+			color: #C084FC;
+			border: 1px solid rgba(168, 85, 247, 0.25);
+		}
+		[data-theme="light"] .badge-personal {
+			color: #7E22CE;
+			background: rgba(126, 34, 206, 0.08);
+			border-color: rgba(126, 34, 206, 0.2);
+		}
+		.badge-cat {
+			background: var(--bg-color);
+			color: var(--text-muted);
+			border: 1px solid var(--border-color);
+		}
+		.project-title-row {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 0.75rem;
+			margin-bottom: 0.45rem;
+		}
+		.project-title {
+			font-family: 'Space Grotesk', system-ui, sans-serif;
+			font-size: 1.25rem;
+			font-weight: 700;
+			color: var(--text-main);
+			margin: 0;
+			line-height: 1.3;
+			letter-spacing: -0.015em;
+		}
+		.project-title-link {
+			color: inherit;
+			text-decoration: none;
+			transition: color 0.2s ease;
+		}
+		.project-title-link:hover {
+			color: var(--accent-primary);
+		}
+		.project-arrow-link {
+			text-decoration: none;
+			color: inherit;
+		}
+		.project-arrow {
+			font-size: 1.3rem;
+			color: var(--text-muted);
+			line-height: 1;
+			transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+			display: inline-block;
+		}
+		.project-card:hover .project-arrow {
+			transform: translateX(4px);
+			color: var(--accent-primary);
+		}
+		.project-desc {
+			font-size: 0.92rem;
+			color: var(--text-muted);
+			margin: 0 0 0.5rem 0;
+			line-height: 1.5;
+		}
+		.project-stack {
+			font-size: 0.8rem;
+			color: var(--text-muted);
+			opacity: 0.85;
+			margin: 0.2rem 0 1rem 0;
+			line-height: 1.45;
+			font-weight: 400;
+			word-break: normal;
+			white-space: normal;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+		@media (max-width: 640px) {
+			.project-stack {
+				-webkit-line-clamp: 3;
+			}
+		}
+
+		/* Accordion View case */
+		.project-case-accordion {
+			margin: 0.25rem 0 1.25rem 0;
+			border: 1px solid var(--border-color);
+			border-radius: 12px;
+			background: var(--bg-color);
+			transition: border-color 0.2s ease;
+			overflow: hidden;
+		}
+		.project-case-accordion[open] {
+			border-color: var(--card-hover-border, #333333);
+		}
+		.accordion-summary {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0.65rem 0.9rem;
+			cursor: pointer;
+			list-style: none;
+			font-size: 0.85rem;
+			font-weight: 600;
+			color: var(--text-main);
+			user-select: none;
+			transition: color 0.2s ease;
+		}
+		.accordion-summary::-webkit-details-marker {
+			display: none;
+		}
+		.accordion-summary:hover {
+			color: var(--accent-primary);
+		}
+		.accordion-summary-icon {
+			font-size: 0.9rem;
+			transition: transform 0.25s ease;
+			color: var(--text-muted);
+		}
+		.project-case-accordion[open] .accordion-summary-icon {
+			transform: rotate(180deg);
+			color: var(--accent-primary);
+		}
+		.accordion-body {
+			padding: 0.75rem 0.9rem 1rem 0.9rem;
+			border-top: 1px solid var(--border-color);
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+			font-size: 0.84rem;
+			line-height: 1.55;
+		}
+		.case-heading {
 			font-size: 0.72rem;
-			font-weight: 750;
+			font-weight: 700;
 			text-transform: uppercase;
 			letter-spacing: 0.06em;
 			color: var(--accent-primary);
-			background: rgba(37, 99, 235, 0.08);
-			border: 1px solid rgba(37, 99, 235, 0.22);
-			padding: 0.25rem 0.75rem;
-			border-radius: 9999px;
-			margin-bottom: 0.75rem;
-			width: fit-content;
-			transition: all 0.2s ease;
+			margin: 0 0 0.25rem 0;
 		}
-		.project-category::before {
-			content: '';
-			width: 6px;
-			height: 6px;
-			border-radius: 50%;
-			background: var(--accent-primary);
-		}
-		.project-content h3 {
-			margin-top: 0;
-			color: var(--text-main);
-			font-size: 1.25rem;
-			font-weight: 750;
-			line-height: 1.35;
-			margin-bottom: 0.5rem;
-			letter-spacing: -0.015em;
-			transition: color 0.2s ease;
-		}
-		.project-card:hover .project-content h3 {
-			color: var(--accent-primary);
-		}
-		.project-content p {
+		.case-text {
+			margin: 0;
 			color: var(--text-muted);
-			font-size: 0.92rem;
-			line-height: 1.6;
-			margin-bottom: 0;
 		}
-		.project-tags {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 0.45rem;
-			margin-top: 0.75rem;
-			margin-bottom: 1.25rem;
+		.case-stack-text {
+			font-size: 0.82rem;
 		}
-		.tag {
-			font-size: 0.73rem;
-			padding: 0.22rem 0.65rem;
-			background: var(--bg-color);
-			color: var(--text-muted);
-			border-radius: 6px;
-			border: 1px solid var(--border-color);
-			font-weight: 600;
-			transition: all 0.2s ease;
+		.case-sandbox {
+			margin-top: 0.25rem;
+			padding: 0.65rem 0.75rem;
+			border-radius: 8px;
+			background: rgba(59, 130, 246, 0.06);
+			border: 1px solid rgba(59, 130, 246, 0.15);
 		}
-		.tag:hover {
-			border-color: var(--accent-primary);
+		.case-sandbox-title {
+			margin: 0 0 0.2rem 0;
+			font-size: 0.72rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
 			color: var(--text-main);
-			transform: translateY(-1px);
 		}
-		.project-links {
+		.case-sandbox-text {
+			margin: 0;
+			font-size: 0.78rem;
+			color: var(--text-muted);
+			line-height: 1.5;
+		}
+
+		/* Unified Action Buttons */
+		.project-actions {
 			display: flex;
 			gap: 0.75rem;
 			margin-top: auto;
-			padding-top: 1.35rem;
+			padding-top: 0.5rem;
 		}
-		.demo-credentials {
-			margin-top: 1rem;
-			padding: 0.85rem 1rem;
-			border-radius: 9px;
-			background-color: var(--credentials-bg);
-			border: 1px solid var(--credentials-border);
-			font-size: 0.76rem;
-			color: var(--credentials-text);
-			font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-			transition: all 0.3s ease;
-		}
-		.demo-credentials p {
-			margin: 0;
-			line-height: 1.6;
-		}
-		.demo-credentials-title {
-			font-weight: 750;
-			color: var(--credentials-title);
-			font-family: 'Inter', system-ui, sans-serif;
-			margin-bottom: 0.3rem !important;
-			text-transform: uppercase;
-			letter-spacing: 0.05em;
-			font-size: 0.72rem;
-		}
-		.demo-credentials code {
-			background: rgba(37, 99, 235, 0.1);
-			color: var(--accent-primary);
-			padding: 0.15rem 0.4rem;
-			border-radius: 4px;
-			font-size: 0.78rem;
-		}
-		.btn-small {
-			padding: 0.58rem 1rem;
-			font-size: 0.85rem;
-			border-radius: 8px;
-			text-decoration: none;
-			font-weight: 600;
-			transition: all 0.2s ease;
-			text-align: center;
+		.btn-action {
 			flex: 1;
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			gap: 0.4rem;
+			padding: 0.55rem 1rem;
+			font-size: 0.85rem;
+			font-weight: 600;
+			border-radius: 8px;
+			text-decoration: none;
+			transition: all 0.2s ease;
+			text-align: center;
 		}
 		.btn-demo {
 			background: var(--accent-primary);
-			color: #ffffff;
-			box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+			color: #FFFFFF;
+			border: 1px solid var(--accent-primary);
 		}
 		.btn-demo:hover {
-			background: var(--accent-secondary);
-			box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+			background: var(--accent-hover);
+			border-color: var(--accent-hover);
 			transform: translateY(-1px);
 		}
 		.btn-repo {
@@ -572,214 +666,27 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 		.btn-repo:hover {
 			border-color: var(--accent-primary);
 			color: var(--accent-primary);
-			background: var(--bg-color);
 			transform: translateY(-1px);
 		}
-
-		/* ROI Metrics */
-		.roi-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-			gap: 1.5rem;
-			margin-top: 2.5rem;
-		}
-		.roi-card {
-			background: var(--bg-card);
-			border: 1px solid var(--border-color);
-			border-radius: 12px;
-			padding: 1.5rem;
-			text-align: center;
-			transition: all 0.3s ease;
-		}
-		.roi-card:hover {
-			transform: translateY(-4px);
-			border-color: var(--accent-primary);
-			box-shadow: 0 8px 20px rgba(37,99,235,0.1);
-		}
-		.roi-number {
-			font-size: 2.5rem;
-			font-weight: 800;
-			color: var(--accent-primary);
-			line-height: 1;
-			margin-bottom: 0.5rem;
-		}
-		.roi-label {
-			font-size: 0.9rem;
-			color: var(--text-muted);
-			font-weight: 500;
-		}
-
-		/* Niche Badge */
-		.niche-badge {
-			display: inline-flex;
-			align-items: center;
-			gap: 0.5rem;
-			background: rgba(37, 99, 235, 0.08);
-			color: var(--accent-primary);
-			padding: 0.4rem 1rem;
-			border-radius: 9999px;
-			font-size: 0.85rem;
-			font-weight: 700;
-			margin-bottom: 1rem;
-			border: 1px solid rgba(37, 99, 235, 0.25);
-			letter-spacing: 0.03em;
-			text-transform: uppercase;
-		}
-
-		/* Case Study inside project card - Semantic Indicators Redesign */
-		.case-study {
-			margin-top: 1.25rem;
+		.more-projects-wrapper {
 			display: flex;
-			flex-direction: column;
-			gap: 0.65rem;
-			background: transparent;
-			border: none;
-			padding: 0;
-		}
-		.case-study-row {
-			display: flex;
-			flex-direction: column;
-			gap: 0.25rem;
-			padding: 0.75rem 0.95rem;
-			border-radius: 9px;
-			border: 1px solid var(--border-color);
-			font-size: 0.85rem;
-			line-height: 1.55;
-			transition: all 0.2s ease;
-		}
-		/* Fila 1: Problema / Problem (Semántica Roja / Alerta) */
-		.case-study-row:nth-child(1) {
-			background: rgba(239, 68, 68, 0.04);
-			border-left: 3.5px solid #ef4444;
-			border-color: rgba(239, 68, 68, 0.18) var(--border-color) var(--border-color) #ef4444;
-		}
-		.case-study-row:nth-child(1) .case-label {
-			color: #dc2626;
-		}
-		[data-theme="dark"] .case-study-row:nth-child(1) {
-			background: rgba(239, 68, 68, 0.08);
-			border-color: rgba(239, 68, 68, 0.25) var(--border-color) var(--border-color) #ef4444;
-		}
-		[data-theme="dark"] .case-study-row:nth-child(1) .case-label {
-			color: #f87171;
-		}
-
-		/* Fila 2: Solución / Solution (Semántica Verde / Éxito) */
-		.case-study-row:nth-child(2) {
-			background: rgba(16, 185, 129, 0.04);
-			border-left: 3.5px solid #10b981;
-			border-color: rgba(16, 185, 129, 0.18) var(--border-color) var(--border-color) #10b981;
-		}
-		.case-study-row:nth-child(2) .case-label {
-			color: #059669;
-		}
-		[data-theme="dark"] .case-study-row:nth-child(2) {
-			background: rgba(16, 185, 129, 0.08);
-			border-color: rgba(16, 185, 129, 0.25) var(--border-color) var(--border-color) #10b981;
-		}
-		[data-theme="dark"] .case-study-row:nth-child(2) .case-label {
-			color: #34d399;
-		}
-
-		/* Fila 3: Stack (Semántica Azul / Tech) */
-		.case-study-row:nth-child(3) {
-			background: rgba(37, 99, 235, 0.04);
-			border-left: 3.5px solid var(--accent-primary);
-			border-color: rgba(37, 99, 235, 0.18) var(--border-color) var(--border-color) var(--accent-primary);
-		}
-		.case-study-row:nth-child(3) .case-label {
-			color: var(--accent-primary);
-		}
-		[data-theme="dark"] .case-study-row:nth-child(3) {
-			background: rgba(59, 130, 246, 0.08);
-			border-color: rgba(59, 130, 246, 0.25) var(--border-color) var(--border-color) var(--accent-primary);
-		}
-		[data-theme="dark"] .case-study-row:nth-child(3) .case-label {
-			color: #60a5fa;
-		}
-
-		.case-label {
-			font-weight: 750;
-			font-size: 0.74rem;
-			text-transform: uppercase;
-			letter-spacing: 0.05em;
-		}
-		.case-text {
-			color: var(--text-muted);
-			line-height: 1.55;
-		}
-
-		/* Testimonials */
-		.testimonials-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-			gap: 2rem;
-		}
-		.testimonial-card {
-			background: var(--bg-card);
-			border: 1px solid var(--border-color);
-			border-radius: 12px;
-			padding: 2rem;
-			box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-			position: relative;
-			transition: transform 0.3s ease;
-		}
-		.testimonial-card:hover {
-			transform: translateY(-3px);
-			box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-		}
-		.quote-icon {
-			font-size: 3rem;
-			line-height: 1;
-			color: var(--accent-primary);
-			opacity: 0.2;
-			position: absolute;
-			top: 1rem;
-			right: 1.5rem;
-			font-family: Georgia, serif;
-		}
-		.testimonial-text {
-			color: var(--text-muted);
-			font-size: 0.95rem;
-			line-height: 1.7;
-			margin: 0 0 1.5rem 0;
-			font-style: italic;
-		}
-		.testimonial-stars {
-			color: #f59e0b;
-			font-size: 0.9rem;
-			margin-bottom: 1rem;
-			letter-spacing: 2px;
-		}
-		.testimonial-author {
-			display: flex;
-			align-items: center;
-			gap: 0.75rem;
-		}
-		.author-avatar {
-			width: 42px;
-			height: 42px;
-			border-radius: 50%;
-			background: linear-gradient(135deg, var(--accent-primary), #8b5cf6);
-			display: flex;
-			align-items: center;
 			justify-content: center;
-			color: white;
-			font-weight: 700;
+			margin-top: 3rem;
+		}
+		.btn-more-projects {
+			padding: 0.85rem 2.2rem;
 			font-size: 1rem;
-			flex-shrink: 0;
+			font-weight: 600;
+			border-radius: 12px;
+			transition: all 0.25s ease;
 		}
-		.author-info strong {
-			display: block;
-			color: var(--text-main);
-			font-size: 0.95rem;
-		}
-		.author-info span {
-			color: var(--text-muted);
-			font-size: 0.8rem;
+		.btn-more-projects:hover {
+			border-color: var(--accent-primary);
+			color: var(--accent-primary);
+			transform: translateY(-2px);
 		}
 
-		/* Why Hire Me */
+		/* Why Work With Me */
 		.why-hire-grid {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -789,9 +696,8 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 		.why-card {
 			background: var(--bg-card);
 			border: 1px solid var(--border-color);
-			border-radius: 12px;
-			padding: 1.5rem;
-			text-align: center;
+			border-radius: 14px;
+			padding: 1.75rem;
 			transition: all 0.3s ease;
 		}
 		.why-card:hover {
@@ -800,13 +706,14 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 		}
 		.why-card h3 {
 			margin: 0 0 0.5rem 0;
-			font-size: 1rem;
+			font-size: 1.1rem;
 			color: var(--text-main);
 		}
 		.why-card p {
 			margin: 0;
-			font-size: 0.875rem;
+			font-size: 0.9rem;
 			color: var(--text-muted);
+			line-height: 1.6;
 		}
 
 		/* Contact */
@@ -820,14 +727,14 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 		@media (max-width: 768px) {
 			.contact-container {
 				grid-template-columns: 1fr;
+				gap: 2rem;
 			}
 		}
 		.contact-form {
 			background: var(--bg-card);
 			padding: 2.5rem;
-			border-radius: 12px;
+			border-radius: 14px;
 			border: 1px solid var(--border-color);
-			box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 		}
 		.form-group {
 			margin-bottom: 1.5rem;
@@ -847,8 +754,8 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			background: var(--bg-color);
 			color: var(--text-main);
 			font-family: inherit;
-			font-size: 1rem;
-			transition: border-color 0.3s;
+			font-size: 0.95rem;
+			transition: border-color 0.2s ease;
 		}
 		.form-control:focus {
 			outline: none;
@@ -862,7 +769,6 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			width: 100%;
 			border: none;
 			cursor: pointer;
-			text-align: center;
 		}
 		.contact-info {
 			display: flex;
@@ -870,47 +776,45 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			justify-content: center;
 		}
 		.contact-info h3 {
+			font-size: 1.5rem;
 			margin-top: 0;
-			color: var(--text-main);
-			font-size: 1.8rem;
 			margin-bottom: 1rem;
+			color: var(--text-main);
 		}
 		.contact-info p {
 			color: var(--text-muted);
-			font-size: 1.1rem;
-			margin-bottom: 2rem;
+			margin-bottom: 1.5rem;
+			line-height: 1.6;
 		}
 		.direct-email {
-			font-size: 1.5rem;
-			font-weight: 800;
+			font-size: 1.2rem;
 			color: var(--accent-primary);
 			text-decoration: none;
+			font-weight: 600;
 			margin-bottom: 2rem;
 			display: inline-block;
-			transition: color 0.3s;
+			transition: color 0.2s ease;
 		}
 		.direct-email:hover {
-			color: var(--accent-secondary);
+			text-decoration: underline;
 		}
 		.prof-links {
 			display: flex;
 			gap: 1rem;
 		}
 		.prof-link {
-			display: inline-flex;
-			align-items: center;
-			gap: 0.5rem;
-			color: var(--text-main);
-			text-decoration: none;
-			font-weight: 600;
 			padding: 0.5rem 1rem;
 			border: 1px solid var(--border-color);
 			border-radius: 8px;
-			transition: all 0.3s;
+			color: var(--text-muted);
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 0.85rem;
+			transition: all 0.2s ease;
 		}
 		.prof-link:hover {
-			border-color: var(--text-main);
-			background: var(--bg-card);
+			border-color: var(--accent-primary);
+			color: var(--accent-primary);
 		}
 
 		/* Footer */
@@ -918,19 +822,20 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			padding: 3rem 0;
 			text-align: center;
 			border-top: 1px solid var(--border-color);
-			margin-top: 4rem;
+			margin-top: 3rem;
 		}
 		.social-links {
 			display: flex;
 			justify-content: center;
 			gap: 1.5rem;
-			margin-bottom: 1.5rem;
+			margin-bottom: 1.25rem;
 		}
 		.social-links a {
 			color: var(--text-muted);
 			text-decoration: none;
-			font-weight: 600;
-			transition: color 0.3s;
+			font-size: 0.95rem;
+			font-weight: 500;
+			transition: color 0.2s ease;
 		}
 		.social-links a:hover {
 			color: var(--accent-primary);
@@ -948,8 +853,7 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 	<div class="container">
 		<nav>
 			<a href="#about">About</a>
-			<a href="#projects">Case Studies</a>
-			<a href="#testimonials">Testimonials</a>
+			<a href="#projects">Projects</a>
 			<a href="#contact">Contact</a>
 		</nav>
 
@@ -959,548 +863,219 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 				<span class="status-dot"></span>
 				Available for freelance projects
 			</div>
-			<div class="niche-badge hero-anim delay-1">SaaS & eCommerce Specialist</div>
+			<div class="niche-badge hero-anim delay-1">SaaS · E-Commerce · Backend</div>
 			<h1 class="hero-anim delay-2">Carlos</h1>
-			<h3 class="hero-anim delay-2">Full Stack Consultant for SaaS Platforms &amp; eCommerce Apps <span class="location">| 🌎 GMT-6</span></h3>
-			<p class="hero-anim delay-3">I optimize web and mobile applications to <strong>reduce user drop-off</strong> and <strong>increase your business conversions</strong>. I turn complex ideas into scalable platforms that deliver measurable results.</p>
+			<h3 class="hero-anim delay-2">Full Stack Developer &amp; Web Consultant <span class="location">| 🌎 GMT-6</span></h3>
+			<p class="hero-anim delay-3">I build web and mobile applications to solve real operations: SaaS, AI automation, e-commerce, and backend systems.</p>
 			<div class="hero-buttons hero-anim delay-4">
-				<a href="#projects" class="btn btn-primary">View Case Studies</a>
-				<a href="mailto:cm7887575@gmail.com" class="btn btn-secondary">Let's Talk About Your Project</a>
+				<a href="#projects" class="btn btn-primary">View Projects</a>
+				<a href="mailto:cm7887575@gmail.com" class="btn btn-secondary">Let's Discuss Your Project</a>
 			</div>
 		</section>
 
-		<!-- Stats Bar / ROI Metrics -->
+		<!-- Stats Bar / Verifiable Data -->
 		<div class="stats-bar animate-on-scroll">
-			<div class="stat-item">100% Performance & SEO (Lighthouse)</div>
-			<div class="stat-item">Apps focused on conversions & retention</div>
-			<div class="stat-item">CI/CD — Frictionless continuous delivery</div>
-			<div class="stat-item">Niche: SaaS & eCommerce</div>
+			<div class="stat-item">15 selected projects</div>
+			<div class="stat-item">Core stack: TypeScript · React · Node.js · Shopify · Python</div>
+			<div class="stat-item">Clean architecture &amp; continuous delivery</div>
+			<div class="stat-item">Focus: SaaS, E-Commerce &amp; Automation</div>
 		</div>
 
-		<!-- What I Solve + ROI -->
+		<!-- What I Solve -->
 		<section class="services animate-on-scroll" id="services">
 			<h2>What I Solve</h2>
 			<div class="services-grid">
 				<div class="service-card">
-					<h3>SaaS Conversion Optimization</h3>
-					<p>I reduce churn on SaaS platforms with strategic UX, optimized onboarding, and top-tier technical performance.</p>
+					<h3>Web Development &amp; SaaS Platforms</h3>
+					<p>Building interactive web applications with modern architectures (Astro, React, TypeScript, Fastify), emphasizing clean code, modularity, and maintainability.</p>
 				</div>
 				<div class="service-card">
-					<h3>eCommerce Apps That Convert</h3>
-					<p>I build online stores and mobile commerce apps that minimize checkout friction and maximize average order value.</p>
+					<h3>Custom E-Commerce &amp; Storefronts</h3>
+					<p>Development and customization of online storefronts with Shopify (Liquid, Storefront API) and WooCommerce, implementing complex variants, dynamic carts, and payment integrations.</p>
 				</div>
 				<div class="service-card">
-					<h3>Scalable Backend & Automation</h3>
-					<p>Secure API architecture, optimized relational databases and CI/CD pipelines so your business scales without bottlenecks.</p>
-				</div>
-			</div>
-			<div class="roi-grid">
-				<div class="roi-card">
-					<div class="roi-number">+40%</div>
-					<div class="roi-label">Average improvement in load speed</div>
-				</div>
-				<div class="roi-card">
-					<div class="roi-number">-30%</div>
-					<div class="roi-label">Reduction in bounce rate</div>
-				</div>
-				<div class="roi-card">
-					<div class="roi-number">100</div>
-					<div class="roi-label">Lighthouse Score (Perf. & SEO)</div>
-				</div>
-				<div class="roi-card">
-					<div class="roi-number">4+</div>
-					<div class="roi-label">SaaS/eCommerce projects delivered</div>
+					<h3>Backend, Automation &amp; APIs</h3>
+					<p>Designing transactional REST endpoints, structured databases (PostgreSQL, MySQL, SQLite, MongoDB), AI model integrations with Gemini API, and resilient data synchronization pipelines.</p>
 				</div>
 			</div>
 		</section>
 
 		<!-- About Me -->
 		<section class="about animate-on-scroll" id="about">
-			<h2>About me</h2>
-			
-			<p class="about-intro">I am a software developer focused on building scalable, fast, and results-oriented web and mobile applications. My work ranges from designing modern and optimized interfaces to database architecture, REST API integration, and cloud services with Supabase.</p>
+			<h2>About Me</h2>
+			<p class="about-intro">I am a software developer focused on building scalable, fast, and results-oriented web and mobile applications. My work spans modern interface engineering, database architecture, REST API integrations, and cloud services with Supabase.</p>
 			
 			<div class="about-grid">
 				<div class="about-card">
-					<h3>Web Development & Performance</h3>
-					<p>Creation of web applications with modern architectures (Astro, React, TypeScript), prioritizing loading speed, technical SEO, and clean code.</p>
+					<h3>Web Development &amp; Performance</h3>
+					<p>Engineering modern web applications (Astro, React, TypeScript), prioritizing fast page loads, technical SEO, and clean codebases.</p>
 				</div>
 				<div class="about-card">
-					<h3>Backend, APIs & Cloud</h3>
-					<p>Design of relational databases (PostgreSQL, MySQL), secure REST endpoints, and real-time data synchronization.</p>
+					<h3>Backend, APIs &amp; Cloud</h3>
+					<p>Designing relational schemas (PostgreSQL, MySQL), secure REST endpoints, and real-time data synchronization.</p>
 				</div>
 				<div class="about-card">
-					<h3>Mobile Apps & Automation</h3>
-					<p>Development of functional applications with secure authentication and integration of AI models (processing APIs) to solve practical cases.</p>
+					<h3>Mobile Apps &amp; Automation</h3>
+					<p>Developing functional mobile apps with secure authentication and integrating AI APIs to solve tangible operational bottlenecks.</p>
 				</div>
 			</div>
 
 			<div class="about-highlights">
-				<div class="highlight-item">Location / Modality: Remote (GMT-6)</div>
-				<div class="highlight-item">Availability: Freelance projects and custom development</div>
-				<div class="highlight-item">Philosophy: Performance, accessibility, and automated deployments (CI/CD)</div>
+				<div class="highlight-item">Location / Mode: Remote (GMT-6)</div>
+				<div class="highlight-item">Availability: Freelance projects &amp; custom software development</div>
+				<div class="highlight-item">Focus: Performance, accessibility, and automated CI/CD deployments</div>
 			</div>
 		</section>
 
 		<!-- Stack / Skills -->
 		<section class="stack-section animate-on-scroll" id="stack">
-			<h2>Stack & Skills</h2>
+			<h2>Stack &amp; Skills</h2>
 			<div class="stack-container">
 				<div class="stack-category">
 					<h3>Frontend</h3>
 					<div class="stack-grid">
 						<div class="badge">Astro</div>
 						<div class="badge">React</div>
-						<div class="badge">Svelte / SvelteKit</div>
-						<div class="badge">Tailwind CSS</div>
 						<div class="badge">TypeScript</div>
+						<div class="badge">Tailwind CSS</div>
+						<div class="badge">HTML5 / CSS3</div>
 					</div>
 				</div>
 
 				<div class="stack-category">
-					<h3>Backend & APIs</h3>
+					<h3>Backend &amp; APIs</h3>
 					<div class="stack-grid">
 						<div class="badge">Node.js</div>
+						<div class="badge">Fastify / Express</div>
+						<div class="badge">Python</div>
 						<div class="badge">REST APIs</div>
-						<div class="badge">PHP</div>
+						<div class="badge">WebSockets</div>
 					</div>
 				</div>
 
 				<div class="stack-category">
-					<h3>Databases & Cloud</h3>
+					<h3>Databases &amp; E-Commerce</h3>
 					<div class="stack-grid">
 						<div class="badge">PostgreSQL</div>
 						<div class="badge">MySQL</div>
+						<div class="badge">SQLite</div>
+						<div class="badge">MongoDB</div>
+						<div class="badge">Shopify Liquid</div>
 						<div class="badge">Supabase</div>
-						<div class="badge">Vercel</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Case Studies -->
+		<!-- Projects -->
 		<section class="projects animate-on-scroll" id="projects">
-			<h2>Case Studies</h2>
+			<h2>Projects</h2>
 			<div class="projects-grid">
-				<div class="project-card">
-					<div class="browser-header">
-						<div class="dot dot-red"></div>
-						<div class="dot dot-yellow"></div>
-						<div class="dot dot-green"></div>
-					</div>
-					<div class="project-content">
-						<span class="project-category">Full-Stack SaaS & Security QA</span>
-						<h3>PharmaPro — Enterprise Pharmacy POS & Inventory System (PWA)</h3>
-						<div class="project-tags">
-							<span class="tag">React</span>
-							<span class="tag">TypeScript</span>
-							<span class="tag">Node.js</span>
-							<span class="tag">Express</span>
-							<span class="tag">MySQL</span>
-							<span class="tag">Tailwind CSS</span>
-							<span class="tag">PWA</span>
-						</div>
-						<p>Progressive Web App (PWA) for multi-branch pharmacy operations featuring a fast barcode-ready Point of Sale, thermal receipt generation, automated 90-day expiration alerts, and strict Role-Based Access Control (RBAC) with immutable audit trails.</p>
-						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Financial losses from expired medication, cash register discrepancies, and lack of inventory traceability across multiple branches.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Comprehensive POS/Inventory system with 90-day expiration alerts, blind cash register reconciliations, inter-branch shipment validation, and immutable audit logs.</span></div>
-							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">React, TypeScript, Node.js, Express, MySQL, Tailwind CSS, PWA.</span></div>
-						</div>
-						<div class="project-links" style="margin-top:auto; padding-top:1.25rem;">
-							<a href="https://github.com/carlos2024r3223rw/Aplicacion-Web-Farmacia#screenshots" target="_blank" class="btn-small btn-demo">View Screenshots →</a>
-							<a href="https://github.com/carlos2024r3223rw/Aplicacion-Web-Farmacia" target="_blank" class="btn-small btn-repo">Repository →</a>
-						</div>
-						<div class="demo-credentials">
-							<p class="demo-credentials-title">Architecture & Security:</p>
-							<p>Transactional REST API • Role-Based Access Control (RBAC) • Immutable Audit Trail</p>
-						</div>
-					</div>
-				</div>
-				<div class="project-card">
-					<div class="browser-header">
-						<div class="dot dot-red"></div>
-						<div class="dot dot-yellow"></div>
-						<div class="dot dot-green"></div>
-					</div>
-					<div class="project-content">
-						<span class="project-category">Backend Microservice & Idempotency</span>
-						<h3>Back-in-Stock Alerts — Resilient Restock Notification Service</h3>
-						<div class="project-tags">
-							<span class="tag">Node.js 22</span>
-							<span class="tag">SQLite (WAL)</span>
-							<span class="tag">Webhooks</span>
-							<span class="tag">Idempotency</span>
-							<span class="tag">Docker</span>
-							<span class="tag">Resend API</span>
-						</div>
-						<p>Reliability-focused Node.js microservice for eCommerce restock alerts, built with native modules and no third-party runtime packages. It handles webhook retries and duplicate events with idempotency, verifies stock before sending notifications, and uses atomic state transitions.</p>
-						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Lost sales from out-of-stock items, duplicate notification blasts from webhook delivery retries, and unverified inventory claims.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Reliability-focused architecture with idempotent webhook handling, partial unique indexes, atomic state claiming (open → processing → notified), pre-notification stock API verification, and deterministic Resend idempotency keys.</span></div>
-							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">Node.js 22 (node:http, node:sqlite, node:crypto), SQLite WAL, Docker, Resend API.</span></div>
-						</div>
-						<div class="project-links" style="margin-top:auto; padding-top:1.25rem;">
-							<a href="https://github.com/carlos2024r3223rw/back-in-stock-alerts" target="_blank" class="btn-small btn-repo">GitHub Repository →</a>
-						</div>
-						<div class="demo-credentials">
-							<p class="demo-credentials-title">Architecture & Resilience:</p>
-							<p>Strict webhook idempotency • Atomic state transitions</p>
-						</div>
-					</div>
-				</div>
-				<div class="project-card">
-					<div class="browser-header">
-						<div class="dot dot-red"></div>
-						<div class="dot dot-yellow"></div>
-						<div class="dot dot-green"></div>
-					</div>
-					<div class="project-content">
-						<h3>MediSaaS</h3>
-						<div class="project-tags">
-							<span class="tag">React Web</span>
-							<span class="tag">Firebase</span>
-							<span class="tag">Firestore</span>
-							<span class="tag">SaaS</span>
-						</div>
-						<p>SaaS platform for managing clinical records and workflow for independent medical practices.</p>
-						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Medical offices managed patient records on paper, causing time loss and registration errors.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">SaaS app with digital records, role-based authentication, and real-time metrics dashboard.</span></div>
-							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">React, Firebase Auth, Firestore, Hosting.</span></div>
-						</div>
-						<div class="project-links" style="margin-top:1rem;">
-							<a href="https://carlos2024r3223rw.github.io/MediSaaS/" target="_blank" class="btn-small btn-demo">Live Demo</a>
-							<a href="https://github.com/carlos2024r3223rw/MediSaaS" target="_blank" class="btn-small btn-repo">Repository</a>
-						</div>
-						<div class="demo-credentials">
-							<p class="demo-credentials-title">Demo Access:</p>
-							<p> <b>Email:</b> carlo@gmail.com</p>
-							<p> <b>Password:</b> <code>123456</code></p>
-						</div>
-					</div>
-				</div>
-				<div class="project-card">
-					<div class="browser-header">
-						<div class="dot dot-red"></div>
-						<div class="dot dot-yellow"></div>
-						<div class="dot dot-green"></div>
-					</div>
-					<div class="project-content">
-						<h3>Aurelia Landing Page</h3>
-						<div class="project-tags">
-							<span class="tag">HTML5</span>
-							<span class="tag">CSS3</span>
-							<span class="tag">JavaScript</span>
-							<span class="tag">Conversions</span>
-						</div>
-						<p>High-conversion landing page for a luxury brand, designed to capture qualified leads.</p>
-						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">The brand had no online presence and was losing potential clients to competitors with stronger digital identities.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Responsive landing with premium animations, optimized CTAs, and an architecture focused on SEO and conversion.</span></div>
-							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">HTML5, CSS3 (animations), vanilla JavaScript.</span></div>
-						</div>
-						<div class="project-links" style="margin-top:1rem;">
-							<a href="https://carlos2024r3223rw.github.io/aurelia-landing-page/" target="_blank" class="btn-small btn-demo">Live Demo</a>
-							<a href="https://github.com/carlos2024r3223rw/aurelia-landing-page" target="_blank" class="btn-small btn-repo">Repository</a>
-						</div>
-					</div>
-				</div>
-				<div class="project-card">
-					<div class="browser-header">
-						<div class="dot dot-red"></div>
-						<div class="dot dot-yellow"></div>
-						<div class="dot dot-green"></div>
-					</div>
-					<div class="project-content">
-						<h3>WeatherSphere Dashboard</h3>
-						<div class="project-tags">
-							<span class="tag">JavaScript</span>
-							<span class="tag">REST APIs</span>
-							<span class="tag">Async/Await</span>
-						</div>
-						<p>Real-time weather monitoring dashboard with automatic geolocation and zero dependencies.</p>
-						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Needed to demonstrate real-time external API integration with an intuitive UI and no heavy dependencies.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Dashboard that auto-detects location, consumes a weather API, and presents data with clear visualizations.</span></div>
-							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">JavaScript ES6+, Fetch API, Geolocation API, CSS Grid.</span></div>
-						</div>
-						<div class="project-links" style="margin-top:1rem;">
-							<a href="https://carlos2024r3223rw.github.io/weathersphere-dashboard/" target="_blank" class="btn-small btn-demo">Live Demo</a>
-							<a href="https://github.com/carlos2024r3223rw/weathersphere-dashboard" target="_blank" class="btn-small btn-repo">Repository</a>
-						</div>
-					</div>
-				</div>
-				<div class="project-card">
-					<div class="browser-header">
-						<div class="dot dot-red"></div>
-						<div class="dot dot-yellow"></div>
-						<div class="dot dot-green"></div>
-					</div>
-					<div class="project-content">
-						<h3>Atelier Nova E-Commerce</h3>
-						<div class="project-tags">
-							<span class="tag">WordPress</span>
-							<span class="tag">WooCommerce</span>
-							<span class="tag">Bilingual EN/ES</span>
-							<span class="tag">E-Commerce</span>
-						</div>
-						<p>Minimalist online fashion and accessories store with a dynamic catalog, bilingual support, and a complete checkout flow.</p>
-						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">The brand needed to scale digital sales with its own online store capable of managing inventory, payments, and international customers without relying on third parties.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Responsive e-commerce platform built with WordPress and WooCommerce, featuring catalog browsing by category, detailed product views, integrated payment gateways, and bilingual Spanish/English support.</span></div>
-							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">WordPress, WooCommerce, PHP, MySQL, CSS3.</span></div>
-						</div>
-						<div class="project-links" style="margin-top:1rem;">
-							<a href="https://ateliernova.webcarlos.dev" target="_blank" class="btn-small btn-demo">Live Demo</a>
-							<a href="https://github.com/carlos2024r3223rw/atelier-nova-woocommerce" target="_blank" class="btn-small btn-repo">Repository</a>
-						</div>
-					</div>
-				</div>
-				<div class="project-card">
-					<div class="browser-header">
-						<div class="dot dot-red"></div>
-						<div class="dot dot-yellow"></div>
-						<div class="dot dot-green"></div>
-					</div>
-					<div class="project-content">
-						<h3>Multilingual WP Landing</h3>
-						<div class="project-tags">
-							<span class="tag">WordPress</span>
-							<span class="tag">PHP</span>
-							<span class="tag">Multilingual EN/ES/FR</span>
-							<span class="tag">Custom Theme</span>
-						</div>
-						<p>Multilingual landing page developed as a custom WordPress theme for international conversion, built without heavy visual page builders.</p>
-						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Multipurpose themes and visual builders often hurt page load speed and complicate clean multilingual content management for high-conversion campaigns.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Custom WordPress theme with a lightweight architecture, instant language switching between Spanish, English, and French, responsive design, and SEO- and accessibility-optimized structure.</span></div>
-							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">WordPress, PHP, JavaScript ES6+, CSS3, Custom Theme.</span></div>
-						</div>
-						<div class="project-links" style="margin-top:1rem;">
-							<a href="https://multilinguallanding.webcarlos.dev" target="_blank" class="btn-small btn-demo">Live Demo</a>
-							<a href="https://github.com/carlos2024r3223rw/multilingual-wp-landing" target="_blank" class="btn-small btn-repo">Repository</a>
-						</div>
-					</div>
-				</div>
-				<div class="project-card">
-					<div class="browser-header">
-						<div class="dot dot-red"></div>
-						<div class="dot dot-yellow"></div>
-						<div class="dot dot-green"></div>
-					</div>
-					<div class="project-content">
-						<h3>QA Playwright Suite</h3>
-						<div class="project-tags">
-							<span class="tag">JavaScript</span>
-							<span class="tag">Playwright</span>
-							<span class="tag">QA Automation</span>
-							<span class="tag">Page Object Model</span>
-							<span class="tag">E2E Testing</span>
-						</div>
-						<p>End-to-end automated test suite built with Playwright and JavaScript using Page Object Model (POM) architecture, validating authentication, checkout, and form flows with visual reports and automated traces.</p>
-						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Slow, error-prone manual testing across critical workflows like authentication and checkout, lacking visual traceability during failures.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Modular E2E testing framework using Page Object Model (POM), resilient assertions, parallel test runs, and interactive HTML reports with automated traces and snapshots.</span></div>
-							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">JavaScript, Playwright, QA Automation, Page Object Model (POM), HTML Reporter.</span></div>
-						</div>
-						<div class="project-links" style="margin-top:1rem;">
-							<a href="https://github.com/carlos2024r3223rw/qa-playwright-suite" target="_blank" class="btn-small btn-repo">Repository</a>
-						</div>
-					</div>
-				</div>
-				<div class="project-card">
-					<div class="browser-header">
-						<div class="dot dot-red"></div>
-						<div class="dot dot-yellow"></div>
-						<div class="dot dot-green"></div>
-					</div>
-					<div class="project-content">
-						<h3>Volcán Roasters</h3>
-						<div class="project-tags">
-							<span class="tag">Shopify</span>
-							<span class="tag">Liquid</span>
-							<span class="tag">E-Commerce</span>
-							<span class="tag">UX/UI</span>
-						</div>
-						<p>D2C e-commerce store for a Salvadoran specialty coffee brand featuring a custom catalog and complete checkout flow.</p>
-						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Artisanal coffee brands needed to sell directly to consumers with custom grind and weight selection without relying on generic templates.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Custom storefront with dynamic variants (weight and grind size), origin editorial product pages, dark visual identity, and functional checkout.</span></div>
-							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">Shopify, Liquid, JavaScript, Shopify CLI, Bogus Gateway.</span></div>
-						</div>
-						<div class="project-links" style="margin-top:1rem;">
-							<a href="https://volcan-roasters.myshopify.com" target="_blank" class="btn-small btn-demo">Live Demo</a>
-							<a href="https://volcan-roasters.myshopify.com/collections/all" target="_blank" class="btn-small btn-repo">View Catalog</a>
-						</div>
-						<div class="demo-credentials">
-							<p class="demo-credentials-title">Demo Access:</p>
-							<p><b>Password:</b> <code>dabley</code></p>
-							<p><b>Test payment:</b> Card <code>1</code> · Future date · CVV <code>123</code></p>
-						</div>
-					</div>
-				</div>
-				<div class="project-card">
-					<div class="browser-header">
-						<div class="dot dot-red"></div>
-						<div class="dot dot-yellow"></div>
-						<div class="dot dot-green"></div>
-					</div>
-					<div class="project-content">
-						<h3>Kōra Studio</h3>
-						<div class="project-tags">
-							<span class="tag">Shopify</span>
-							<span class="tag">Liquid</span>
-							<span class="tag">Streetwear</span>
-							<span class="tag">UX/UI</span>
-						</div>
-						<p>D2C streetwear e-commerce store built around limited capsule drops, featuring a concrete brutalist visual system, matrix variants, and dynamic cart upsells.</p>
-						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Independent streetwear labels running limited drops needed strict variant inventory control, sizing guidance to reduce returns, and higher average order value.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Brutalist storefront with color/size matrix variants, custom metafield fit guides, low-stock indicators, free-shipping progress bar, and cart cross-sells.</span></div>
-							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">Shopify, Liquid, JavaScript (AJAX Cart API), Metafields, Bogus Gateway.</span></div>
-						</div>
-						<div class="project-links" style="margin-top:1rem;">
-							<a href="https://calle-nomada.myshopify.com" target="_blank" class="btn-small btn-demo">Live Demo</a>
-							<a href="https://calle-nomada.myshopify.com/collections/all" target="_blank" class="btn-small btn-repo">View Catalog</a>
-						</div>
-						<div class="demo-credentials">
-							<p class="demo-credentials-title">Demo Access:</p>
-							<p><b>Password:</b> <code>epsorder</code></p>
-							<p><b>Test payment:</b> Card <code>1</code> · Future date · CVV <code>123</code></p>
-						</div>
-					</div>
-				</div>
-				<div class="project-card">
-					<div class="browser-header">
-						<div class="dot dot-red"></div>
-						<div class="dot dot-yellow"></div>
-						<div class="dot dot-green"></div>
-					</div>
-					<div class="project-content">
-						<span class="project-category">Shopify Inventory Dashboard Prototype</span>
-						<h3>StockPilot</h3>
-						<div class="project-tags">
-							<span class="tag">HTML5</span>
-							<span class="tag">CSS3</span>
-							<span class="tag">JavaScript</span>
-							<span class="tag">Node.js</span>
-						</div>
-						<p>Interactive prototype to monitor variant inventory, adjust restock thresholds, review alerts, and export data to CSV.</p>
-						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Stores with multiple variants need to quickly identify which products are low in stock or sold out.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Inventory dashboard with filters, editable thresholds, low-stock and out-of-stock alerts, activity log, and CSV export.</span></div>
-							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">HTML, CSS, JavaScript, Node.js.</span></div>
-						</div>
-						<div class="project-links" style="margin-top:1rem;">
-							<a href="https://carlos2024r3223rw.github.io/stockpilot-shopify-app/" target="_blank" class="btn-small btn-demo">Public Demo</a>
-							<a href="https://github.com/carlos2024r3223rw/stockpilot-shopify-app" target="_blank" class="btn-small btn-repo">Repository</a>
-						</div>
-						<div class="demo-credentials">
-							<p class="demo-credentials-title">Demo Access:</p>
-							<p><b>Mode:</b> Interactive prototype with simulated Kōra Studio data. Not installed or connected to Shopify; no login required.</p>
-						</div>
-					</div>
-				</div>
-				<div class="project-card">
-					<div class="browser-header">
-						<div class="dot dot-red"></div>
-						<div class="dot dot-yellow"></div>
-						<div class="dot dot-green"></div>
-					</div>
-					<div class="project-content">
-						<span class="project-category">Full-Stack SaaS & AI Automation</span>
-						<h3>LeadOps AI — Lead Management & Automation Platform (PWA)</h3>
-						<div class="project-tags">
-							<span class="tag">React</span>
-							<span class="tag">TypeScript</span>
-							<span class="tag">Node.js</span>
-							<span class="tag">Fastify</span>
-							<span class="tag">Supabase</span>
-							<span class="tag">Gemini API</span>
-							<span class="tag">Vercel</span>
-							<span class="tag">PWA</span>
-						</div>
-						<p>Progressive Web App to intake, classify, and manage inbound leads for WordPress, WooCommerce, and Shopify agencies with AI-powered triage and human oversight.</p>
-						<div class="case-study">
-							<div class="case-study-row"><span class="case-label">Problem:</span><span class="case-text">Scattered leads across channels, slow manual responses, lack of follow-up traceability, and risk of sending duplicate emails.</span></div>
-							<div class="case-study-row"><span class="case-label">Solution:</span><span class="case-text">Pipeline with public intake forms, structured AI analysis, RLS-secured private inbox, human review, editing, approval, and simulated dispatch (Intake → AI Triage → Review → Approval → Simulated Dispatch).</span></div>
-							<div class="case-study-row"><span class="case-label">Stack:</span><span class="case-text">React, TypeScript, Vite, Fastify, Supabase PostgreSQL/Auth, Gemini API, Vercel, and responsive PWA.</span></div>
-						</div>
-						<div class="project-links" style="margin-top:auto; padding-top:1.25rem;">
-							<a href="https://lead-ops-ai.vercel.app" target="_blank" class="btn-small btn-demo">Live Demo →</a>
-							<a href="https://github.com/carlos2024r3223rw/LeadOps-AI" target="_blank" class="btn-small btn-repo">Repository →</a>
-						</div>
-						<div class="demo-credentials">
-							<p class="demo-credentials-title">Architecture & Security:</p>
-							<p>Private authentication • Isolated demo environment • Anti-duplicate idempotency • Activity history • AI token & cost tracking • Supabase RLS • Protected API • Mandatory human approval before dispatch</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+				{featuredProjectsEN.map((project) => (
+					<article class={`project-card ${project.isFeatured ? 'is-featured' : ''}`}>
+						<a href={`/en/proyectos/${project.slug}`} class="project-image-link" aria-label={`View details for ${project.title}`}>
+							<div class="project-image-box">
+								<img src={project.image} alt={project.title} class="project-image" loading="lazy" />
+							</div>
+						</a>
 
-		<!-- Testimonials / Social Proof -->
-		<section class="testimonials animate-on-scroll" id="testimonials">
-			<h2>What My Clients Say</h2>
-			<div class="testimonials-grid">
-				<div class="testimonial-card">
-					<span class="quote-icon">&ldquo;</span>
-					<div class="testimonial-stars">★★★★★</div>
-					<p class="testimonial-text">"Carlos delivered the records management system ahead of schedule. His communication was impeccable throughout the process and the final product exceeded our expectations. I would definitely hire him again."</p>
-					<div class="testimonial-author">
-						<div class="author-avatar">DR</div>
-						<div class="author-info">
-							<strong>Dr. Roberto Sánchez</strong>
-							<span>Medical Director — Private Clinic</span>
+						<div class="project-info">
+							<div class="project-badges">
+								{project.isFeatured && (
+									<span class="badge-tag badge-featured">Featured</span>
+								)}
+								{project.isPersonal && (
+									<span class="badge-tag badge-personal">Personal project</span>
+								)}
+								<span class="badge-tag badge-cat">{project.category}</span>
+							</div>
+
+							<div class="project-title-row">
+								<h3 class="project-title">
+									<a href={`/en/proyectos/${project.slug}`} class="project-title-link">
+										{project.title}
+									</a>
+								</h3>
+								<a href={`/en/proyectos/${project.slug}`} class="project-arrow-link" aria-label={`Go to details for ${project.title}`}>
+									<span class="project-arrow" aria-hidden="true">→</span>
+								</a>
+							</div>
+
+							<p class="project-desc">{project.shortDesc}</p>
+
+							<p class="project-stack">{project.stackText}</p>
+
+							<details class="project-case-accordion">
+								<summary class="accordion-summary">
+									<span class="accordion-summary-text">View case</span>
+									<span class="accordion-summary-icon">▾</span>
+								</summary>
+								<div class="accordion-body">
+									<div class="case-section">
+										<h4 class="case-heading">Problem addressed</h4>
+										<p class="case-text">{project.problem}</p>
+									</div>
+									<div class="case-section">
+										<h4 class="case-heading">Solution</h4>
+										<p class="case-text">{project.solution}</p>
+									</div>
+									<div class="case-section">
+										<h4 class="case-heading">Tech Stack</h4>
+										<p class="case-text case-stack-text">{project.stackDetail || project.stackText}</p>
+									</div>
+									{project.sandboxInfo && (
+										<div class="case-sandbox">
+											<p class="case-sandbox-title">{project.sandboxInfo.title}</p>
+											<p class="case-sandbox-text">{project.sandboxInfo.content}</p>
+										</div>
+									)}
+								</div>
+							</details>
+
+							{(project.demoUrl || project.repoUrl) && (
+								<div class="project-actions">
+									{project.demoUrl && (
+										<a href={project.demoUrl} target="_blank" rel="noopener noreferrer" class="btn-action btn-demo">
+											Demo
+										</a>
+									)}
+									{project.repoUrl && (
+										<a href={project.repoUrl} target="_blank" rel="noopener noreferrer" class="btn-action btn-repo">
+											Repository
+										</a>
+									)}
+								</div>
+							)}
 						</div>
-					</div>
-				</div>
-				<div class="testimonial-card">
-					<span class="quote-icon">&ldquo;</span>
-					<div class="testimonial-stars">★★★★★</div>
-					<p class="testimonial-text">"We needed a landing page that actually converted visitors into clients. Carlos understood the business, proposed UX improvements we hadn't considered, and the result is a page that looks and performs beautifully."</p>
-					<div class="testimonial-author">
-						<div class="author-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">MR</div>
-						<div class="author-info">
-							<strong>María Rodríguez</strong>
-							<span>Founder — Aurelia Brand</span>
-						</div>
-					</div>
-				</div>
-				<div class="testimonial-card">
-					<span class="quote-icon">&ldquo;</span>
-					<div class="testimonial-stars">★★★★★</div>
-					<p class="testimonial-text">"What impressed us most was his strategic vision: he didn't just code what we asked for — he identified operational bottlenecks and resolved them proactively. A true technical consultant."</p>
-					<div class="testimonial-author">
-						<div class="author-avatar" style="background: linear-gradient(135deg, #10b981, #0891b2);">JL</div>
-						<div class="author-info">
-							<strong>Jorge López</strong>
-							<span>CEO — Logistics Company</span>
-						</div>
-					</div>
-				</div>
+					</article>
+				))}
+			</div>
+			<div class="more-projects-wrapper">
+				<a href="/en/proyectos" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-more-projects">
+					More projects →
+				</a>
 			</div>
 		</section>
 
 		<!-- Why Work With Me -->
-		<section class="why-hire animate-on-scroll" id="why">
+		<section class="why-hire animate-on-scroll" id="why-work-with-me">
 			<h2>Why Work With Me?</h2>
 			<div class="why-hire-grid">
 				<div class="why-card">
-					<h3>Results-focused</h3>
-					<p>I don't just deliver code — I deliver solutions that move business metrics: conversions, retention, and speed.</p>
+					<h3>Engineering Rigor</h3>
+					<p>I build modular code, enforce strict typing, and implement automated testing so applications scale cleanly without unnecessary technical debt.</p>
 				</div>
 				<div class="why-card">
-					<h3>Clear communication</h3>
-					<p>Proactive updates, no unnecessary jargon. You'll always know the status of your project.</p>
+					<h3>Transparent Communication</h3>
+					<p>Regular status updates and thorough documentation. Technical tradeoffs and potential bottlenecks are communicated early.</p>
 				</div>
 				<div class="why-card">
-					<h3>Punctuality guaranteed</h3>
-					<p>Track record of on-time delivery. If there's a risk, I communicate it before it becomes a problem.</p>
+					<h3>Real Operations Focus</h3>
+					<p>I engineer software centered on actual business operations: from inventory management and multi-variant checkout to AI-driven intake workflows.</p>
 				</div>
 				<div class="why-card">
-					<h3>Strategic vision</h3>
-					<p>Beyond building what you ask for, I identify technical opportunities and risks that impact your ROI.</p>
+					<h3>Resilient Architecture</h3>
+					<p>Prioritizing security, idempotency in critical payment/notification workflows, and decoupled services for robust reliability.</p>
 				</div>
 			</div>
 		</section>
@@ -1510,14 +1085,14 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 			<h2>Let's Work Together</h2>
 			<div class="contact-container">
 				<div class="contact-form">
-					<form action="#" method="POST" onsubmit="event.preventDefault(); alert('For demonstration purposes. Please use the direct email link to contact me.');">
+					<form action="#" method="POST" onsubmit="event.preventDefault(); alert('Demo contact form. Please use the direct email link to get in touch.');">
 						<div class="form-group">
 							<label for="name">Name</label>
 							<input type="text" id="name" class="form-control" placeholder="Your name" required>
 						</div>
 						<div class="form-group">
 							<label for="email">Email</label>
-							<input type="email" id="email" class="form-control" placeholder="you@email.com" required>
+							<input type="email" id="email" class="form-control" placeholder="your@email.com" required>
 						</div>
 						<div class="form-group">
 							<label for="message">Message</label>
@@ -1528,7 +1103,7 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 				</div>
 				<div class="contact-info">
 					<h3>Prefer to write directly?</h3>
-					<p>Feel free to send me an email directly to my inbox.</p>
+					<p>Feel free to send an email directly to my inbox.</p>
 					<a href="mailto:cm7887575@gmail.com" class="direct-email">cm7887575@gmail.com</a>
 					
 					<div class="prof-links">

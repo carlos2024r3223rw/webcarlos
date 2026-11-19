@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Home Pages -->
+  <url>
+    <loc>https://webcarlos.dev/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://webcarlos.dev/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://webcarlos.dev/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Projects Hub -->
+  <url>
+    <loc>https://webcarlos.dev/proyectos/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Project Detail Pages -->
+  <url>
+    <loc>https://webcarlos.dev/proyectos/leadops-ai</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/leadops-ai" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/leadops-ai" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/leadops-ai</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/leadops-ai" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/leadops-ai" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/pharmapro</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/pharmapro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/pharmapro" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/pharmapro</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/pharmapro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/pharmapro" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/roccia</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/roccia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/roccia" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/roccia</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/roccia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/roccia" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/tallerfacil</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/tallerfacil" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/tallerfacil" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/tallerfacil</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/tallerfacil" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/tallerfacil" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/stockpilot</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/stockpilot" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/stockpilot" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/stockpilot</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/stockpilot" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/stockpilot" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/censo-nacional-app</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/censo-nacional-app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/censo-nacional-app" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/censo-nacional-app</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/censo-nacional-app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/censo-nacional-app" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/back-in-stock-alerts</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/back-in-stock-alerts" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/back-in-stock-alerts" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/back-in-stock-alerts</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/back-in-stock-alerts" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/back-in-stock-alerts" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/kora-studio</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/kora-studio" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/kora-studio" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/kora-studio</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/kora-studio" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/kora-studio" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/volcan-roasters</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/volcan-roasters" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/volcan-roasters" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/volcan-roasters</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/volcan-roasters" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/volcan-roasters" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/atelier-nova</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/atelier-nova" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/atelier-nova" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/atelier-nova</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/atelier-nova" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/atelier-nova" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/multilingual-wp-landing</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/multilingual-wp-landing" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/multilingual-wp-landing" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/multilingual-wp-landing</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/multilingual-wp-landing" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/multilingual-wp-landing" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/qa-playwright-suite</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/qa-playwright-suite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/qa-playwright-suite" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/qa-playwright-suite</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/qa-playwright-suite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/qa-playwright-suite" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/medisaas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/medisaas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/medisaas" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/medisaas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/medisaas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/medisaas" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/aurelia-landing-page</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/aurelia-landing-page" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/aurelia-landing-page" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/aurelia-landing-page</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/aurelia-landing-page" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/aurelia-landing-page" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/proyectos/weathersphere-dashboard</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/weathersphere-dashboard" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/weathersphere-dashboard" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webcarlos.dev/en/proyectos/weathersphere-dashboard</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://webcarlos.dev/proyectos/weathersphere-dashboard" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webcarlos.dev/en/proyectos/weathersphere-dashboard" />
+    <priority>0.7</priority>
+  </url>
+</urlset>

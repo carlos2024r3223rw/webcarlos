@@ -164,8 +164,8 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
           display.innerText = '0';
         } else if (action === 'calc') {
           try {
-            // Evaluando el string con precaución, ideal en este sandbox simple.
-            display.innerText = eval(display.innerText);
+            // Evaluando la expresión de forma segura
+            display.innerText = Function('"use strict";return (' + display.innerText + ')')();
           } catch (e) {
             display.innerText = 'Error';
             setTimeout(() => display.innerText = '0', 1500);
