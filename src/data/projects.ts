@@ -77,7 +77,8 @@ export const projectsES: Project[] = [
       title: 'Arquitectura & Seguridad:',
       content: 'API REST transaccional • Control de roles (RBAC) • Audit Trail inmutable • Arqueo ciego de caja.'
     },
-    image: '/images/projects/pharmapro.svg'
+    image: '/images/projects/pharmapro1.png',
+    gallery: ['/images/projects/pharmapro2.png']
   },
 
   // 3. StockPilot (Destacado #3)
@@ -372,7 +373,8 @@ export const projectsEN: Project[] = [
       title: 'Architecture & Security:',
       content: 'Transactional REST API • Role-Based Access Control (RBAC) • Immutable Audit Trail • Blind cash register reconciliation.'
     },
-    image: '/images/projects/pharmapro.svg'
+    image: '/images/projects/pharmapro1.png',
+    gallery: ['/images/projects/pharmapro2.png']
   },
 
   // 3. StockPilot (Featured #3)

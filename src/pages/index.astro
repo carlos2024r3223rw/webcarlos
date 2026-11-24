@@ -437,6 +437,13 @@ import { featuredProjectsES } from '../data/projects';
 			display: block;
 			transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 		}
+		.project-card-leadops .project-image {
+			object-fit: contain;
+			background: var(--bg-card);
+		}
+		.project-card-leadops:hover .project-image {
+			transform: none;
+		}
 		.project-card:hover .project-image {
 			transform: scale(1.04);
 		}
@@ -975,7 +982,7 @@ import { featuredProjectsES } from '../data/projects';
 			<h2>Proyectos</h2>
 			<div class="projects-grid">
 				{featuredProjectsES.map((project) => (
-					<article class={`project-card ${project.isFeatured ? 'is-featured' : ''}`}>
+					<article class={`project-card ${project.isFeatured ? 'is-featured' : ''} ${project.slug === 'leadops-ai' ? 'project-card-leadops' : ''}`}>
 						<a href={`/proyectos/${project.slug}`} class="project-image-link" aria-label={`Ver detalle de ${project.title}`}>
 							<div class="project-image-box">
 								<img src={project.image} alt={project.title} class="project-image" loading="lazy" />
