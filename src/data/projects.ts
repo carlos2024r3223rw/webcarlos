@@ -133,26 +133,7 @@ export const projectsES: Project[] = [
     image: '/images/projects/roccia.svg'
   },
 
-  // 6. Censo Nacional App (Destacado #6)
-  {
-    slug: 'censo-nacional-app',
-    title: 'Censo Nacional App',
-    category: 'Full-Stack Data Query & Indexación',
-    shortDesc: 'Aplicación full-stack para realizar búsquedas rápidas sobre grandes volúmenes de datos mediante filtros e índices.',
-    stackText: 'React · TypeScript · Vite · Node.js · Express · MongoDB · Docker',
-    problem: 'La consulta sobre conjuntos masivos de registros censales o demográficos satura bases de datos no indexadas y genera tiempos de respuesta lentos en clientes web.',
-    solution: 'Arquitectura desacoplada con esquemas indexados en MongoDB, paginación por cursor en Express, consultas por agregación y frontend interactivo en React para filtrado compuesto en milisegundos.',
-    stackDetail: 'React 18, TypeScript, Vite, Node.js, Express, MongoDB con índices compuestos, Docker containerization.',
-    isFeatured: true,
-    isPersonal: true,
-    sandboxInfo: {
-      title: 'Protección de Datos:',
-      content: 'Usa estrictamente datos sintéticos generados para pruebas de carga. No contiene ni expone registros de personas reales.'
-    },
-    image: '/images/projects/censo-nacional-app.svg'
-  },
-
-  // 7. Back-in-Stock Alerts
+  // 6. Back-in-Stock Alerts
   {
     slug: 'back-in-stock-alerts',
     title: 'Back-in-Stock Alerts',
@@ -423,26 +404,7 @@ export const projectsEN: Project[] = [
     image: '/images/projects/roccia.svg'
   },
 
-  // 6. Censo Nacional App (Featured #6)
-  {
-    slug: 'censo-nacional-app',
-    title: 'Censo Nacional App',
-    category: 'Full-Stack Data Query & Indexing',
-    shortDesc: 'Full-stack application for fast querying across large datasets using filters and database indexes.',
-    stackText: 'React · TypeScript · Vite · Node.js · Express · MongoDB · Docker',
-    problem: 'Querying massive demographic and census datasets bogs down non-indexed databases, resulting in unacceptable search latencies on web clients.',
-    solution: 'Decoupled full-stack architecture with compound indexing in MongoDB, cursor pagination in Express, aggregation pipelines, and a React frontend achieving sub-second multi-filter searches.',
-    stackDetail: 'React 18, TypeScript, Vite, Node.js, Express, MongoDB with compound indexes, Docker containerization.',
-    isFeatured: true,
-    isPersonal: true,
-    sandboxInfo: {
-      title: 'Data Privacy Notice:',
-      content: 'Exclusively uses synthetic dummy datasets generated for stress testing. Contains zero real personal demographic records.'
-    },
-    image: '/images/projects/censo-nacional-app.svg'
-  },
-
-  // 7. Back-in-Stock Alerts
+  // 6. Back-in-Stock Alerts
   {
     slug: 'back-in-stock-alerts',
     title: 'Back-in-Stock Alerts',

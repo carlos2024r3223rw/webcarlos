@@ -8,7 +8,6 @@ Este documento recopila todos los elementos pendientes de verificación manual, 
 - **LeadOps AI (`https://leadops.webcarlos.dev`)**: ✅ **Verificada y activa** (responde HTTP 200). Botón Demo habilitado en la card y en el detalle.
 - **TallerFácil**: Aplicación móvil Android nativa en fase de pruebas internas. No cuenta con despliegue web ni APK público; no muestra botón Demo.
 - **Roccia**: Asistente de escritorio para Windows con ejecución local (WebSocket, SQLite y Gemini API). No dispone de demo web interactiva; no muestra botón Demo.
-- **Censo Nacional App**: Aplicación full-stack para consultas de gran volumen. Pendiente de desplegar un entorno de demostración con datos sintéticos; no muestra botón Demo.
 - **PharmaPro**: Sistema POS farmacéutico con arquitectura transaccional. No dispone de demo pública en vivo; únicamente se enlaza su repositorio en GitHub.
 - **Back-in-Stock Alerts**: Microservicio de backend con idempotencia y webhooks. Al ser un servicio de infraestructura sin interfaz pública para usuarios finales, no muestra botón Demo.
 - **QA Playwright Suite**: Suite de pruebas automatizadas E2E. Al ser un proyecto de aseguramiento de calidad y ejecución en CI, solo se enlaza su repositorio en GitHub.
@@ -23,7 +22,6 @@ Actualmente todos los proyectos utilizan **tarjetas tipográficas vectoriales li
 - **Roccia**: Tomar captura de pantalla del asistente en ejecución en Windows junto al avatar 3D VRM.
 - **TallerFácil**: Tomar capturas de la aplicación Android en emulador o dispositivo físico mostrando el listado de órdenes y el PDF generado.
 - **StockPilot**: Tomar captura de pantalla del dashboard embebido de Shopify con la tabla de variantes.
-- **Censo Nacional App**: Tomar captura de la vista de filtros rápidos y tabla de resultados con paginación.
 - **Resto de proyectos**: Reemplazar progresivamente los fallbacks tipográficos SVG por capturas de pantalla reales en alta resolución (proporción 16:9).
 
 ---
@@ -31,7 +29,6 @@ Actualmente todos los proyectos utilizan **tarjetas tipográficas vectoriales li
 ## 3. Repositorios por Revisar o Limpiar
 - **TallerFácil**: Auditar el repositorio antes de publicarlo o enlazarlo para garantizar que no contenga el archivo `google-services.json`, credenciales de Firebase Service Account ni reglas de seguridad permisivas en Firestore.
 - **Roccia**: Auditar antes de enlazar públicamente para asegurar que no contenga claves privadas de API de Gemini, variables locales del sistema operativo ni modelos/pesos binarios privados. Verificar también los derechos y licencias de autor del avatar VRM utilizado.
-- **Censo Nacional App**: Verificar que la base de datos de prueba contenga exclusivamente datos sintéticos generados con librerías tipo Faker y ningún dato personal o gubernamental real.
 - **LeadOps AI**: Auditar que el repositorio público no exponga secretos de Supabase (`service_role_key`), claves de Gemini ni tokens de proveedores de correo.
 
 ---
