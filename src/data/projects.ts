@@ -9,6 +9,10 @@ export function getProjectImage(slug: string): string {
       return `/images/projects/${slug}${ext}`;
     }
   }
+  const firstGalleryImage = path.join(process.cwd(), 'public', 'images', 'projects', `${slug}1.png`);
+  if (fs.existsSync(firstGalleryImage)) {
+    return `/images/projects/${slug}1.png`;
+  }
   return `/images/projects/${slug}.svg`;
 }
 
@@ -30,6 +34,7 @@ export interface Project {
     content: string;
   };
   image: string;
+  gallery?: string[];
 }
 
 export const projectsES: Project[] = [
@@ -107,11 +112,13 @@ export const projectsES: Project[] = [
     stackDetail: 'Kotlin, Jetpack Compose, Firebase Auth, Cloud Firestore, Arquitectura MVVM, Kotlin Coroutines.',
     isFeatured: true,
     isPersonal: true,
+    repoUrl: 'https://github.com/carlos2024r3223rw/App_movil_Taller.git',
     sandboxInfo: {
       title: 'Entorno de Demostración:',
       content: 'En fase de pruebas internas. Repositorio en revisión para desacoplar credenciales de Firebase antes de su publicación.'
     },
-    image: '/images/projects/tallerfacil.svg'
+    image: '/images/projects/tallerfacil1.png',
+    gallery: [2, 3, 4, 5, 6, 7].map((n) => `/images/projects/tallerfacil${n}.png`)
   },
 
   // 5. Roccia (Destacado #5)
@@ -378,11 +385,13 @@ export const projectsEN: Project[] = [
     stackDetail: 'Kotlin, Jetpack Compose, Firebase Auth, Cloud Firestore, MVVM Architecture, Kotlin Coroutines.',
     isFeatured: true,
     isPersonal: true,
+    repoUrl: 'https://github.com/carlos2024r3223rw/App_movil_Taller.git',
     sandboxInfo: {
       title: 'Demo Environment:',
       content: 'Under internal testing. Repository currently in review to decouple Firebase private configuration before public release.'
     },
-    image: '/images/projects/tallerfacil.svg'
+    image: '/images/projects/tallerfacil1.png',
+    gallery: [2, 3, 4, 5, 6, 7].map((n) => `/images/projects/tallerfacil${n}.png`)
   },
 
   // 5. Roccia (Featured #5)

@@ -238,12 +238,89 @@ const { project } = Astro.props;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
+    .image-zoom-button {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: zoom-in;
+    }
+
     .preview-image {
       width: 100%;
       height: auto;
       display: block;
       aspect-ratio: 16 / 9;
       object-fit: cover;
+    }
+
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-item {
+      margin: 0;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      background: var(--bg-card);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .gallery-item .image-zoom-button {
+      border-radius: 10px;
+    }
+
+    .gallery-image {
+      width: 100%;
+      height: auto;
+      max-height: 560px;
+      display: block;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .image-lightbox {
+      width: min(92vw, 1100px);
+      max-width: none;
+      max-height: 92vh;
+      padding: 3.5rem 1rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      background: var(--bg-card);
+    }
+
+    .image-lightbox::backdrop {
+      background: rgba(0, 0, 0, 0.82);
+    }
+
+    .lightbox-image {
+      display: block;
+      max-width: 100%;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 2.25rem;
+      height: 2.25rem;
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      background: var(--bg-color);
+      color: var(--text-main);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
     }
 
     .case-study-grid {
@@ -366,8 +443,26 @@ const { project } = Astro.props;
       </div>
 
       <div class="preview-box">
-        <img src={project.image} alt={project.title} class="preview-image" />
+        {project.slug === 'tallerfacil' ? (
+          <button type="button" class="image-zoom-button" data-lightbox-src={project.image} data-lightbox-alt={project.title} aria-label={`Ampliar imagen de ${project.title}`}>
+            <img src={project.image} alt={project.title} class="preview-image" />
+          </button>
+        ) : (
+          <img src={project.image} alt={project.title} class="preview-image" />
+        )}
       </div>
+
+      {project.gallery && (
+        <div class="screenshot-gallery" aria-label={`Capturas de pantalla de ${project.title}`}>
+          {project.gallery.map((screenshot, index) => (
+            <figure class="gallery-item">
+              <button type="button" class="image-zoom-button" data-lightbox-src={screenshot} data-lightbox-alt={`${project.title} — captura ${index + 2}`} aria-label={`Ampliar captura ${index + 2} de ${project.title}`}>
+                <img src={screenshot} alt={`${project.title} — captura ${index + 2}`} class="gallery-image" loading="lazy" />
+              </button>
+            </figure>
+          ))}
+        </div>
+      )}
 
       <div class="case-study-grid">
         <div class="info-card">
@@ -394,5 +489,31 @@ const { project } = Astro.props;
       )}
     </main>
   </div>
+  {project.slug === 'tallerfacil' && (
+    <>
+      <dialog id="image-lightbox" class="image-lightbox">
+        <button type="button" class="lightbox-close" data-lightbox-close aria-label="Cerrar imagen">×</button>
+        <img id="lightbox-image" class="lightbox-image" alt="" />
+      </dialog>
+      <script>
+        const lightbox = document.querySelector('#image-lightbox');
+        const lightboxImage = document.querySelector('#lightbox-image');
+        const closeButton = document.querySelector('[data-lightbox-close]');
+
+        document.querySelectorAll('[data-lightbox-src]').forEach((trigger) => {
+          trigger.addEventListener('click', () => {
+            lightboxImage.src = trigger.dataset.lightboxSrc;
+            lightboxImage.alt = trigger.dataset.lightboxAlt || '';
+            lightbox.showModal();
+          });
+        });
+
+        closeButton.addEventListener('click', () => lightbox.close());
+        lightbox.addEventListener('click', (event) => {
+          if (event.target === lightbox) lightbox.close();
+        });
+      </script>
+    </>
+  )}
 </body>
 </html>
