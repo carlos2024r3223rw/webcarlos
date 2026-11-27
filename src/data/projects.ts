@@ -266,7 +266,11 @@ export const projectsES: Project[] = [
     repoUrl: 'https://github.com/carlos2024r3223rw/multilingual-wp-landing',
     isFeatured: false,
     isPersonal: false,
-    image: '/images/projects/multilingual-wp-landing.svg'
+    image: '/images/projects/multilingual-wp-landing1.png',
+    gallery: [
+      '/images/projects/multilingual-wp-landing2.png',
+      '/images/projects/multilingual-wp-landing3.png'
+    ]
   },
 
   // 12. QA Playwright Suite
@@ -578,7 +582,11 @@ export const projectsEN: Project[] = [
     repoUrl: 'https://github.com/carlos2024r3223rw/multilingual-wp-landing',
     isFeatured: false,
     isPersonal: false,
-    image: '/images/projects/multilingual-wp-landing.svg'
+    image: '/images/projects/multilingual-wp-landing1.png',
+    gallery: [
+      '/images/projects/multilingual-wp-landing2.png',
+      '/images/projects/multilingual-wp-landing3.png'
+    ]
   },
 
   // 12. QA Playwright Suite
