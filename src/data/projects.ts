@@ -115,10 +115,10 @@ export const projectsES: Project[] = [
     ]
   },
 
-  // 4. Visual Menu (Destacado #4)
+  // 4. TableFlow (Destacado #4)
   {
     slug: 'visual-menu',
-    title: 'Visual Menu',
+    title: 'TableFlow',
     category: 'Aplicación Android & Gestión de Restaurantes',
     shortDesc: 'Aplicación Android bilingüe para restaurantes que combina un menú interactivo para clientes con herramientas de gestión para propietarios y personal.',
     stackText: 'Kotlin · Jetpack Compose · Material 3 · Room Database · Coroutines · MVVM',
@@ -485,10 +485,10 @@ export const projectsEN: Project[] = [
     ]
   },
 
-  // 4. Visual Menu (Featured #4)
+  // 4. TableFlow (Featured #4)
   {
     slug: 'visual-menu',
-    title: 'Visual Menu',
+    title: 'TableFlow',
     category: 'Android App & Restaurant Operations',
     shortDesc: 'Bilingual Android restaurant application combining an interactive customer menu with management tools for owners and staff.',
     stackText: 'Kotlin · Jetpack Compose · Material 3 · Room Database · Coroutines · MVVM',
