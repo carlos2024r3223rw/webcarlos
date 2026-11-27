@@ -305,7 +305,7 @@ export const projectsES: Project[] = [
     isPersonal: true,
     sandboxInfo: {
       title: 'Cuenta demo / sandbox:',
-      content: 'Datos de prueba simulados. Acceso demo: usuario admin@medisaas.test / clave demo123 (datos locales, no contiene información médica real).'
+      content: 'Datos de prueba simulados. Correo demo: carlos@gmail.com • Contraseña: 123456 (datos locales, no contiene información médica real).'
     },
     image: '/images/projects/medisaas.svg'
   },
@@ -612,7 +612,7 @@ export const projectsEN: Project[] = [
     isPersonal: true,
     sandboxInfo: {
       title: 'Demo account / sandbox:',
-      content: 'Simulated dummy data. Demo login: admin@medisaas.test / demo123 (local demonstration storage, zero real medical records).'
+      content: 'Simulated dummy data. Demo email: carlos@gmail.com • Password: 123456 (local demonstration storage, zero real medical records).'
     },
     image: '/images/projects/medisaas.svg'
   },
