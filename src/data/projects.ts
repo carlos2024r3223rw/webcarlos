@@ -307,7 +307,13 @@ export const projectsES: Project[] = [
       title: 'Cuenta demo / sandbox:',
       content: 'Datos de prueba simulados. Correo demo: carlos@gmail.com • Contraseña: 123456 (datos locales, no contiene información médica real).'
     },
-    image: '/images/projects/medisaas.svg'
+    image: '/images/projects/medisaas.svg',
+    gallery: [
+      '/images/projects/medisaas2.png',
+      '/images/projects/medisaas3.png',
+      '/images/projects/medisaas4.png',
+      '/images/projects/medisaas5.png'
+    ]
   },
 
   // 14. Aurelia Landing Page
@@ -614,7 +620,13 @@ export const projectsEN: Project[] = [
       title: 'Demo account / sandbox:',
       content: 'Simulated dummy data. Demo email: carlos@gmail.com • Password: 123456 (local demonstration storage, zero real medical records).'
     },
-    image: '/images/projects/medisaas.svg'
+    image: '/images/projects/medisaas.svg',
+    gallery: [
+      '/images/projects/medisaas2.png',
+      '/images/projects/medisaas3.png',
+      '/images/projects/medisaas4.png',
+      '/images/projects/medisaas5.png'
+    ]
   },
 
   // 14. Aurelia Landing Page
