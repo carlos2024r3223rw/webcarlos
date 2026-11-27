@@ -984,8 +984,8 @@ import { featuredProjectsES } from '../data/projects';
 				{featuredProjectsES.map((project) => (
 					<article class={`project-card ${project.isFeatured ? 'is-featured' : ''} ${project.slug === 'leadops-ai' ? 'project-card-leadops' : ''}`}>
 						<a href={`/proyectos/${project.slug}`} class="project-image-link" aria-label={`Ver detalle de ${project.title}`}>
-							<div class="project-image-box">
-								<img src={project.image} alt={project.title} class="project-image" loading="lazy" />
+							<div class="project-image-box" data-card-carousel data-card-images={JSON.stringify([project.image, ...(project.gallery ?? [])])} data-card-title={project.title}>
+								<img src={project.image} alt={project.title} class="project-image" data-card-image loading="lazy" />
 							</div>
 						</a>
 
@@ -1151,6 +1151,30 @@ import { featuredProjectsES } from '../data/projects';
 		document.querySelectorAll('.animate-on-scroll').forEach((el) => {
 			observer.observe(el);
 		});
+
+						document.querySelectorAll('[data-card-carousel]').forEach((carousel) => {
+							const images = JSON.parse(carousel.dataset.cardImages || '[]');
+							if (images.length < 2) return;
+
+							const image = carousel.querySelector('[data-card-image]');
+							let current = 0;
+							let timer;
+
+							const showNextImage = () => {
+								current = (current + 1) % images.length;
+								image.src = images[current];
+								image.alt = `${carousel.dataset.cardTitle} — image ${current + 1}`;
+							};
+
+							const start = () => {
+								window.clearInterval(timer);
+								timer = window.setInterval(showNextImage, 4500);
+							};
+
+							carousel.addEventListener('mouseenter', () => window.clearInterval(timer));
+							carousel.addEventListener('mouseleave', start);
+							start();
+						});
 	</script>
 </body>
 </html>
