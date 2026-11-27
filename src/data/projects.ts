@@ -781,8 +781,13 @@ export const projectsEN: Project[] = [
 
 // Dynamically resolve image for all projects based on actual files present in public/images/projects/
 function bindDynamicImage(project: Project) {
+  const explicitImage = project.image;
   Object.defineProperty(project, 'image', {
     get() {
+      const explicitPath = path.join(process.cwd(), 'public', explicitImage.replace(/^\//, ''));
+      if (fs.existsSync(explicitPath)) {
+        return explicitImage;
+      }
       return getProjectImage(project.slug);
     },
     enumerable: true,
