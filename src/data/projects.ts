@@ -35,6 +35,7 @@ export interface Project {
   };
   image: string;
   gallery?: string[];
+  disableAutoplay?: boolean;
   isHidden?: boolean;
 }
 
@@ -60,7 +61,32 @@ export const projectsES: Project[] = [
     image: '/images/projects/leadops-ai.svg'
   },
 
-  // 2. PharmaPro (Destacado #2)
+  // 2. Document Management DMS (Destacado #2)
+  {
+    slug: 'document-management-dms',
+    title: 'Document Management DMS',
+    category: 'Flujo Documental B2B',
+    shortDesc: 'Plataforma de gestión documental para cargar archivos, administrar versiones, revisar estados y seguir la actividad de documentos desde un espacio de trabajo compartido.',
+    stackText: 'PHP 8.3 · Laravel 13 · Eloquent · Blade · Tailwind CSS · Alpine.js · Vite · SQLite · Railway',
+    problem: 'Equipos que necesitan centralizar documentos, controlar versiones y seguir revisiones sin depender de archivos dispersos o procesos manuales.',
+    solution: 'Aplicación Laravel con carga de documentos, versionado, estados draft/pending/approved/rejected, roles de revisión y registro de actividad.',
+    stackDetail: 'PHP 8.3, Laravel 13, Eloquent, Blade, Tailwind CSS, Alpine.js, Vite, SQLite y Railway.',
+    repoUrl: 'https://github.com/carlos2024r3223rw/gestion-documental-dms',
+    isFeatured: true,
+    isPersonal: true,
+    sandboxInfo: {
+      title: 'Nota de demostración:',
+      content: 'Demo no disponible actualmente: la URL de Railway devuelve 404. El README indica que usuarios autenticados pueden acceder a los documentos del demo; no se presenta como confidencialidad por documento ni como plataforma de producción para datos sensibles.'
+    },
+    image: '/images/projects/dms1.png',
+    gallery: [
+      '/images/projects/dms2.png',
+      '/images/projects/dms3.png',
+      '/images/projects/dms4.png'
+    ]
+  },
+
+  // 3. PharmaPro (Destacado #3)
   {
     slug: 'pharmapro',
     title: 'PharmaPro',
@@ -89,7 +115,36 @@ export const projectsES: Project[] = [
     ]
   },
 
-  // 3. StockPilot (Destacado #3)
+  // 4. Visual Menu (Destacado #4)
+  {
+    slug: 'visual-menu',
+    title: 'Visual Menu',
+    category: 'Aplicación Android & Gestión de Restaurantes',
+    shortDesc: 'Aplicación Android bilingüe para restaurantes que combina un menú interactivo para clientes con herramientas de gestión para propietarios y personal.',
+    stackText: 'Kotlin · Jetpack Compose · Material 3 · Room Database · Coroutines · MVVM',
+    problem: 'Los restaurantes necesitan mejorar la experiencia del cliente y centralizar tareas como disponibilidad de platillos, solicitudes de mesa y seguimiento operativo.',
+    solution: 'Aplicación nativa Android con menú filtrable, preferencias de idioma y moneda, llamadas al mesero, control de disponibilidad, precios, analítica y solicitudes por mesa.',
+    stackDetail: 'Kotlin, Jetpack Compose, Material 3, Room Database, Kotlin Coroutines y arquitectura MVVM.',
+    repoUrl: 'https://github.com/carlos2024r3223rw/menu-visual-app',
+    isFeatured: true,
+    isPersonal: true,
+    sandboxInfo: {
+      title: 'Nota del prototipo:',
+      content: 'Prototipo local basado en Room Database. Los datos, pedidos, precios y métricas son de demostración; no existe sincronización remota entre dispositivos.'
+    },
+    image: '/images/projects/visual-menu.png',
+    gallery: [
+      '/images/projects/visual-menu1.png',
+      '/images/projects/visual-menu2.png',
+      '/images/projects/visual-menu3.png',
+      '/images/projects/visual-menu4.png',
+      '/images/projects/visual-menu5.png',
+      '/images/projects/visual-menu6.png'
+    ],
+    disableAutoplay: true
+  },
+
+  // 5. StockPilot (Proyecto secundario)
   {
     slug: 'stockpilot',
     title: 'StockPilot',
@@ -101,7 +156,7 @@ export const projectsES: Project[] = [
     stackDetail: 'HTML5, CSS3, JavaScript modular, Node.js y componentes visuales inspirados en Shopify Polaris.',
     demoUrl: 'https://carlos2024r3223rw.github.io/stockpilot-shopify-app/',
     repoUrl: 'https://github.com/carlos2024r3223rw/stockpilot-shopify-app',
-    isFeatured: true,
+    isFeatured: false,
     isPersonal: true,
     sandboxInfo: {
       title: 'Cuenta demo / sandbox:',
@@ -376,7 +431,32 @@ export const projectsEN: Project[] = [
     image: '/images/projects/leadops-ai.svg'
   },
 
-  // 2. PharmaPro (Featured #2)
+  // 2. Document Management DMS (Featured #2)
+  {
+    slug: 'document-management-dms',
+    title: 'Document Management DMS',
+    category: 'B2B Document Workflow',
+    shortDesc: 'Document workflow platform for uploading files, managing versions, reviewing document status and tracking activity from a shared workspace.',
+    stackText: 'PHP 8.3 · Laravel 13 · Eloquent · Blade · Tailwind CSS · Alpine.js · Vite · SQLite · Railway',
+    problem: 'Teams need a central place to manage documents, track versions and follow review workflows instead of relying on scattered files and manual processes.',
+    solution: 'Laravel application with document uploads, version history, draft/pending/approved/rejected states, reviewer roles and activity tracking.',
+    stackDetail: 'PHP 8.3, Laravel 13, Eloquent, Blade, Tailwind CSS, Alpine.js, Vite, SQLite and Railway.',
+    repoUrl: 'https://github.com/carlos2024r3223rw/gestion-documental-dms',
+    isFeatured: true,
+    isPersonal: true,
+    sandboxInfo: {
+      title: 'Demo note:',
+      content: 'Demo currently unavailable: the Railway URL returns 404. The README states that authenticated users can access demo documents; this is not presented as document-level confidentiality or a production platform for sensitive data.'
+    },
+    image: '/images/projects/dms1.png',
+    gallery: [
+      '/images/projects/dms2.png',
+      '/images/projects/dms3.png',
+      '/images/projects/dms4.png'
+    ]
+  },
+
+  // 3. PharmaPro (Featured #3)
   {
     slug: 'pharmapro',
     title: 'PharmaPro',
@@ -405,7 +485,36 @@ export const projectsEN: Project[] = [
     ]
   },
 
-  // 3. StockPilot (Featured #3)
+  // 4. Visual Menu (Featured #4)
+  {
+    slug: 'visual-menu',
+    title: 'Visual Menu',
+    category: 'Android App & Restaurant Operations',
+    shortDesc: 'Bilingual Android restaurant application combining an interactive customer menu with management tools for owners and staff.',
+    stackText: 'Kotlin · Jetpack Compose · Material 3 · Room Database · Coroutines · MVVM',
+    problem: 'Restaurants need to improve the customer experience while centralizing tasks such as dish availability, table requests and operational follow-up.',
+    solution: 'Native Android application with a filterable menu, language and currency preferences, waiter requests, availability controls, price management, analytics and table-service requests.',
+    stackDetail: 'Kotlin, Jetpack Compose, Material 3, Room Database, Kotlin Coroutines and MVVM architecture.',
+    repoUrl: 'https://github.com/carlos2024r3223rw/menu-visual-app',
+    isFeatured: true,
+    isPersonal: true,
+    sandboxInfo: {
+      title: 'Prototype note:',
+      content: 'Local prototype based on Room Database. Data, orders, prices and metrics are for demonstration; there is no remote synchronization between devices.'
+    },
+    image: '/images/projects/visual-menu.png',
+    gallery: [
+      '/images/projects/visual-menu1.png',
+      '/images/projects/visual-menu2.png',
+      '/images/projects/visual-menu3.png',
+      '/images/projects/visual-menu4.png',
+      '/images/projects/visual-menu5.png',
+      '/images/projects/visual-menu6.png'
+    ],
+    disableAutoplay: true
+  },
+
+  // 5. StockPilot (Secondary project)
   {
     slug: 'stockpilot',
     title: 'StockPilot',
@@ -417,7 +526,7 @@ export const projectsEN: Project[] = [
     stackDetail: 'HTML5, CSS3, modular JavaScript, Node.js, and UI inspired by Shopify Polaris.',
     demoUrl: 'https://carlos2024r3223rw.github.io/stockpilot-shopify-app/',
     repoUrl: 'https://github.com/carlos2024r3223rw/stockpilot-shopify-app',
-    isFeatured: true,
+    isFeatured: false,
     isPersonal: true,
     sandboxInfo: {
       title: 'Demo account / sandbox:',

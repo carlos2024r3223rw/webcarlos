@@ -517,7 +517,7 @@ const carouselImages = [project.image, ...(project.gallery ?? [])];
       </div>
 
       {project.gallery && project.gallery.length > 0 ? (
-        <div class="project-carousel" data-carousel aria-label={`Capturas de ${project.title}`}>
+        <div class="project-carousel" data-carousel data-carousel-autoplay={project.disableAutoplay ? 'false' : 'true'} aria-label={`Capturas de ${project.title}`}>
           <div class="carousel-stage">
             {carouselImages.map((screenshot, index) => (
               <button type="button" class:list={['carousel-slide', { 'is-active': index === 0 }]} data-carousel-slide data-lightbox-src={screenshot} data-lightbox-alt={`${project.title} — imagen ${index + 1}`} aria-label={`Ampliar imagen ${index + 1} de ${project.title}`} aria-hidden={index === 0 ? 'false' : 'true'}>
@@ -530,7 +530,7 @@ const carouselImages = [project.image, ...(project.gallery ?? [])];
           <div class="carousel-thumbnails" aria-label="Elegir imagen del proyecto">
             {carouselImages.map((screenshot, index) => (
               <button type="button" class:list={['carousel-thumbnail', { 'is-active': index === 0 }]} data-carousel-to={index} aria-label={`Mostrar imagen ${index + 1}`}>
-                <img src={screenshot} alt="" loading="lazy" />
+                <img src={screenshot} alt={`${project.title} — miniatura ${index + 1}`} loading="lazy" />
               </button>
             ))}
           </div>
@@ -579,6 +579,7 @@ const carouselImages = [project.image, ...(project.gallery ?? [])];
     if (carousel) {
       const slides = [...carousel.querySelectorAll('[data-carousel-slide]')];
       const thumbnails = [...carousel.querySelectorAll('[data-carousel-to]')];
+      const autoplay = carousel.dataset.carouselAutoplay !== 'false';
       let current = 0;
       let timer;
 
@@ -595,6 +596,7 @@ const carouselImages = [project.image, ...(project.gallery ?? [])];
 
       const restartTimer = () => {
         window.clearInterval(timer);
+        if (!autoplay) return;
         timer = window.setInterval(() => showSlide(current + 1), 5000);
       };
 

@@ -11,6 +11,7 @@ Este documento recopila todos los elementos pendientes de verificación manual, 
 - **PharmaPro**: Sistema POS farmacéutico con arquitectura transaccional. No dispone de demo pública en vivo; únicamente se enlaza su repositorio en GitHub.
 - **Back-in-Stock Alerts**: Microservicio de backend con idempotencia y webhooks. Al ser un servicio de infraestructura sin interfaz pública para usuarios finales, no muestra botón Demo.
 - **QA Playwright Suite**: Suite de pruebas automatizadas E2E. Al ser un proyecto de aseguramiento de calidad y ejecución en CI, solo se enlaza su repositorio en GitHub.
+- **Document Management DMS**: ⚠️ La demo de Railway devuelve `404 Not Found`; por eso no se muestra botón Demo. El README incluye capturas reales y aclara que el acceso autenticado del demo no ofrece confidencialidad por documento.
 
 ---
 
@@ -52,5 +53,5 @@ Actualmente todos los proyectos utilizan **tarjetas tipográficas vectoriales li
 
 ## 6. Verificaciones Técnicas y Despliegue
 - **Ejecución 100% local**: No se ha realizado ningún despliegue, commit ni push remoto.
-- **Build de producción verificado**: El comando `npm run build` genera exitosamente 40 rutas estáticas (ES, EN, hubs y detalles) sin errores ni advertencias de seguridad.
+- **Build de producción verificado**: El comando `npm run build` genera exitosamente 42 rutas estáticas (ES, EN, hubs y detalles) sin errores ni advertencias de seguridad.
 - **SEO y metadatos**: Se añadieron etiquetas Open Graph, Twitter Cards, `canonical`, `hreflang` bilingües, archivo `robots.txt` y `sitemap.xml`.
