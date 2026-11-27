@@ -78,7 +78,15 @@ export const projectsES: Project[] = [
       content: 'API REST transaccional • Control de roles (RBAC) • Audit Trail inmutable • Arqueo ciego de caja.'
     },
     image: '/images/projects/pharmapro1.png',
-    gallery: ['/images/projects/pharmapro2.png']
+    gallery: [
+      '/images/projects/pharmapro2.png',
+      '/images/projects/pharmapro3.png',
+      '/images/projects/pharmapro4.png',
+      '/images/projects/pharmapro5.png',
+      '/images/projects/pharmapro6.png',
+      '/images/projects/pharmapro7.png',
+      '/images/projects/pharmapro8.png'
+    ]
   },
 
   // 3. StockPilot (Destacado #3)
@@ -99,7 +107,8 @@ export const projectsES: Project[] = [
       title: 'Cuenta demo / sandbox:',
       content: 'Modo: Prototipo interactivo con datos simulados de Kōra Studio. No requiere credenciales ni instalación en tienda Shopify real.'
     },
-    image: '/images/projects/stockpilot.svg'
+    image: '/images/projects/stockpilot.png',
+    gallery: ['/images/projects/stockpilot2.png']
   },
 
   // 4. TallerFácil (Destacado #4)
@@ -121,7 +130,9 @@ export const projectsES: Project[] = [
       content: 'En fase de pruebas internas. Repositorio en revisión para desacoplar credenciales de Firebase antes de su publicación.'
     },
     image: '/images/projects/tallerfacil1.png',
-    gallery: [2, 3, 4, 5, 6, 7].map((n) => `/images/projects/tallerfacil${n}.png`)
+    gallery: [2, 3, 4, 5, 6, 7].map((n) => `/images/projects/tallerfacil${n}.png`).concat(
+      [8, 11].map((n) => `/images/projects/tallerfacil${n}.jpg`)
+    )
   },
 
   // 5. Roccia (Destacado #5)
@@ -374,7 +385,15 @@ export const projectsEN: Project[] = [
       content: 'Transactional REST API • Role-Based Access Control (RBAC) • Immutable Audit Trail • Blind cash register reconciliation.'
     },
     image: '/images/projects/pharmapro1.png',
-    gallery: ['/images/projects/pharmapro2.png']
+    gallery: [
+      '/images/projects/pharmapro2.png',
+      '/images/projects/pharmapro3.png',
+      '/images/projects/pharmapro4.png',
+      '/images/projects/pharmapro5.png',
+      '/images/projects/pharmapro6.png',
+      '/images/projects/pharmapro7.png',
+      '/images/projects/pharmapro8.png'
+    ]
   },
 
   // 3. StockPilot (Featured #3)
@@ -395,7 +414,8 @@ export const projectsEN: Project[] = [
       title: 'Demo account / sandbox:',
       content: 'Mode: Interactive prototype with simulated Kōra Studio SKU data. Does not require login credentials nor installation on a live Shopify store.'
     },
-    image: '/images/projects/stockpilot.svg'
+    image: '/images/projects/stockpilot.png',
+    gallery: ['/images/projects/stockpilot2.png']
   },
 
   // 4. TallerFácil (Featured #4)
@@ -417,7 +437,9 @@ export const projectsEN: Project[] = [
       content: 'Under internal testing. Repository currently in review to decouple Firebase private configuration before public release.'
     },
     image: '/images/projects/tallerfacil1.png',
-    gallery: [2, 3, 4, 5, 6, 7].map((n) => `/images/projects/tallerfacil${n}.png`)
+    gallery: [2, 3, 4, 5, 6, 7].map((n) => `/images/projects/tallerfacil${n}.png`).concat(
+      [8, 11].map((n) => `/images/projects/tallerfacil${n}.jpg`)
+    )
   },
 
   // 5. Roccia (Featured #5)
