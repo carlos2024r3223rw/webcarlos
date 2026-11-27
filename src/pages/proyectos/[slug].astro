@@ -15,6 +15,7 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const carouselImages = [project.image, ...(project.gallery ?? [])];
 ---
 
 <!DOCTYPE html>
@@ -262,33 +263,94 @@ const { project } = Astro.props;
       object-fit: cover;
     }
 
-    .screenshot-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
+    .project-carousel {
       margin-bottom: 3rem;
     }
 
-    .gallery-item {
-      margin: 0;
-      padding: 0.75rem;
+    .carousel-stage {
+      position: relative;
+      overflow: hidden;
       border: 1px solid var(--border-color);
       border-radius: 16px;
       background: var(--bg-card);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
-    .gallery-item .image-zoom-button {
-      border-radius: 10px;
+    .carousel-slide {
+      display: none;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: #101114;
+      cursor: zoom-in;
     }
 
-    .gallery-image {
+    .carousel-slide.is-active {
+      display: block;
+    }
+
+    .carousel-image {
       width: 100%;
-      height: auto;
-      max-height: 560px;
+      height: min(560px, 58vw);
+      min-height: 260px;
       display: block;
       object-fit: contain;
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 1;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      transform: translateY(-50%);
+    }
+
+    .carousel-arrow:hover {
+      background: var(--accent-primary);
+    }
+
+    .carousel-arrow-prev {
+      left: 1rem;
+    }
+
+    .carousel-arrow-next {
+      right: 1rem;
+    }
+
+    .carousel-thumbnails {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding: 1rem 0.25rem 0.25rem;
+    }
+
+    .carousel-thumbnail {
+      flex: 0 0 110px;
+      padding: 0.25rem;
+      border: 2px solid transparent;
       border-radius: 10px;
+      background: var(--bg-card);
+      cursor: pointer;
+    }
+
+    .carousel-thumbnail.is-active {
+      border-color: var(--accent-primary);
+    }
+
+    .carousel-thumbnail img {
+      display: block;
+      width: 100%;
+      height: 62px;
+      border-radius: 6px;
+      object-fit: cover;
     }
 
     .image-lightbox {
@@ -454,25 +516,28 @@ const { project } = Astro.props;
         </div>
       </div>
 
-      <div class="preview-box">
-        {project.slug === 'tallerfacil' ? (
-          <button type="button" class="image-zoom-button" data-lightbox-src={project.image} data-lightbox-alt={project.title} aria-label={`Ampliar imagen de ${project.title}`}>
-            <img src={project.image} alt={project.title} class="preview-image" />
-          </button>
-        ) : (
-          <img src={project.image} alt={project.title} class="preview-image" />
-        )}
-      </div>
-
-      {project.gallery && (
-        <div class="screenshot-gallery" aria-label={`Capturas de pantalla de ${project.title}`}>
-          {project.gallery.map((screenshot, index) => (
-            <figure class="gallery-item">
-              <button type="button" class="image-zoom-button" data-lightbox-src={screenshot} data-lightbox-alt={`${project.title} — captura ${index + 2}`} aria-label={`Ampliar captura ${index + 2} de ${project.title}`}>
-                <img src={screenshot} alt={`${project.title} — captura ${index + 2}`} class="gallery-image" loading="lazy" />
+      {project.gallery && project.gallery.length > 0 ? (
+        <div class="project-carousel" data-carousel aria-label={`Capturas de ${project.title}`}>
+          <div class="carousel-stage">
+            {carouselImages.map((screenshot, index) => (
+              <button type="button" class:list={['carousel-slide', { 'is-active': index === 0 }]} data-carousel-slide data-lightbox-src={screenshot} data-lightbox-alt={`${project.title} — imagen ${index + 1}`} aria-label={`Ampliar imagen ${index + 1} de ${project.title}`} aria-hidden={index === 0 ? 'false' : 'true'}>
+                <img src={screenshot} alt={`${project.title} — imagen ${index + 1}`} class="carousel-image" loading={index === 0 ? 'eager' : 'lazy'} />
               </button>
-            </figure>
-          ))}
+            ))}
+            <button type="button" class="carousel-arrow carousel-arrow-prev" data-carousel-prev aria-label="Imagen anterior">←</button>
+            <button type="button" class="carousel-arrow carousel-arrow-next" data-carousel-next aria-label="Siguiente imagen">→</button>
+          </div>
+          <div class="carousel-thumbnails" aria-label="Elegir imagen del proyecto">
+            {carouselImages.map((screenshot, index) => (
+              <button type="button" class:list={['carousel-thumbnail', { 'is-active': index === 0 }]} data-carousel-to={index} aria-label={`Mostrar imagen ${index + 1}`}>
+                <img src={screenshot} alt="" loading="lazy" />
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div class="preview-box">
+          <img src={project.image} alt={project.title} class="preview-image" />
         </div>
       )}
 
@@ -501,31 +566,58 @@ const { project } = Astro.props;
       )}
     </main>
   </div>
-  {project.slug === 'tallerfacil' && (
-    <>
-      <dialog id="image-lightbox" class="image-lightbox">
-        <button type="button" class="lightbox-close" data-lightbox-close aria-label="Cerrar imagen">×</button>
-        <img id="lightbox-image" class="lightbox-image" alt="" />
-      </dialog>
-      <script>
-        const lightbox = document.querySelector('#image-lightbox');
-        const lightboxImage = document.querySelector('#lightbox-image');
-        const closeButton = document.querySelector('[data-lightbox-close]');
+  <dialog id="image-lightbox" class="image-lightbox">
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Cerrar imagen">×</button>
+    <img id="lightbox-image" class="lightbox-image" alt="" />
+  </dialog>
+  <script>
+    const carousel = document.querySelector('[data-carousel]');
+    const lightbox = document.querySelector('#image-lightbox');
+    const lightboxImage = document.querySelector('#lightbox-image');
+    const closeButton = document.querySelector('[data-lightbox-close]');
 
-        document.querySelectorAll('[data-lightbox-src]').forEach((trigger) => {
-          trigger.addEventListener('click', () => {
-            lightboxImage.src = trigger.dataset.lightboxSrc;
-            lightboxImage.alt = trigger.dataset.lightboxAlt || '';
-            lightbox.showModal();
-          });
-        });
+    if (carousel) {
+      const slides = [...carousel.querySelectorAll('[data-carousel-slide]')];
+      const thumbnails = [...carousel.querySelectorAll('[data-carousel-to]')];
+      let current = 0;
+      let timer;
 
-        closeButton.addEventListener('click', () => lightbox.close());
-        lightbox.addEventListener('click', (event) => {
-          if (event.target === lightbox) lightbox.close();
+      const showSlide = (index) => {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle('is-active', slideIndex === current);
+          slide.setAttribute('aria-hidden', slideIndex === current ? 'false' : 'true');
         });
-      </script>
-    </>
-  )}
+        thumbnails.forEach((thumbnail, thumbnailIndex) => {
+          thumbnail.classList.toggle('is-active', thumbnailIndex === current);
+        });
+      };
+
+      const restartTimer = () => {
+        window.clearInterval(timer);
+        timer = window.setInterval(() => showSlide(current + 1), 5000);
+      };
+
+      carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => { showSlide(current - 1); restartTimer(); });
+      carousel.querySelector('[data-carousel-next]').addEventListener('click', () => { showSlide(current + 1); restartTimer(); });
+      thumbnails.forEach((thumbnail) => thumbnail.addEventListener('click', () => { showSlide(Number(thumbnail.dataset.carouselTo)); restartTimer(); }));
+      carousel.addEventListener('mouseenter', () => window.clearInterval(timer));
+      carousel.addEventListener('mouseleave', restartTimer);
+      restartTimer();
+    }
+
+    document.querySelectorAll('[data-lightbox-src]').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        lightboxImage.src = trigger.dataset.lightboxSrc;
+        lightboxImage.alt = trigger.dataset.lightboxAlt || '';
+        lightbox.showModal();
+      });
+    });
+
+    closeButton.addEventListener('click', () => lightbox.close());
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+  </script>
 </body>
 </html>
